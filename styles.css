@@ -242,3 +242,70 @@
     --spacing-12: 6rem;
     --spacing-13: 10rem;
 }
+
+/*
+    TYPE
+*/
+.code-01 {
+    font-family: IBM Plex Mono;
+    size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    letter-spacing: .32px;
+}
+
+.code-02 {
+    font-family: IBM Plex Mono;
+    size: 14px;
+    line-height: 20px;
+    font-weight: 400;
+    letter-spacing: .32px;
+}
+
+.label-01 {
+    font-family: IBM Plex Sans;
+    size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    letter-spacing: .32px;
+}
+
+.label-02 {
+    font-family: IBM Plex Sans;
+    size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: .16px;
+}
+
+.helper-text-01 {
+    font-family: IBM Plex Sans;
+    size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    letter-spacing: .32px;
+}
+
+.helper-text-02 {
+    font-family: IBM Plex Sans;
+    size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: .16px;
+}
+
+.legal-01 {
+    font-family: IBM Plex Sans;
+    size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    letter-spacing: .32px;
+}
+
+.legal-02 {
+    font-family: IBM Plex Sans;
+    size: 14px;
+    line-height: 18px;
+    font-weight: 400;
+    letter-spacing: .16px;
+}
