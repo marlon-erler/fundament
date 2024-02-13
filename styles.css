@@ -168,7 +168,7 @@
     --light-border-inverse: #f4f4f4;
     --light-border-disabled: #8d8d8d @ 50%;
     --light-text-primary: Headers;
-    ;
+
     --light-text-secondary: #c6c6c6;
     --light-text-placeholder: #6f6f6f;
     --light-text-on-color: #ffffff;
@@ -216,7 +216,7 @@
     --light-focus-inset: #161616;
     --light-focus-inverse: #0f62fe;
     --light-interactive: Active elements;
-    ;
+
     --light-highlight: #001d6c;
     --light-toggle-off: #6f6f6f;
     --light-overlay: #161616 @ 70%;
