@@ -605,6 +605,27 @@ textarea {
   appearance: none;
 }
 
+input[type="checkbox"],
+input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  aspect-ratio: 1/1;
+
+  padding: 0px;
+  margin: 0px;
+}
+
+input[type="radio"] {
+  border-radius: 100%;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background-color: var(--interactive);
+
+  background-position: center;
+}
+
 input[type="color"] {
   padding: 0px;
   height: 42px;
@@ -612,7 +633,6 @@ input[type="color"] {
 
 select {
   background-image: url("carbon-icons/src/svg/caret--down.svg");
-  background-repeat: no-repeat;
   background-position: calc(100% - 12px) center;
 }
 
@@ -636,6 +656,14 @@ label select {
   max-width: unset;
   margin-top: var(--spacing-02);
   margin-bottom: var(--spacing-04);
+}
+
+label.inline {
+  display: flex;
+  align-items: center;
+
+  gap: 8px;
+  margin-bottom: var(--spacing-02);
 }
 
 .grid {
@@ -743,4 +771,8 @@ main {
 
 [hidden] {
   display: none;
+}
+
+* {
+  background-repeat: no-repeat;
 }
