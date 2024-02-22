@@ -1,53 +1,90 @@
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Carbon Mini</title>
 
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="demo.css">
-</head>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="demo.css" />
+  </head>
 
-<body>
-    <menu>
-        My app
-    </menu>
+  <body>
+    <menu> My app </menu>
     <main>
-        <h1>Headline here</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus porta ipsum, lobortis condimentum velit
-            lacinia sed. Aliquam efficitur interdum tristique. Maecenas nec enim consectetur, vulputate enim id, aliquet
-            ex.
-            Suspendisse luctus sapien ligula, in sagittis nunc laoreet ac. Vivamus ac rhoncus ipsum. Nunc condimentum
-            sit
-            amet lacus tempus ultrices. Nulla diam massa, consectetur non ligula in, hendrerit lacinia risus.</p>
+      <h1>Headline here</h1>
+      <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
+        porta ipsum, lobortis condimentum velit lacinia sed. Aliquam efficitur
+        interdum tristique. Maecenas nec enim consectetur, vulputate enim id,
+        aliquet ex. Suspendisse luctus sapien ligula, in sagittis nunc laoreet
+        ac. Vivamus ac rhoncus ipsum. Nunc condimentum sit amet lacus tempus
+        ultrices. Nulla diam massa, consectetur non ligula in, hendrerit lacinia
+        risus.
+      </p>
 
-        <span class="label-01">Label here</span>
-        <br>
+      <span class="label-01">Label here</span>
 
-        <button class="ghost">Ghost button</button>
-        <button>Normal button</button>
-        <button class="danger">Don't click here</button>
-        <button class="primary">Click here</button>
+      <hr />
 
-        <br>
+      <button class="ghost">Ghost button</button>
+      <button>Normal button</button>
+      <button class="danger">Don't click here</button>
+      <button class="primary">Click here</button>
 
-        <label>Some input
-            <input placeholder="Type here...">
-        </label>
+      <hr />
 
+      <label
+        >Some input
+        <input placeholder="Type here..." />
+      </label>
+
+      <label
+        >Some color input
+        <input type="color" />
+      </label>
+
+      <label
+        >Some select
+        <select>
+          <option>Hello</option>
+          <option>Hello</option>
+          <option>Hello</option>
+          <option>Hello</option>
+          <option>Hello</option>
+        </select>
+      </label>
+
+      <textarea placeholder="Type here..."></textarea>
+
+      <hr />
+
+      <div
+        class="grid"
+        style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
+      >
         <div class="tile">
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus porta ipsum, lobortis condimentum
-                velit
-                lacinia sed. Aliquam efficitur interdum tristique. Maecenas nec enim consectetur, vulputate enim id,
-                aliquet
-                ex.
-                Suspendisse luctus sapien ligula, in sagittis nunc laoreet ac. Vivamus ac rhoncus ipsum. Nunc
-                condimentum
-                sit
-                amet lacus tempus ultrices. Nulla diam massa, consectetur non ligula in, hendrerit lacinia risus.</p>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
+            porta ipsum, lobortis condimentum velit lacinia sed. Aliquam
+            efficitur interdum tristique. Maecenas nec enim consectetur,
+            vulputate enim id, aliquet ex. Suspendisse luctus sapien ligula, in
+            sagittis nunc laoreet ac. Vivamus ac rhoncus ipsum. Nunc condimentum
+            sit amet lacus tempus ultrices. Nulla diam massa, consectetur non
+            ligula in, hendrerit lacinia risus.
+          </p>
         </div>
+        <div class="tile clickable" onclick="this.toggleAttribute('selected')">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
+            porta ipsum, lobortis condimentum velit lacinia sed. Aliquam
+            efficitur interdum tristique. Maecenas nec enim consectetur,
+            vulputate enim id, aliquet ex. Suspendisse luctus sapien ligula, in
+            sagittis nunc laoreet ac. Vivamus ac rhoncus ipsum. Nunc condimentum
+            sit amet lacus tempus ultrices. Nulla diam massa, consectetur non
+            ligula in, hendrerit lacinia risus.
+          </p>
+        </div>
+      </div>
     </main>
-</body>
-
+  </body>
 </html>

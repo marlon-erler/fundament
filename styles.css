@@ -436,7 +436,7 @@ body {
 
 .code-02 {
   font-family: IBM Plex Mono;
-  size: 14px;
+  font-size: 14px;
   line-height: 20px;
   font-weight: 400;
   letter-spacing: 0.32px;
@@ -595,15 +595,45 @@ button.ghost:active {
 }
 
 input,
-select {
+select,
+textarea {
   color: var(--text-primary);
   background-color: var(--field-01);
+
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+input[type="color"] {
+  padding: 0px;
+  height: 42px;
+}
+
+select {
+  background-image: url("carbon-icons/src/svg/caret--down.svg");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 12px) center;
+}
+
+textarea {
+  padding: var(--spacing-05);
+}
+
+label,
+input,
+select,
+textarea {
+  display: block;
+
+  width: 100%;
+  max-width: var(--max-input-width);
 }
 
 label input,
 label select {
   display: block;
-  width: 100%;
+  max-width: unset;
   margin-top: var(--spacing-02);
   margin-bottom: var(--spacing-04);
 }
@@ -651,9 +681,18 @@ hr {
   margin: 0px;
 }
 
+p {
+  max-width: var(--max-content-width);
+}
+
 /* 
     LAYOUT
 */
+:root {
+  --max-input-width: 24rem;
+  --max-content-width: 48rem;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -687,6 +726,12 @@ main {
 }
 .justify.apart {
   justify-content: space-between;
+}
+.justify.left {
+  justify-content: left;
+}
+.justify.center {
+  justify-content: center;
 }
 .justify.right {
   justify-content: right;
