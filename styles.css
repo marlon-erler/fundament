@@ -45,8 +45,8 @@ main {
 }
 
 /*
-      COLORS
-  */
+    COLORS
+*/
 
 body {
   background-color: var(--background);
@@ -394,8 +394,8 @@ a {
 }
 
 /*
-      SPACING
-  */
+    SPACING
+*/
 :root {
   --spacing-01: 0.125rem;
   --spacing-02: 0.25rem;
@@ -413,8 +413,8 @@ a {
 }
 
 /*
-      TYPE
-  */
+    TYPE
+*/
 body {
   font-family: IBM Plex Sans;
 }
@@ -525,8 +525,8 @@ label {
 }
 
 /*
-      COMPONENTS
-  */
+    COMPONENTS
+*/
 button,
 input,
 select,
@@ -652,8 +652,8 @@ hr {
 }
 
 /* 
-      LAYOUT
-  */
+    LAYOUT
+*/
 * {
   box-sizing: border-box;
 }
@@ -693,8 +693,8 @@ main {
 }
 
 /*
-    OTHER
-  */
+  OTHER
+*/
 
 [hidden] {
   display: none;
