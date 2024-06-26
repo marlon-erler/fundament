@@ -413,6 +413,13 @@ SPACING
 }
 
 /*
+SIZES
+*/
+:root {
+	--control-height: 38px;
+}
+
+/*
 TYPE
  */
 body {
@@ -534,10 +541,20 @@ textarea {
 		border: none;
 		border-radius: 0px;
 
-		padding: var(--spacing-04) var(--spacing-05);
+		padding: 0px var(--spacing-05);
+  height: var(--control-height);
 
 		font-family: IBM Plex Sans;
 		font-size: 14px;
+	
+	display: inline-flex;
+	align-items: center;
+justify-content: center;
+}
+
+button.icon-button {
+	padding-left: var(--spacing-03);
+	gap: var(--spacing-02);
 }
 
 button {
