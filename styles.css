@@ -53,6 +53,10 @@ body {
 		color: var(--text-primary);
 }
 
+header {
+		background-color: var(--layer-01);
+}
+
 a {
 		color: var(--link-primary);
 }
@@ -414,9 +418,9 @@ SPACING
 
 /*
 SIZES
-*/
+ */
 :root {
-	--control-height: 38px;
+		--control-height: 38px;
 }
 
 /*
@@ -542,19 +546,19 @@ textarea {
 		border-radius: 0px;
 
 		padding: 0px var(--spacing-05);
-  height: var(--control-height);
+		height: var(--control-height);
 
 		font-family: IBM Plex Sans;
 		font-size: 14px;
-	
-	display: inline-flex;
-	align-items: center;
-justify-content: center;
+
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 }
 
 button.icon-button {
-	padding-left: var(--spacing-03);
-	gap: var(--spacing-02);
+		padding-left: var(--spacing-04);
+		gap: var(--spacing-02);
 }
 
 button {
@@ -630,6 +634,12 @@ input[type="radio"] {
 
 		padding: 0px;
 		margin: 0px;
+	
+	display: flex;
+align-items: center;
+	justify-content: center;
+	
+	position: relative;
 }
 
 input[type="radio"] {
@@ -639,8 +649,26 @@ input[type="radio"] {
 input[type="checkbox"]:checked,
 input[type="radio"]:checked {
 		background-color: var(--interactive);
+}
 
-		background-position: center;
+input[type="checkbox"]:checked::before {
+	content: "check";
+  font-size: 70% !important;
+}
+
+input[type="radio"]:checked::before {
+	content: "";
+	
+background-color: white;
+	border-radius: 100%;
+	
+	--inset: 4px;
+	
+	position: absolute;
+	top: var(--inset);
+	left: var(--inset);
+	right: var(--inset);
+	bottom: var(--inset);
 }
 
 input[type="color"] {
@@ -736,6 +764,8 @@ LAYOUT
 :root {
 		--max-input-width: 24rem;
 		--max-content-width: 48rem;
+
+		--header-height: 48px;
 }
 
 * {
@@ -751,9 +781,16 @@ body {
 }
 
 header {
-		padding: var(--spacing-04) var(--spacing-05);
+		padding: 0px var(--spacing-05);
 
 		width: 100%;
+		height: var(--header-height);
+
+		display: flex;
+		align-items: center;
+
+		position: sticky;
+		top: 0;
 }
 
 main {
@@ -797,6 +834,7 @@ OTHER
 /*
 ICONS
  */
+input[type="checkbox"],
 .icon {
 		font-family: 'Material Symbols Sharp';
 		font-weight: normal;
@@ -816,7 +854,7 @@ ICONS
 @font-face {
 		font-family: 'Material Symbols Sharp';
 		font-style: normal;
-		font-weight: 400;
+		font-weight: 300;
 		src: url("Icons/material-icons.woff") format('woff');
 }
 
