@@ -538,6 +538,10 @@ label {
 /*
 COMPONENTS
  */
+:root {
+		--outline-width: 2px;
+}
+
 button,
 input,
 select,
@@ -634,12 +638,12 @@ input[type="radio"] {
 
 		padding: 0px;
 		margin: 0px;
-	
-	display: flex;
-align-items: center;
-	justify-content: center;
-	
-	position: relative;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		position: relative;
 }
 
 input[type="radio"] {
@@ -652,28 +656,33 @@ input[type="radio"]:checked {
 }
 
 input[type="checkbox"]:checked::before {
-	content: "check";
-  font-size: 70% !important;
+		content: "check";
+		font-size: 70% !important;
 }
 
 input[type="radio"]:checked::before {
-	content: "";
-	
-background-color: white;
-	border-radius: 100%;
-	
-	--inset: 4px;
-	
-	position: absolute;
-	top: var(--inset);
-	left: var(--inset);
-	right: var(--inset);
-	bottom: var(--inset);
+		content: "";
+
+		background-color: white;
+		border-radius: 100%;
+
+		--inset: 4px;
+
+		position: absolute;
+		top: var(--inset);
+		left: var(--inset);
+		right: var(--inset);
+		bottom: var(--inset);
 }
 
 input[type="color"] {
 		padding: 0px;
 		height: 42px;
+}
+
+input:focus, textarea:focus {
+		border: none;
+		outline: var(--outline-width) solid var(--border-interactive);
 }
 
 select {
@@ -721,20 +730,6 @@ hr {
 		margin: var(--spacing-06) 0px;
 }
 
-.meter-track {
-		width: 100%;
-		height: 1rem;
-
-		border-radius: 0px;
-		border: none;
-		background-color: var(--layer-02);
-}
-.meter-track .meter-bar {
-		height: 100%;
-		background-color: var(--interactive);
-		transition: width 0.2s;
-}
-
 .tile {
 		padding: var(--spacing-05);
 		background-color: var(--layer-01);
@@ -747,7 +742,7 @@ hr {
 }
 .tile[selected] {
 		background: var(--layer-selected-01);
-		outline: var(--spacing-01) solid var(--border-interactive);
+		outline: var(--outline-width) solid var(--border-interactive);
 }
 .tile h2,
 .tile p {
