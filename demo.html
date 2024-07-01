@@ -21,7 +21,11 @@
         risus.
       </p>
 
-      <span class="label-01">Label here</span>
+      <code>This is some code</code>
+
+      <p class="helper-text">This is a helper text</p>
+
+      <p class="error-text">This is an error text</p>
 
       <hr />
 
@@ -112,8 +116,8 @@
             ligula in, hendrerit lacinia risus.
           </p>
         </div>
-        <div class="tile clickable" onclick="this.toggleAttribute('selected')">
-          <h2>Clickable tile</h2>
+        <button class="tile" onclick="this.toggleAttribute('selected')">
+          <h2>Button tile</h2>
           <p class="secondary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
             porta ipsum, lobortis condimentum velit lacinia sed. Aliquam
@@ -123,7 +127,7 @@
             sit amet lacus tempus ultrices. Nulla diam massa, consectetur non
             ligula in, hendrerit lacinia risus.
           </p>
-        </div>
+        </button>
       </div>
 
       <hr />
@@ -139,15 +143,50 @@
             <p class="secondary">Tile with icon</p>
           </div>
         </div>
-        <div class="tile has-icon arrow-right clickable">
+        <button class="tile has-icon arrow-right">
           <span class="icon">favorite</span>
           <div>
-            <h2>Icon tile</h2>
+            <h2>Button icon tile</h2>
             <p class="secondary">Tile with icon and right arrow</p>
           </div>
-        </div>
+        </button>
       </div>
 
+      <hr />
+
+      <div
+        class="grid"
+        style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
+      >
+        <button class="tile has-icon">
+          <span class="icon">favorite</span>
+          <div>
+            <h2>Button tile</h2>
+            <p class="secondary">Button tile with icon</p>
+          </div>
+        </button>
+        <button class="tile has-icon ghost">
+          <span class="icon">favorite</span>
+          <div>
+            <h2>Ghost button tile</h2>
+            <p class="secondary">Ghost button tile with icon</p>
+          </div>
+        </button>
+        <button class="tile has-icon danger">
+          <span class="icon">favorite</span>
+          <div>
+            <h2>Danger button tile</h2>
+            <p class="secondary">Danger button tile with icon</p>
+          </div>
+        </button>
+        <button class="tile has-icon primary">
+          <span class="icon">favorite</span>
+          <div>
+            <h2>Primary button tile</h2>
+            <p class="secondary">Primary button tile with icon</p>
+          </div>
+        </button>
+      </div>
       <hr />
     </main>
   </body>
