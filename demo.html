@@ -8,9 +8,11 @@
   </head>
 
   <body>
-    <header>My app</header>
+    <header class="surface">My app</header>
     <main>
       <h1>Headline here</h1>
+      <h2>Headline here</h2>
+      <h3>Headline here</h3>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
         porta ipsum, lobortis condimentum velit lacinia sed. Aliquam efficitur
@@ -29,14 +31,15 @@
 
       <hr />
 
-      <button class="ghost">Ghost button</button>
-      <button>Normal button</button>
-      <button class="danger">Don't click here</button>
-      <button class="primary">Click here</button>
+      <button class="ghost accent">Ghost accent button</button>
+      <button class="ghost danger">Ghost danger button</button>
+      <button class="surface">Normal button</button>
+      <button class="filled danger">Don't click here</button>
+      <button class="filled accent">Click here</button>
 
       <hr />
 
-      <button class="primary icon-button">
+      <button class="filled accent icon-button">
         Icon button<span class="icon">check</span>
       </button>
 
@@ -44,17 +47,17 @@
 
       <label
         >Some input
-        <input placeholder="Type here..." />
+        <input class="surface" placeholder="Type here..." />
       </label>
 
       <label
         >Some color input
-        <input type="color" />
+        <input class="surface" type="color" />
       </label>
 
       <label
         >Some select
-        <select>
+        <select class="surface">
           <option>Hello</option>
           <option>Hello</option>
           <option>Hello</option>
@@ -64,7 +67,7 @@
         <span class="icon">arrow_drop_down</span>
       </label>
 
-      <textarea placeholder="Type here..."></textarea>
+      <textarea class="surface" placeholder="Type here..."></textarea>
 
       <hr />
 
@@ -104,7 +107,7 @@
         class="grid"
         style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
       >
-        <div class="tile">
+        <div class="tile surface">
           <h2>Normal tile</h2>
           <p class="secondary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
@@ -116,7 +119,7 @@
             ligula in, hendrerit lacinia risus.
           </p>
         </div>
-        <button class="tile" onclick="this.toggleAttribute('selected')">
+        <button class="tile surface" onclick="this.toggleAttribute('selected')">
           <h2>Button tile</h2>
           <p class="secondary">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
@@ -136,14 +139,14 @@
         class="grid"
         style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
       >
-        <div class="tile has-icon">
+        <div class="tile surface has-icon">
           <span class="icon">favorite</span>
           <div>
             <h2>Icon tile</h2>
             <p class="secondary">Tile with icon</p>
           </div>
         </div>
-        <button class="tile has-icon arrow-right">
+        <button class="tile surface has-icon arrow-right">
           <span class="icon">favorite</span>
           <div>
             <h2>Button icon tile</h2>
@@ -158,28 +161,28 @@
         class="grid"
         style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
       >
-        <button class="tile has-icon">
+        <button class="tile surface has-icon">
           <span class="icon">favorite</span>
           <div>
             <h2>Button tile</h2>
             <p class="secondary">Button tile with icon</p>
           </div>
         </button>
-        <button class="tile has-icon ghost">
+        <button class="tile ghost-surface accent has-icon">
           <span class="icon">favorite</span>
           <div>
             <h2>Ghost button tile</h2>
             <p class="secondary">Ghost button tile with icon</p>
           </div>
         </button>
-        <button class="tile has-icon danger">
+        <button class="tile filled danger has-icon">
           <span class="icon">favorite</span>
           <div>
             <h2>Danger button tile</h2>
             <p class="secondary">Danger button tile with icon</p>
           </div>
         </button>
-        <button class="tile has-icon primary">
+        <button class="tile filled accent has-icon">
           <span class="icon">favorite</span>
           <div>
             <h2>Primary button tile</h2>
