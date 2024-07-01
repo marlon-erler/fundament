@@ -406,7 +406,7 @@ SPACING
 /*
 TEXT
  */
-body {
+* {
   font-family: IBM Plex Sans;
 }
 
@@ -414,38 +414,25 @@ code {
   font-family: IBM Plex Mono;
 }
 
+.secondary,
+.helper-text,
+.error-text,
+label {
+  font-size: 0.9rem;
+}
+
+.helper-text,
 label {
   opacity: var(--text-secondary-opacity);
+}
+
+label {
   text-indent: var(--spacing-05);
-  font-size: 0.9rem;
-}
-
-.helper-text {
-  opacity: var(--text-secondary-opacity);
-  font-size: 0.9rem;
-}
-
-.error-text {
-  font-size: 0.9rem;
-}
-
-.secondary {
-  opacity: var(--text-secondary-opacity);
 }
 
 @font-face {
   font-family: IBM Plex Sans;
   src: url("Fonts/IBMPlexSans-Regular.ttf");
-}
-
-@font-face {
-  font-family: IBM Plex Sans Thin;
-  src: url("Fonts/IBMPlexSans-Thin.ttf");
-}
-
-@font-face {
-  font-family: IBM Plex Sans Light;
-  src: url("Fonts/IBMPlexSans-Light.ttf");
 }
 
 @font-face {
@@ -465,7 +452,6 @@ COMPONENTS
   --outline-width: 2px;
   --control-height: 42px;
 }
-
 
 /* 
 LAYOUT
@@ -510,6 +496,12 @@ main {
 
 p {
   max-width: var(--max-content-width);
+}
+
+input,
+select,
+textarea {
+  max-width: var(--max-input-width);
 }
 
 /*
