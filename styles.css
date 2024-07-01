@@ -279,26 +279,36 @@ textarea {
 /* display */
 button,
 input,
+header,
 select,
 textarea {
-  display: inline-flex;
   align-items: center;
-}
-
-header {
-  display: flex;
-  align-items: center;
-}
-
-[hidden] {
-  display: none;
 }
 
 label * {
   display: block;
 }
 
+header {
+  display: flex;
+}
+
+button,
+input,
+select,
+textarea {
+  display: inline-flex;
+}
+
+[hidden] {
+  display: none;
+}
+
 /* padding and spacing */
+label {
+  margin-bottom: var(--control-margin);
+}
+
 button,
 header,
 input,
@@ -307,18 +317,20 @@ textarea {
   padding: 0px var(--control-padding);
 }
 
-label {
-  text-indent: var(--control-padding);
-  margin-bottom: var(--control-margin);
-}
-
 main {
   padding: var(--content-padding);
+}
+
+label {
+  text-indent: var(--control-padding);
 }
 
 /* position */
 header {
   position: sticky;
+}
+
+header {
   top: 0;
 }
 
@@ -330,20 +342,25 @@ textarea {
   height: var(--control-height);
 }
 
-input,
-select,
-textarea {
-  width: 100%;
-  max-width: var(--max-input-width);
-}
-
 header {
-  width: 100%;
   height: var(--header-height);
 }
 
 p {
   max-width: var(--max-content-width);
+}
+
+input,
+select,
+textarea {
+  max-width: var(--max-input-width);
+}
+
+input,
+header,
+select,
+textarea {
+  width: 100%;
 }
 
 /* z-index */
