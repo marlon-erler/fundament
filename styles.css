@@ -331,7 +331,10 @@ hr {
     hsla(var(--base-hue), var(--base-sat), var(--base-text-lum), 0.2);
 }
 
-:is(input, textarea):focus,
+:is(
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+    textarea
+  ):focus,
 .tile[selected] {
   outline: var(--outline-width) solid var(--accent-color);
 }
