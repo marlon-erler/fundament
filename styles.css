@@ -660,7 +660,7 @@ input[type="radio"]:checked {
 input[type="checkbox"]:checked::before {
   content: "check";
   font-size: 70% !important;
-  color: var(--icon-on-color)
+  color: var(--icon-on-color);
 }
 
 input[type="radio"]:checked::before {
@@ -727,7 +727,7 @@ label select + .icon {
   position: absolute;
   right: var(--spacing-03);
   bottom: 0px;
-  
+
   height: var(--control-height);
 }
 
@@ -764,6 +764,17 @@ hr {
 .tile h2,
 .tile p {
   margin: 0px;
+}
+.tile.has-icon {
+  display: flex;
+  gap: var(--spacing-05);
+}
+.tile.has-icon > div {
+  flex: 1;
+  width: 100%;
+}
+.tile.arrow-right::after {
+  content: "arrow_forward";
 }
 
 p {
@@ -847,6 +858,7 @@ OTHER
 ICONS
  */
 input[type="checkbox"],
+.tile.arrow-right::after,
 .icon {
   font-family: "Material Symbols Sharp";
   font-weight: normal;

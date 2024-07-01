@@ -57,7 +57,7 @@
           <option>Hello</option>
           <option>Hello</option>
         </select>
-		<span class="icon">arrow_drop_down</span>
+        <span class="icon">arrow_drop_down</span>
       </label>
 
       <textarea placeholder="Type here..."></textarea>
@@ -101,6 +101,7 @@
         style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
       >
         <div class="tile">
+          <h2>Normal tile</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
             porta ipsum, lobortis condimentum velit lacinia sed. Aliquam
@@ -112,6 +113,7 @@
           </p>
         </div>
         <div class="tile clickable" onclick="this.toggleAttribute('selected')">
+          <h2>Clickable tile</h2>
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
             porta ipsum, lobortis condimentum velit lacinia sed. Aliquam
@@ -123,6 +125,30 @@
           </p>
         </div>
       </div>
+
+      <hr />
+
+      <div
+        class="grid"
+        style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
+      >
+        <div class="tile has-icon">
+          <span class="icon">favorite</span>
+          <div>
+            <h2>Icon tile</h2>
+            <p>Normal tile with icon</p>
+          </div>
+        </div>
+        <div class="tile has-icon arrow-right clickable">
+          <span class="icon">favorite</span>
+          <div>
+            <h2>Icon tile</h2>
+            <p>Tile with icon and right arrow</p>
+          </div>
+        </div>
+      </div>
+
+      <hr />
     </main>
   </body>
 </html>
