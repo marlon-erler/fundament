@@ -36,6 +36,7 @@
       <button class="filled accent">Click here</button>
       <button class="ghost accent">Ghost accent button</button>
       <button class="ghost danger">Ghost danger button</button>
+      <button class="surface" disabled>Disabled normal button</button>
 
       <hr />
 
@@ -108,28 +109,16 @@
         style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
       >
         <div class="tile surface">
-          <h2>Normal tile</h2>
-          <p class="secondary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
-            porta ipsum, lobortis condimentum velit lacinia sed. Aliquam
-            efficitur interdum tristique. Maecenas nec enim consectetur,
-            vulputate enim id, aliquet ex. Suspendisse luctus sapien ligula, in
-            sagittis nunc laoreet ac. Vivamus ac rhoncus ipsum. Nunc condimentum
-            sit amet lacus tempus ultrices. Nulla diam massa, consectetur non
-            ligula in, hendrerit lacinia risus.
-          </p>
+          <div>
+            <h2>Normal tile</h2>
+            <p class="secondary">This is a normal tile.</p>
+          </div>
         </div>
         <button class="tile surface" onclick="this.toggleAttribute('selected')">
-          <h2>Button tile</h2>
-          <p class="secondary">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
-            porta ipsum, lobortis condimentum velit lacinia sed. Aliquam
-            efficitur interdum tristique. Maecenas nec enim consectetur,
-            vulputate enim id, aliquet ex. Suspendisse luctus sapien ligula, in
-            sagittis nunc laoreet ac. Vivamus ac rhoncus ipsum. Nunc condimentum
-            sit amet lacus tempus ultrices. Nulla diam massa, consectetur non
-            ligula in, hendrerit lacinia risus.
-          </p>
+          <div>
+            <h2>Button tile</h2>
+            <p class="secondary">This tile is actually a button.</p>
+          </div>
         </button>
       </div>
 
@@ -139,19 +128,20 @@
         class="grid"
         style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
       >
-        <div class="tile surface has-icon">
+        <div class="tile surface">
           <span class="icon">favorite</span>
           <div>
             <h2>Icon tile</h2>
             <p class="secondary">Tile with icon</p>
           </div>
         </div>
-        <button class="tile surface has-icon arrow-right">
+        <button class="tile surface">
           <span class="icon">favorite</span>
           <div>
             <h2>Button icon tile</h2>
             <p class="secondary">Tile with icon and right arrow</p>
           </div>
+          <span class="icon">arrow_forward</span>
         </button>
       </div>
 
@@ -161,28 +151,28 @@
         class="grid"
         style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
       >
-        <button class="tile surface has-icon">
+        <button class="tile surface">
           <span class="icon">favorite</span>
           <div>
             <h2>Button tile</h2>
             <p class="secondary">Button tile with icon</p>
           </div>
         </button>
-        <button class="tile ghost-surface accent has-icon">
+        <button class="tile ghost-surface accent">
           <span class="icon">favorite</span>
           <div>
             <h2>Ghost button tile</h2>
             <p class="secondary">Ghost button tile with icon</p>
           </div>
         </button>
-        <button class="tile filled danger has-icon">
+        <button class="tile filled danger">
           <span class="icon">favorite</span>
           <div>
             <h2>Danger button tile</h2>
             <p class="secondary">Danger button tile with icon</p>
           </div>
         </button>
-        <button class="tile filled accent has-icon">
+        <button class="tile filled accent">
           <span class="icon">favorite</span>
           <div>
             <h2>Primary button tile</h2>
@@ -190,7 +180,6 @@
           </div>
         </button>
       </div>
-      <hr />
     </main>
   </body>
 </html>
