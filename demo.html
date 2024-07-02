@@ -46,9 +46,7 @@
           </main>
 
           <div class="flex-row">
-            <button class="flex danger" onclick="closeModal()">
-              Cancel
-            </button>
+            <button class="flex danger" onclick="closeModal()">Cancel</button>
             <button class="flex primary" onclick="closeModal()">
               Save
               <span class="icon">arrow_forward</span>
@@ -85,41 +83,6 @@
 
       <hr />
 
-      <label class="tile">
-        <span>Some input</span>
-        <input placeholder="Type here..." />
-      </label>
-
-      <label class="tile">
-        <span>Some textarea</span>
-        <textarea placeholder="Type here..."></textarea>
-      </label>
-
-      <label class="tile">
-        <span>Some color input</span>
-        <input type="color" />
-      </label>
-
-      <label class="tile">
-        <span>Some select</span>
-        <select>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-        </select>
-        <span class="icon">arrow_drop_down</span>
-      </label>
-
-      <div class="flex-row width-input justify-end">
-        <button class="primary width-50">
-          Submit<span class="icon">arrow_forward</span>
-        </button>
-      </div>
-
-      <hr />
-
       <label class="inline">
         <input type="checkbox" checked />
         Some checkbox
@@ -146,11 +109,64 @@
         Some radio
       </label>
 
-      <hr />
-
       <input type="range" />
 
       <hr />
+
+      <label class="tile">
+        <div>
+          <span>Some select</span>
+          <select>
+            <option>Hello</option>
+            <option>Hello</option>
+            <option>Hello</option>
+            <option>Hello</option>
+            <option>Hello</option>
+          </select>
+          <span class="icon">arrow_drop_down</span>
+        </div>
+      </label>
+
+      <label class="tile">
+        <div>
+          <span>Some color input</span>
+          <input type="color" />
+        </div>
+      </label>
+
+      <div class="flex-row width-input justify-end">
+        <button class="primary width-50">
+          Submit<span class="icon">arrow_forward</span>
+        </button>
+      </div>
+
+      <hr />
+
+      <label class="tile">
+        <span class="icon">draw</span>
+        <div>
+          <span>Some input</span>
+          <input placeholder="Type here..." />
+        </div>
+      </label>
+      
+      <label class="tile">
+        <span class="icon">palette</span>
+        <div>
+          <span>Some color input</span>
+          <input type="color" />
+        </div>
+      </label>
+
+      <button class="tile primary width-input">
+        <span class="icon">favorite</span>
+        <div>
+          <b>Primary button tile</b>
+          <p class="secondary">Primary button tile with icon</p>
+        </div>
+      </button>
+
+      <hr>
 
       <div
         class="grid"

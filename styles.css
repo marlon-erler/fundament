@@ -143,7 +143,7 @@ SPACING
  */
 :root {
   /* gap */
-  --grid-gap: 2px;
+  --grid-gap: 4px;
   --label-gap: 0.25rem;
   --label-tile-gap: 0.5rem;
   --control-gap: 1.2rem;
@@ -266,13 +266,10 @@ textarea {
   }
 }
 
-label.tile {
-  border-bottom: 1px solid var(--background);
-}
-
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not(
     label.tile *
   ),
+label.tile,
 select:not(label.tile *),
 textarea:not(label.tile *) {
   border-bottom: 1px solid var(--surface-border);
@@ -360,7 +357,6 @@ textarea {
   flex: 1;
 }
 
-label.tile,
 .flex-column,
 .modal > div {
   flex-direction: column;
@@ -371,7 +367,7 @@ label.tile,
 }
 
 button,
-.tile:not(label) {
+.tile {
   gap: var(--control-gap);
 }
 
@@ -449,7 +445,8 @@ label.tile > span:first-child {
 
 input[type="color"],
 input[type="checkbox"],
-input[type="radio"] {
+input[type="radio"],
+label.tile:has(> span.icon) * {
   padding: 0px;
 }
 
@@ -473,8 +470,20 @@ textarea,
   padding: var(--control-padding);
 }
 
+label.tile {
+  padding: var(--label-gap) 0px;
+}
+
+label.tile:has(> span.icon) {
+  padding-left: var(--control-padding);
+}
+
 label {
   text-indent: var(--control-padding);
+}
+
+label.tile:has(> span.icon) {
+  text-indent: 0px;
 }
 
 /* pointer-events */
