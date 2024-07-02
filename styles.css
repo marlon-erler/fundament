@@ -4,7 +4,7 @@ COLORS
 /* definition */
 :root {
   --background: hsla(0, 0%, 100%, 100%);
-  --background-transparent: hsla(0, 0%, 100%, 70%);
+  --background-transparent: hsla(0, 0%, 100%, 60%);
   --background-hover: hsla(0, 0%, 55%, 12%);
   --background-active: hsla(0, 0%, 55%, 12%);
 
@@ -40,7 +40,7 @@ COLORS
 @media (prefers-color-scheme: dark) {
   :root {
     --background: hsla(0, 0%, 9%, 100%);
-    --background-transparent: hsla(0, 0%, 9%, 85%);
+    --background-transparent: hsla(0, 0%, 9%, 60%);
     --background-hover: hsla(0, 0%, 55%, 16%);
     --background-active: hsla(0, 0%, 55%, 40%);
 
@@ -118,6 +118,9 @@ button.tile.ghost:active,
 [selected] {
   background-color: var(--surface-active);
 }
+header button {
+  background-color: transparent;
+}
 
 input:checked {
   background-color: var(--primary);
@@ -186,7 +189,7 @@ SPACING
   /* padding */
   --control-padding: 1rem;
   --control-marker-padding: 0.7rem;
-  --content-padding: calc(var(--header-height) + var(--control-padding)) 2rem;
+  --content-padding: 1rem;
   --modal-padding: 1.25rem;
   --link-padding-h: 0.8rem;
 
@@ -440,6 +443,7 @@ button,
   justify-content: start;
 }
 
+header button,
 input[type="checkbox"],
 input[type="radio"],
 .justify-center,
@@ -535,11 +539,10 @@ label.tile:has(> span.icon) * {
 }
 
 article > div {
-  padding: var(--content-padding);
+  padding: calc(var(--header-height) + 20px) var(--content-padding);
 }
 
-button:not(.tile),
-header,
+button:not(.tile):not(header *),
 input,
 select {
   padding: 0px var(--control-padding);
@@ -557,6 +560,10 @@ textarea,
 
 label.tile {
   padding: var(--label-gap) 0px;
+}
+
+header {
+  padding-left: var(--content-padding);
 }
 
 label.tile:has(> span.icon) {
@@ -640,7 +647,7 @@ select + .icon,
   }
 }
 
-button:not(.tile),
+button:not(.tile):not(header *),
 input:not([type="checkbox"]):not([type="radio"]),
 select,
 select + .icon,
@@ -648,7 +655,8 @@ textarea {
   height: var(--control-height);
 }
 
-header {
+header,
+header button {
   height: var(--header-height);
 }
 
@@ -689,6 +697,10 @@ textarea,
 .tile > div,
 .width-100 {
   width: 100%;
+}
+
+header button {
+  width: var(--header-height);
 }
 
 menu {
