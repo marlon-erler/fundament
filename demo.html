@@ -33,15 +33,29 @@
 
       <button>Normal button</button>
       <button class="danger">Don't click here</button>
-      <button class="primary">Click here</button>
-      <button class="ghost">Ghost accent button</button>
+      <button class="primary icon-button" onclick="openModal()">
+        Open modal<span class="icon">expand_content</span>
+      </button>
+      <button class="ghost">Ghost button</button>
       <button disabled>Disabled normal button</button>
 
-      <hr />
+      <div class="modal" id="modal">
+        <div>
+          <main>
+            <h2>Modal</h2>
+          </main>
 
-      <button class="primary icon-button">
-        Icon button<span class="icon">check</span>
-      </button>
+          <div class="flex-row">
+            <button class="flex danger" onclick="closeModal()">
+              Cancel
+            </button>
+            <button class="flex primary" onclick="closeModal()">
+              Save
+              <span class="icon">arrow_forward</span>
+            </button>
+          </div>
+        </div>
+      </div>
 
       <hr />
 
@@ -215,5 +229,13 @@
         </button>
       </div>
     </main>
+    <script>
+      function openModal() {
+        document.getElementById("modal").setAttribute("open", "");
+      }
+      function closeModal() {
+        document.getElementById("modal").removeAttribute("open");
+      }
+    </script>
   </body>
 </html>

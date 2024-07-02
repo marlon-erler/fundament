@@ -63,6 +63,10 @@ body {
   color: var(--text-normal);
 }
 
+.modal > div {
+  background-color: var(--background);
+}
+
 * {
   color: inherit;
 }
@@ -152,6 +156,7 @@ SPACING
   --control-padding: 1rem;
   --control-marker-padding: 0.7rem;
   --content-padding: 2rem;
+  --modal-padding: 1.25rem;
 
   /* size */
   --checkbox-size: 16px;
@@ -255,6 +260,12 @@ textarea {
   border: none;
 }
 
+@media (min-width: 640px) {
+  .modal > div {
+    border: 1px solid var(--surface-border);
+  }
+}
+
 label.tile {
   border-bottom: 1px solid var(--background);
 }
@@ -295,6 +306,7 @@ button:not(.tile),
 input,
 header,
 label.inline,
+.modal,
 select,
 textarea,
 .align-right,
@@ -321,6 +333,8 @@ input[type="radio"],
 label.inline,
 .flex-column,
 .flex-row,
+.modal[open],
+.modal > div,
 .tile {
   display: flex;
 }
@@ -336,6 +350,7 @@ textarea {
   display: inline-flex;
 }
 
+.modal,
 [hidden] {
   display: none;
 }
@@ -345,8 +360,9 @@ textarea {
   flex: 1;
 }
 
+label.tile,
 .flex-column,
-label.tile {
+.modal > div {
   flex-direction: column;
 }
 
@@ -366,6 +382,7 @@ button,
 
 input[type="checkbox"],
 input[type="radio"],
+.modal,
 .justify-center {
   justify-content: center;
 }
@@ -390,6 +407,12 @@ hr {
 
 [disabled] {
   opacity: 0.5;
+}
+
+/* overflow */
+body,
+.modal main {
+  overflow: scroll;
 }
 
 /* padding, margin, etc */
@@ -441,6 +464,10 @@ main {
   padding: var(--content-padding);
 }
 
+.modal main {
+  padding: var(--modal-padding);
+}
+
 textarea,
 .tile:not(label) {
   padding: var(--control-padding);
@@ -464,6 +491,10 @@ select + .icon {
   position: absolute;
 }
 
+.modal {
+  position: fixed;
+}
+
 input,
 label {
   position: relative;
@@ -473,17 +504,37 @@ header {
   position: sticky;
 }
 
+header,
+.modal {
+  top: 0;
+}
+
 select + .icon {
   right: var(--control-marker-padding);
 }
 
-header {
-  top: 0;
+.modal {
+  right: 0px;
+}
+
+.modal {
+  left: 0px;
+}
+
+.modal {
+  bottom: 0px;
 }
 
 /* size */
-select + .icon {
+select + .icon,
+.modal main {
   height: 100%;
+}
+
+@media (max-width: 640px) {
+  .modal > div {
+    height: 100%;
+  }
 }
 
 button:not(.tile),
@@ -499,7 +550,8 @@ header {
 }
 
 p,
-.width-content {
+.width-content,
+.modal > div {
   max-width: var(--max-content-width);
 }
 
@@ -519,6 +571,7 @@ input:not([type="checkbox"]):not([type="radio"]),
 header,
 select,
 textarea,
+.modal > div,
 .width-content,
 .width-input,
 .tile,
@@ -536,6 +589,14 @@ input[type="radio"] {
 /* z-index */
 header {
   z-index: 1;
+}
+
+.modal {
+  z-index: 2;
+}
+
+.modal > div {
+  z-index: 2;
 }
 
 /*
@@ -559,6 +620,19 @@ input[type="radio"]:checked::before {
   left: var(--inset);
   right: var(--inset);
   bottom: var(--inset);
+}
+
+.modal::before {
+  content: "";
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  background-color: var(--background);
+  opacity: 0.6;
 }
 
 /*
