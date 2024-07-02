@@ -169,6 +169,7 @@ label {
   font-size: 0.9rem;
 }
 
+.secondary,
 .helper-text,
 label span {
   opacity: 0.6;
