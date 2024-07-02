@@ -3,14 +3,18 @@ COLORS
  */
 /* definition */
 :root {
-  --background: hsla(0, 0%, 100%, 1);
+  --background: hsla(0, 0%, 100%, 100%);
+  --background-transparent: hsla(0, 0%, 100%, 70%);
   --background-hover: hsla(0, 0%, 55%, 12%);
   --background-active: hsla(0, 0%, 55%, 12%);
+
+  --layer: hsla(0, 0%, 96%, 60%);
 
   --surface: #f4f4f4;
   --surface-hover: #e8e8e8;
   --surface-active: #c6c6c6;
 
+  --border: hsla(0, 0%, 0%, 10%);
   --surface-border: #8d8d8d;
 
   --text-normal: #161616;
@@ -36,13 +40,17 @@ COLORS
 @media (prefers-color-scheme: dark) {
   :root {
     --background: hsla(0, 0%, 9%, 100%);
+    --background-transparent: hsla(0, 0%, 9%, 85%);
     --background-hover: hsla(0, 0%, 55%, 16%);
     --background-active: hsla(0, 0%, 55%, 40%);
+
+    --layer: hsla(0, 0%, 15%, 60%);
 
     --surface: #262626;
     --surface-hover: #333333;
     --surface-active: #6f6f6f;
 
+    --border: hsla(0, 0%, 100%, 10%);
     --surface-border: #6f6f6f;
 
     --text-normal: #f4f4f4;
@@ -58,9 +66,18 @@ COLORS
 }
 
 /* implementation */
-body {
+html {
   background-color: var(--background);
   color: var(--text-normal);
+}
+
+menu,
+aside {
+  background-color: var(--backdrop);
+}
+
+header {
+  background-color: var(--layer);
 }
 
 .modal > div {
@@ -79,22 +96,18 @@ select,
 .tile {
   background-color: var(--surface);
 }
-button:hover,
-select:hover,
-button.tile.ghost:hover,
-button[selected]:active,
-select[selected]:active,
-div.tile[selected]:active,
-button.tile.ghost[selected]:active {
-  background-color: var(--surface-hover);
+@media (hover: hover) {
+  button:hover,
+  select:hover,
+  button.tile.ghost:hover,
+  [selected]:active {
+    background-color: var(--surface-hover);
+  }
 }
 button:active,
 select:active,
 button.tile.ghost:active,
-button[selected],
-select[selected],
-div.tile[selected],
-button.tile.ghost[selected] {
+[selected] {
   background-color: var(--surface-active);
 }
 
@@ -110,18 +123,25 @@ button.primary {
   background-color: var(--primary);
   color: var(--text-on-color);
 }
-button.primary:hover {
-  background-color: var(--primary-hover);
+@media (hover: hover) {
+  button.primary:hover {
+    background-color: var(--primary-hover);
+  }
 }
 button.primary:active {
   background-color: var(--primary-active);
 }
 
-button.ghost {
+button.ghost .tab-link {
   color: var(--link);
 }
-button.ghost:hover {
-  background-color: var(--background-hover);
+.tab-link[active] {
+  color: var(--primary);
+}
+@media (hover: hover) {
+  button.ghost:hover {
+    background-color: var(--background-hover);
+  }
 }
 button.ghost:active {
   background-color: var(--background-active);
@@ -131,8 +151,10 @@ button.danger {
   background-color: var(--danger);
   color: var(--text-on-color);
 }
-button.danger:hover {
-  background-color: var(--danger-hover);
+@media (hover: hover) {
+  button.danger:hover {
+    background-color: var(--danger-hover);
+  }
 }
 button.danger:active {
   background-color: var(--danger-active);
@@ -146,6 +168,7 @@ SPACING
   --grid-gap: 4px;
   --label-gap: 0.25rem;
   --label-tile-gap: 0.5rem;
+  --link-gap: 1rem;
   --control-gap: 1.2rem;
 
   /* margin */
@@ -157,9 +180,13 @@ SPACING
   --control-marker-padding: 0.7rem;
   --content-padding: 2rem;
   --modal-padding: 1.25rem;
+  --link-padding-h: 0.8rem;
 
   /* size */
   --checkbox-size: 16px;
+
+  /* safe */
+  --safe-area-bottom: max(env(safe-area-inset-bottom), var(--control-padding));
 }
 
 /*
@@ -222,14 +249,115 @@ BASIC
   text-align: left;
   border: none;
   outline: none;
+  margin: 0px;
+  padding: 0px;
 }
 
-body {
-  margin: 0;
+body,
+main {
+  margin: 0px;
 
   display: flex;
+  overflow: hidden;
+
+  width: 100%;
+  height: 100%;
+}
+
+body > * {
+  margin: 0px;
+
+  height: 100%;
+  overflow: auto;
+}
+
+main {
+  width: 100%;
+  flex: 1;
+
+  overflow-y: hidden;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+article {
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+
+  overflow: auto;
+  scroll-snap-align: start;
+
+  padding-top: var(--header-height);
+}
+
+header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+}
+
+menu {
+  width: 200px;
+  display: flex;
   flex-direction: column;
-  align-items: center;
+
+  padding-top: calc(var(--header-height) + 10px);
+  border-right: 1px solid var(--border);
+}
+
+.tab-link {
+  display: flex;
+
+  gap: var(--link-gap);
+  justify-content: start;
+
+  width: 100%;
+  padding: var(--link-padding-h) var(--control-padding);
+}
+
+.tab-link:not([active]) {
+  opacity: 0.6;
+}
+
+@media (max-width: 640px) {
+  body {
+    flex-direction: column-reverse;
+  }
+
+  main {
+    height: 100%;
+  }
+
+  menu {
+    width: 100%;
+    height: calc(var(--header-height) + var(--safe-area-bottom));
+
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+
+    background-color: var(--background-transparent);
+    border-right: none;
+
+    flex-direction: row;
+    justify-content: space-around;
+
+    padding-top: 0px;
+    padding-bottom: var(--safe-area-bottom);
+  }
+
+  .tab-link {
+    flex-direction: column;
+    font-size: 0.5rem;
+
+    height: var(--header-height);
+    gap: 0px !important;
+  }
 }
 
 /*
@@ -250,6 +378,12 @@ select {
   appearance: none;
   --webkit-appearance: none;
   --mpz-appearance: none;
+}
+
+/* backdrop-filter */
+header,
+menu {
+  backdrop-filter: blur(70px);
 }
 
 /* border, outline, etc */
@@ -276,7 +410,7 @@ textarea:not(label.tile *) {
 }
 
 hr {
-  border-bottom: 1px solid var(--text-normal);
+  border-bottom: 1px solid var(--border);
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus:not(
@@ -285,7 +419,7 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus:not(
 label.tile:has(input:focus),
 label.tile:has(textarea:focus),
 textarea:focus:not(label.tile *),
-.tile[selected] {
+[selected] {
   outline: var(--grid-gap) solid var(--primary);
 }
 
@@ -298,7 +432,16 @@ input[type="radio"] {
   border-radius: 100%;
 }
 
+/* cursor */
+.tab-link {
+  cursor: pointer;
+}
+
 /* display etc */
+.align-start {
+  align-items: start;
+}
+
 button:not(.tile),
 input,
 header,
@@ -307,16 +450,13 @@ label.inline,
 select,
 textarea,
 .align-right,
+.tab-link,
 .tile:not(label) {
   align-items: center;
 }
 
 .align-end {
   align-items: end;
-}
-
-.align-start {
-  align-items: start;
 }
 
 label,
@@ -352,8 +492,9 @@ textarea {
   display: none;
 }
 
+.flex,
 .tile,
-.flex {
+.tile > div {
   flex: 1;
 }
 
@@ -376,39 +517,25 @@ button,
   justify-content: space-between;
 }
 
-input[type="checkbox"],
-input[type="radio"],
-.modal,
-.justify-center {
-  justify-content: center;
+.justify-start,
+.tile {
+  justify-content: start;
 }
 
-.tile,
-.justify-start {
-  justify-content: start;
+input[type="checkbox"],
+input[type="radio"],
+.justify-center,
+.modal {
+  justify-content: center;
 }
 
 .justify-end {
   justify-content: end;
 }
 
-.tile > div {
-  flex: 1;
-}
-
 /* opacity */
-hr {
-  opacity: 0.1;
-}
-
 [disabled] {
   opacity: 0.5;
-}
-
-/* overflow */
-body,
-.modal main {
-  overflow: scroll;
 }
 
 /* padding, margin, etc */
@@ -457,17 +584,18 @@ select {
   padding: 0px var(--control-padding);
 }
 
-main {
+article > div {
   padding: var(--content-padding);
+}
+
+menu h1,
+textarea,
+.tile:not(label) {
+  padding: var(--control-padding);
 }
 
 .modal main {
   padding: var(--modal-padding);
-}
-
-textarea,
-.tile:not(label) {
-  padding: var(--control-padding);
 }
 
 label.tile {
@@ -509,11 +637,6 @@ label {
   position: relative;
 }
 
-header {
-  position: sticky;
-}
-
-header,
 .modal {
   top: 0;
 }
@@ -593,6 +716,11 @@ input[type="checkbox"],
 input[type="radio"] {
   width: 16px;
   height: 16px;
+}
+
+/* text-decoration */
+a {
+  text-decoration: none;
 }
 
 /* z-index */

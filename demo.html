@@ -1,257 +1,56 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"
+    />
     <title>Carbon Mini</title>
 
     <link rel="stylesheet" href="styles.css" />
+    <link rel="manifest" href="manifest.json" />
   </head>
 
   <body>
-    <header class="surface">My app</header>
+    <menu>
+      <a class="tab-link" href="#tab-1" active>
+        <span class="icon">home</span>Home</a
+      >
+      <a class="tab-link" href="#tab-2">
+        <span class="icon">favorite</span>Favorites</a
+      >
+    </menu>
+    <header>My app</header>
     <main>
-      <h1>Headline here</h1>
-      <h2>Headline here</h2>
-      <h3>Headline here</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam dapibus
-        porta ipsum, lobortis condimentum velit lacinia sed. Aliquam efficitur
-        interdum tristique. Maecenas nec enim consectetur, vulputate enim id,
-        aliquet ex. Suspendisse luctus sapien ligula, in sagittis nunc laoreet
-        ac. Vivamus ac rhoncus ipsum. Nunc condimentum sit amet lacus tempus
-        ultrices. Nulla diam massa, consectetur non ligula in, hendrerit lacinia
-        risus.
-      </p>
-
-      <code>This is some code</code>
-
-      <p class="helper-text">This is a helper text</p>
-
-      <p class="error-text">This is an error text</p>
-
-      <hr />
-
-      <button>Normal button</button>
-      <button class="danger">Don't click here</button>
-      <button class="primary icon-button" onclick="openModal()">
-        Open modal<span class="icon">expand_content</span>
-      </button>
-      <button class="ghost">Ghost button</button>
-      <button disabled>Disabled normal button</button>
-
-      <div class="modal" id="modal">
+      <article id="tab-1">
         <div>
-          <main>
-            <h2>Modal</h2>
-          </main>
-
-          <div class="flex-row">
-            <button class="flex danger" onclick="closeModal()">Cancel</button>
-            <button class="flex primary" onclick="closeModal()">
-              Save
-              <span class="icon">arrow_forward</span>
-            </button>
-          </div>
+          <h1>Tab 1</h1>
+          <div style="height: 100vh"></div>
+          <button class="tile primary">
+            <b>Some card</b>
+          </button>
+          <div style="height: 100vh"></div>
         </div>
-      </div>
-
-      <hr />
-
-      <label>
-        <span>Some input</span>
-        <input placeholder="Type here..." />
-      </label>
-
-      <label>
-        <span>Some color input</span>
-        <input type="color" />
-      </label>
-
-      <label>
-        <span>Some select</span>
-        <select>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-          <option>Hello</option>
-        </select>
-        <span class="icon">arrow_drop_down</span>
-      </label>
-
-      <textarea placeholder="Type here..."></textarea>
-
-      <hr />
-
-      <label class="inline">
-        <input type="checkbox" checked />
-        Some checkbox
-      </label>
-      <label class="inline">
-        <input type="checkbox" />
-        Some checkbox
-      </label>
-
-      <label class="inline">
-        <input type="radio" name="radios" checked />
-        Some radio
-      </label>
-      <label class="inline">
-        <input type="radio" name="radios" />
-        Some radio
-      </label>
-      <label class="inline">
-        <input type="radio" name="radios" />
-        Some radio
-      </label>
-      <label class="inline">
-        <input type="radio" name="radios" />
-        Some radio
-      </label>
-
-      <input type="range" />
-
-      <hr />
-
-      <label class="tile">
+      </article>
+      <article id="tab-2">
+        <header>My app</header>
         <div>
-          <span>Some select</span>
-          <select>
-            <option>Hello</option>
-            <option>Hello</option>
-            <option>Hello</option>
-            <option>Hello</option>
-            <option>Hello</option>
-          </select>
-          <span class="icon">arrow_drop_down</span>
+          <h1>Tab 2</h1>
         </div>
-      </label>
-
-      <label class="tile">
-        <div>
-          <span>Some color input</span>
-          <input type="color" />
-        </div>
-      </label>
-
-      <div class="flex-row width-input justify-end">
-        <button class="primary width-50">
-          Submit<span class="icon">arrow_forward</span>
-        </button>
-      </div>
-
-      <hr />
-
-      <label class="tile">
-        <span class="icon">draw</span>
-        <div>
-          <span>Some input</span>
-          <input placeholder="Type here..." />
-        </div>
-      </label>
-      
-      <label class="tile">
-        <span class="icon">palette</span>
-        <div>
-          <span>Some color input</span>
-          <input type="color" />
-        </div>
-      </label>
-
-      <button class="tile primary width-input">
-        <span class="icon">favorite</span>
-        <div>
-          <b>Primary button tile</b>
-          <p class="secondary">Primary button tile with icon</p>
-        </div>
-      </button>
-
-      <hr>
-
-      <div
-        class="grid"
-        style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
-      >
-        <div class="tile">
-          <div>
-            <h2>Normal tile</h2>
-            <p class="secondary">This is a normal tile.</p>
-          </div>
-        </div>
-        <button class="tile" onclick="this.toggleAttribute('selected')">
-          <div>
-            <h2>Button tile</h2>
-            <p class="secondary">This tile is actually a button.</p>
-          </div>
-        </button>
-      </div>
-
-      <hr />
-
-      <div
-        class="grid"
-        style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
-      >
-        <div class="tile">
-          <span class="icon">favorite</span>
-          <div>
-            <h2>Icon tile</h2>
-            <p class="secondary">Tile with icon</p>
-          </div>
-        </div>
-        <button class="tile">
-          <span class="icon">favorite</span>
-          <div>
-            <h2>Button icon tile</h2>
-            <p class="secondary">Tile with icon and right arrow</p>
-          </div>
-          <span class="icon">arrow_forward</span>
-        </button>
-      </div>
-
-      <hr />
-
-      <div
-        class="grid"
-        style="grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr))"
-      >
-        <button class="tile">
-          <span class="icon">favorite</span>
-          <div>
-            <h2>Button tile</h2>
-            <p class="secondary">Button tile with icon</p>
-          </div>
-        </button>
-        <button class="tile ghost">
-          <span class="icon">favorite</span>
-          <div>
-            <h2>Ghost button tile</h2>
-            <p class="secondary">Ghost button tile with icon</p>
-          </div>
-        </button>
-        <button class="tile danger">
-          <span class="icon">favorite</span>
-          <div>
-            <h2>Danger button tile</h2>
-            <p class="secondary">Danger button tile with icon</p>
-          </div>
-        </button>
-        <button class="tile primary">
-          <span class="icon">favorite</span>
-          <div>
-            <h2>Primary button tile</h2>
-            <p class="secondary">Primary button tile with icon</p>
-          </div>
-        </button>
-      </div>
+      </article>
     </main>
+
     <script>
-      function openModal() {
-        document.getElementById("modal").setAttribute("open", "");
-      }
-      function closeModal() {
-        document.getElementById("modal").removeAttribute("open");
-      }
+      document.querySelector("main").addEventListener("scroll", () => {
+        const links = document.querySelectorAll(".tab-link");
+        links.forEach((element) => element.removeAttribute("active"));
+
+        const pageWidth = document.querySelector("main > article").offsetWidth;
+        const scroll = document.querySelector("main").scrollLeft;
+        const currentPage = Math.round(scroll / pageWidth);
+
+        links[currentPage].setAttribute("active", "");
+      });
     </script>
   </body>
 </html>
