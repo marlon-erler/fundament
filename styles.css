@@ -3,206 +3,117 @@ COLORS
  */
 /* definition */
 :root {
-  /* base */
-  --base-hue: 0;
-  --base-sat: 0%;
+  --background: hsla(0, 0%, 100%, 1);
+  --background-hover: hsla(0, 0%, 55%, 12%);
+  --background-active: hsla(0, 0%, 55%, 12%);
 
-  --base-lum-light: 100%;
-  --base-text-lum-light: 0%;
+  --surface: #f4f4f4;
+  --surface-hover: #e8e8e8;
+  --surface-active: #c6c6c6;
 
-  --base-lum-dark: 0%;
-  --base-text-lum-dark: 100%;
+  --text-normal: #161616;
+  --text-on-color: #ffffff;
 
-  /* accent */
-  --accent-hue: 230;
-  --accent-sat: 90%;
+  --text-success: #24a148;
+  --text-warn: #f1c21b;
+  --text-error: #da1e28;
+  --text-info: #0043ce;
 
-  --accent-lum-light: 55%;
-  --accent-text-lum-light: 100%;
+  --link: #0f62fe;
+  --link-hover: #0043ce;
 
-  --accent-lum-dark: 55%;
-  --accent-text-lum-dark: 100%;
+  --primary: #0f62fe;
+  --primary-hover: #0353e9;
+  --primary-active: #002d9c;
 
-  /* other */
-  --surface-offset-light: -8%;
-  --surface-offset-dark: 15%;
-
-  --text-secondary-opacity: 0.6;
+  --danger: #da1e28;
+  --danger-hover: #ba1b23;
+  --danger-active: #750e13;
 }
 
-.danger {
-  --theme-hue: 0;
-  --theme-sat: 100%;
-
-  --theme-lum-light: 50%;
-  --theme-text-lum-light: 100%;
-
-  --theme-lum-dark: 50%;
-  --theme-text-lum-dark: 100%;
-}
-
-.success {
-  --theme-hue: 270;
-  --theme-sat: 50%;
-
-  --theme-lum-light: 50%;
-  --theme-text-lum-light: 50%;
-
-  --theme-lum-dark: 50%;
-  --theme-text-lum-dark: 50%;
-}
-
-/* conversion */
-body,
-.surface {
-  --theme-hue: var(--base-hue);
-  --theme-sat: var(--base-sat);
-
-  --theme-lum-light: var(--base-lum-light);
-  --theme-text-lum-light: var(--base-text-lum-light);
-
-  --theme-lum-dark: var(--base-lum-dark);
-  --theme-text-lum-dark: var(--base-text-lum-dark);
-}
-
-.accent {
-  --theme-hue: var(--accent-hue);
-  --theme-sat: var(--accent-sat);
-
-  --theme-lum-light: var(--accent-lum-light);
-  --theme-text-lum-light: var(--accent-text-lum-light);
-
-  --theme-lum-dark: var(--accent-lum-dark);
-  --theme-text-lum-dark: var(--accent-text-lum-dark);
-}
-
-* {
-  --base-lum: var(--base-lum-light);
-  --base-text-lum: var(--base-text-lum-light);
-
-  --accent-lum: var(--accent-lum-light);
-  --accent-text-lum: var(--accent-text-lum-light);
-
-  --theme-lum: var(--theme-lum-light);
-  --theme-text-lum: var(--theme-text-lum-light);
-
-  --effect-offset: -4%;
-  --surface-offset: var(--surface-offset-light);
-}
 @media (prefers-color-scheme: dark) {
-  * {
-    --base-lum: var(--base-lum-dark);
-    --base-text-lum: var(--base-text-lum-dark);
+  :root {
+    --background: hsla(0, 0%, 9%, 100%);
+    --background-hover: hsla(0, 0%, 55%, 16%);
+    --background-active: hsla(0, 0%, 55%, 40%);
 
-    --accent-lum: var(--accent-lum-dark);
-    --accent-text-lum: var(--accent-text-lum-dark);
+    --surface: #262626;
+    --surface-hover: #333333;
+    --surface-active: #6f6f6f;
 
-    --theme-lum: var(--theme-lum-dark);
-    --theme-text-lum: var(--theme-text-lum-dark);
+    --text-normal: #f4f4f4;
 
-    --effect-offset: 12%;
-    --surface-offset: var(--surface-offset-dark);
+    --text-success: #42be65;
+    --text-warn: #f1c21b;
+    --text-error: #fa4d56;
+    --text-info: #4589ff;
+
+    --link: #78a9ff;
+    --link-hover: #a6c8ff;
   }
 }
 
-/* preparation */
-* {
-  --background-opacity: 0;
-  --accent-color: hsl(var(--accent-hue), var(--accent-sat), var(--accent-lum));
-  --accent-text-color: hsl(
-    var(--accent-hue),
-    var(--accent-sat),
-    var(--accent-text-lum)
-  );
-}
-
-body,
-.background,
-.filled,
-.ghost-surface,
-.ghost:hover,
-.ghost:active,
-.surface,
-input[type="checkbox"],
-input[type="radio"] {
-  --background-opacity: 1;
-}
-
-body,
-.background,
-.surface,
-.filled,
-input[type="checkbox"],
-input[type="radio"] {
-  --background-hue: var(--theme-hue);
-  --background-sat: var(--theme-sat);
-  --background-lum: var(--theme-lum);
-
-  --text-hue: var(--theme-hue);
-  --text-sat: var(--theme-sat);
-  --text-lum: var(--theme-text-lum);
-}
-
-.ghost,
-.ghost-surface {
-  --background-hue: var(--base-hue);
-  --background-sat: var(--base-sat);
-  --background-lum: var(--base-lum);
-
-  --text-hue: var(--theme-hue);
-  --text-sat: calc(var(--theme-sat) * 0.9);
-  --text-lum: calc(var(--theme-lum) * 1.3);
-}
-
-.ghost-surface,
-.surface,
-input[type="checkbox"],
-input[type="radio"] {
-  --background-lum: calc(var(--base-lum) + var(--surface-offset));
-}
-
 /* implementation */
-* {
-  color: hsl(var(--text-hue), var(--text-sat), var(--text-lum));
-  accent-color: var(--accent-color);
-  background: hsla(
-    var(--background-hue),
-    var(--background-sat),
-    var(--background-lum),
-    var(--background-opacity)
-  );
+body {
+  background-color: var(--background);
+  color: var(--text-normal);
 }
-.ghost {
-  background: transparent;
-}
-[disabled] {
-  background: hsla(
-    var(--background-hue),
-    var(--background-sat),
-    calc(var(--background-lum) + var(--effect-offset)),
-    var(--background-opacity)
-  );
+
+button,
+input,
+textarea,
+select,
+.surface,
+.tile {
+  background-color: var(--surface);
+  color: var(--text-on-color)
 }
 :is(.clickable, button, select):hover,
 :is(.clickable, button, select)[selected]:active {
-  background: hsla(
-    var(--background-hue),
-    var(--background-sat),
-    calc(var(--background-lum) + var(--effect-offset)),
-    var(--background-opacity)
-  );
+  background-color: var(--surface-hover);
 }
 :is(.clickable, button, select):active,
 :is(.clickable, button, select)[selected] {
-  background: hsla(
-    var(--background-hue),
-    var(--background-sat),
-    calc(var(--background-lum) + var(--effect-offset) * 2),
-    var(--background-opacity)
-  );
+  background-color: var(--surface-active);
 }
+
 input:checked {
-  background-color: var(--accent-color);
+  background-color: var(--primary);
+}
+
+button.ghost:not(.tile) {
+  background-color: transparent;
+}
+
+button.primary {
+  background-color: var(--primary);
+}
+button.primary:hover {
+  background-color: var(--primary-hover);
+}
+button.primary:active {
+  background-color: var(--primary-active);
+}
+
+button.ghost {
+  color: var(--link);
+}
+button.ghost:hover {
+  color: var(--hover);
+  background-color: var(--background-hover);
+}
+button.ghost:active {
+  background-color: var(--background-active);
+}
+
+button.danger {
+  background-color: var(--danger);
+}
+button.danger:hover {
+  background-color: var(--danger-hover);
+}
+button.danger:active {
+  background-color: var(--danger-active);
 }
 
 /*
@@ -260,7 +171,7 @@ label {
 
 .helper-text,
 label span {
-  opacity: var(--text-secondary-opacity);
+  opacity: 0.6;
 }
 
 @font-face {
@@ -327,8 +238,8 @@ textarea {
 }
 
 hr {
-  border-bottom: 1px solid
-    hsla(var(--base-hue), var(--base-sat), var(--base-text-lum), 0.2);
+  border-bottom: 1px solid var(--text-normal);
+  opacity: .1;
 }
 
 :is(
@@ -336,7 +247,7 @@ hr {
     textarea
   ):focus,
 .tile[selected] {
-  outline: var(--outline-width) solid var(--accent-color);
+  outline: var(--outline-width) solid var(--primary);
 }
 
 /* border-radius */
@@ -424,6 +335,10 @@ h2,
 h3,
 p {
   margin: 0px;
+}
+
+hr {
+  margin: var(--content-margin) 0px;
 }
 
 :is(code, p):not(:last-child) {
@@ -549,13 +464,13 @@ PSEUDO
 input[type="checkbox"]:checked::before {
   content: "check";
   font-size: 70% !important;
-  color: var(--accent-text-color);
+  color: var(--text-on-color);
 }
 
 input[type="radio"]:checked::before {
   content: "";
 
-  background-color: var(--accent-text-color);
+  background-color: var(--text-on-color);
   border-radius: 100%;
 
   --inset: 4px;
