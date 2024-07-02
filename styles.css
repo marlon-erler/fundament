@@ -59,6 +59,10 @@ body {
   color: var(--text-normal);
 }
 
+* {
+  color: inherit;
+}
+
 button,
 input,
 textarea,
@@ -66,14 +70,23 @@ select,
 .surface,
 .tile {
   background-color: var(--surface);
-  color: var(--text-on-color)
 }
-:is(.clickable, button, select):hover,
-:is(.clickable, button, select)[selected]:active {
+button:hover,
+select:hover,
+button.tile.ghost:hover,
+button[selected]:active,
+select[selected]:active,
+div.tile[selected]:active,
+button.tile.ghost[selected]:active {
   background-color: var(--surface-hover);
 }
-:is(.clickable, button, select):active,
-:is(.clickable, button, select)[selected] {
+button:active,
+select:active,
+button.tile.ghost:active,
+button[selected],
+select[selected],
+div.tile[selected],
+button.tile.ghost[selected] {
   background-color: var(--surface-active);
 }
 
@@ -87,6 +100,7 @@ button.ghost:not(.tile) {
 
 button.primary {
   background-color: var(--primary);
+  color: var(--text-on-color);
 }
 button.primary:hover {
   background-color: var(--primary-hover);
@@ -99,7 +113,6 @@ button.ghost {
   color: var(--link);
 }
 button.ghost:hover {
-  color: var(--hover);
   background-color: var(--background-hover);
 }
 button.ghost:active {
@@ -108,6 +121,7 @@ button.ghost:active {
 
 button.danger {
   background-color: var(--danger);
+  color: var(--text-on-color);
 }
 button.danger:hover {
   background-color: var(--danger-hover);
@@ -240,7 +254,7 @@ textarea {
 
 hr {
   border-bottom: 1px solid var(--text-normal);
-  opacity: .1;
+  opacity: 0.1;
 }
 
 :is(
