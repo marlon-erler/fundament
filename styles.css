@@ -63,6 +63,14 @@ COLORS
     --link: #78a9ff;
     --link-hover: #a6c8ff;
   }
+
+  @media (display-mode: standalone) {
+    :root {
+      --background: hsla(0, 0%, 0%, 100%);
+      --background-transparent: hsla(0, 0%, 0%, 60%);
+      --layer: hsla(0, 0%, 0%, 60%);
+    }
+  }
 }
 
 /* implementation */
@@ -178,7 +186,7 @@ SPACING
   /* padding */
   --control-padding: 1rem;
   --control-marker-padding: 0.7rem;
-  --content-padding: 2rem;
+  --content-padding: 2rem var(--control-padding);
   --modal-padding: 1.25rem;
   --link-padding-h: 0.8rem;
 
