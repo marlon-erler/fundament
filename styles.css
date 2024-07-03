@@ -784,7 +784,7 @@ MOBILE
     width: 100%;
     height: calc(var(--header-height) + var(--safe-area-bottom));
 
-    position: fixed;
+    position: absolute;
     bottom: 0px;
     left: 0px;
     right: 0px;
