@@ -174,11 +174,11 @@ In addition to the standard look, there are three more styles:
 ```
 
 You can also append icons to a button:
+```HTML
 <button class="primary">
   Primary button
   <span class="icon">icon_name</span>
 </button>
-```HTML
 ```
 
 ## Label
