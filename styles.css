@@ -342,6 +342,7 @@ input[type="radio"] {
 }
 
 /* cursor */
+a,
 .tab-link {
   cursor: pointer;
 }
@@ -359,7 +360,6 @@ label.inline,
 select,
 textarea,
 .align-right,
-.tab-link,
 .tile:not(label) {
   align-items: center;
 }
@@ -373,7 +373,6 @@ label * {
   display: block;
 }
 
-body,
 header,
 input[type="checkbox"],
 input[type="radio"],
@@ -384,7 +383,6 @@ menu,
 .flex-row,
 .modal[open],
 .modal > div,
-.tab-link,
 .tile {
   display: flex;
 }
@@ -427,10 +425,6 @@ button,
   gap: var(--grid-gap);
 }
 
-.tab-link {
-  gap: var(--link-gap);
-}
-
 header,
 button,
 .justify-apart {
@@ -438,7 +432,6 @@ button,
 }
 
 .justify-start,
-.tab-link,
 .tile {
   justify-content: start;
 }
@@ -460,37 +453,7 @@ input[type="radio"],
   opacity: 0.5;
 }
 
-/* overflow, scroll, etc */
-body > * {
-  overflow: auto;
-}
-
-article,
-body,
-main {
-  overflow: hidden;
-}
-
-article > div,
-main {
-  overflow-x: scroll;
-}
-
-main {
-  scroll-behavior: smooth;
-}
-
-article {
-  scroll-snap-align: start;
-}
-
-main {
-  scroll-snap-type: x mandatory;
-}
-
 /* padding, margin, etc */
-body,
-body > *,
 h1,
 h2,
 h3,
@@ -532,10 +495,6 @@ input[type="checkbox"],
 input[type="radio"],
 label.tile:has(> span.icon) * {
   padding: 0px;
-}
-
-.tab-link {
-  padding: var(--link-padding-h) var(--control-padding);
 }
 
 article > div {
@@ -633,8 +592,6 @@ article > div,
 
 /* size */
 article,
-body,
-body > *,
 main,
 select + .icon,
 .modal main {
@@ -683,7 +640,6 @@ article {
 }
 
 article,
-body,
 input:not([type="checkbox"]):not([type="radio"]),
 header,
 main,
@@ -692,7 +648,6 @@ textarea,
 .modal > div,
 .width-content,
 .width-input,
-.tab-link,
 .tile,
 .tile > div,
 .width-100 {
@@ -769,43 +724,95 @@ input[type="radio"]:checked::before {
 }
 
 /*
-MOBILE
+LAYOUT
 */
-@media (max-width: 640px) {
-  body {
-    flex-direction: column-reverse;
-  }
+/* basic */
+body {
+  display: flex;
+  flex-direction: column-reverse;
+}
 
-  main {
-    height: 100%;
-  }
+body,
+.tab-link {
+  width: 100%;
+}
 
-  menu {
-    width: 100%;
-    height: calc(var(--header-height) + var(--safe-area-bottom));
+body,
+body > * {
+  margin: 0px;
+  height: 100%;
+}
 
-    position: absolute;
-    bottom: 0px;
-    left: 0px;
-    right: 0px;
+main {
+  height: 100%;
+}
 
-    background-color: var(--background-transparent);
-    border-right: none;
+menu {
+  width: 100%;
+  height: calc(var(--header-height) + var(--safe-area-bottom));
 
-    flex-direction: row;
-    justify-content: space-around;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
 
-    padding-top: 0px;
-    padding-bottom: var(--safe-area-bottom);
-  }
+  background-color: var(--background-transparent);
+  border-right: none;
 
-  .tab-link {
-    flex-direction: column;
-    font-size: 0.5rem;
+  flex-direction: row;
+  justify-content: space-around;
 
-    height: var(--header-height);
-    gap: 0px !important;
-  }
+  padding-top: 0px;
+  padding-bottom: var(--safe-area-bottom);
+}
+
+.tab-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0px;
+
+  font-size: 0.5rem;
+
+  height: var(--header-height);
+  padding: var(--link-padding-h) var(--control-padding);
+}
+
+/* overflow */
+body {
+  overflow: hidden;
+}
+
+body > *,
+article > div {
+  overflow: auto;
+}
+
+article,
+body,
+main {
+  overflow: hidden;
+}
+
+main {
+  overflow-x: scroll;
+}
+
+/* scrolling */
+main {
+  scroll-behavior: smooth;
+}
+
+article {
+  scroll-snap-align: start;
+}
+
+main {
+  scroll-snap-type: x mandatory;
+}
+
+/* desktop */
+@media (min-width: 640px) {
 }
 
 /*
