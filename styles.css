@@ -783,7 +783,7 @@ body {
   overflow: hidden;
 }
 
-body > *,
+menu,
 article > div {
   overflow: auto;
 }
@@ -813,6 +813,33 @@ main {
 
 /* desktop */
 @media (min-width: 640px) {
+  body {
+    flex-direction: row;
+  }
+
+  menu {
+    position: static;
+
+    width: var(--menu-width);
+    height: 100%;
+
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 20px;
+
+    border-right: 1px solid var(--border);
+  }
+
+  .tab-link {
+    width: 100%;
+    height: var(--control-height);
+
+    flex-direction: row;
+    gap: var(--link-gap);
+
+    font-size: 1rem;
+
+  }
 }
 
 /*
