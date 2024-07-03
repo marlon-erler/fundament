@@ -1,4 +1,17 @@
 /*
+BASIC
+*/
+* {
+  box-sizing: border-box;
+  text-align: left;
+  border: none;
+  outline: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+
+/*
 COLORS
  */
 /* definition */
@@ -262,19 +275,7 @@ label span,
 }
 
 /*
-BASIC
-*/
-* {
-  box-sizing: border-box;
-  text-align: left;
-  border: none;
-  outline: none;
-  margin: 0px;
-  padding: 0px;
-}
-
-/*
-COMPONENTS
+MAIN
  */
 /* appearance */
 input[type="checkbox"],
