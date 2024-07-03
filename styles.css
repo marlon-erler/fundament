@@ -185,7 +185,7 @@ button.danger:active {
 }
 
 /*
-SPACING
+SIZES
  */
 :root {
   /* gap */
@@ -210,6 +210,7 @@ SPACING
   --checkbox-size: 16px;
 
   --menu-width: 200px;
+  --split-pane-width: 300px;
 
   --control-height: 42px;
   --header-height: 48px;
@@ -818,6 +819,16 @@ main {
     flex-direction: row;
   }
 
+  main.split {
+    display: grid;
+    grid-template-columns: var(--split-pane-width) 1fr;
+  }
+
+  menu,
+  main.split > article:first-of-type {
+    border-right: 1px solid var(--border);
+  }
+
   menu {
     position: static;
 
@@ -827,8 +838,6 @@ main {
     flex-direction: column;
     justify-content: start;
     padding-top: 20px;
-
-    border-right: 1px solid var(--border);
   }
 
   .tab-link {
