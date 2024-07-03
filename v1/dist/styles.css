@@ -155,7 +155,7 @@ button.primary:active {
   background-color: var(--primary-active);
 }
 
-button.ghost .tab-link {
+button.ghost {
   color: var(--link);
 }
 .tab-link[active] {
@@ -387,7 +387,8 @@ menu,
 .flex-row,
 .modal[open],
 .modal > div,
-.tile {
+.tile,
+.tile > div {
   display: flex;
 }
 
@@ -416,7 +417,8 @@ main,
 
 menu,
 .flex-column,
-.modal > div {
+.modal > div,
+.tile > div {
   flex-direction: column;
 }
 

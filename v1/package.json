@@ -1,0 +1,9 @@
+{
+    "dependencies": {
+      "esbuild": "latest"
+    },
+    "scripts": {
+      "build": "esbuild src/index.tsx --bundle --outdir=dist"
+    }
+  }
+  
