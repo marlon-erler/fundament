@@ -815,6 +815,10 @@ main {
 
 /* desktop */
 @media (min-width: 640px) {
+  .mobile-only {
+    display: none;
+  }
+
   body {
     flex-direction: row;
   }
