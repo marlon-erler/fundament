@@ -6,5 +6,5 @@ document.querySelector("main").addEventListener("scroll", () => {
     const scroll = document.querySelector("main").scrollLeft;
     const currentPage = Math.round(scroll / pageWidth);
 
-    links[currentPage].setAttribute("active", "");
+    if (links[currentPage]) links[currentPage].setAttribute("active", "");
   });
