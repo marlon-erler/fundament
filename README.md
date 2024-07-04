@@ -30,6 +30,10 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 
 # Utility Classes
 
+## General
+
+- `.mobile-only`
+
 ## Flexbox and Grid
 
 - `flex-column`
@@ -45,12 +49,28 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 - `justify-end`
 - `justify-apart`
 
+## Position
+
+- `absolute`
+- `relative`
+- `sticky`
+- `top-0`
+- `bottom-0`
+- `left-0`
+- `right-0`
+
 ## Sizes
 
 - `width-100`
 - `width-50`
 - `width-input` (width of input elements)
 - `width-content` (width of the `<p>` element)
+
+# Utility Attributes
+
+- `hidden`
+- `disabled`
+- `selected` (applies blue outline)
 
 # Layout
 
@@ -78,6 +98,9 @@ The underlying code is mostly the same:
         <div>
           <!-- content goes here -->
         </div>
+        <footer>
+          <!-- footer can go here -->
+        </footer>
       </article>
       <article id="2">
         <header>
@@ -89,6 +112,9 @@ The underlying code is mostly the same:
         <div>
           <!-- content goes here -->
         </div>
+        <footer>
+          <!-- footer can go here -->
+        </footer>
       </article>
     </main>
   </body>
@@ -175,6 +201,7 @@ In addition to the standard look, there are three more styles:
 ```
 
 You can also append icons to a button:
+
 ```HTML
 <button class="primary">
   Primary button
@@ -238,12 +265,19 @@ You can add icons before and/or after the `<div>` element.
 ```
 
 # Changelog
+
 ## v2
+
 Features:
+
 - add `gap` utility class
+- add utility classes for positioning
+- add `<footer>` element
 
 Fixes:
+
 - add `accent-color` style (ie. for checkboxes)
 - fix overflow in tab content
 - fix menu overlapping content on mobile
 - remove width restrictions for inputs and content elements on mobile
+- clean and reoranize the code
