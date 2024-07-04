@@ -189,7 +189,7 @@ SIZES
  */
 :root {
   /* gap */
-  --grid-gap: 4px;
+  --standard-gap: 4px;
   --label-gap: 0.25rem;
   --label-tile-gap: 0.5rem;
   --link-gap: 1rem;
@@ -334,7 +334,7 @@ label.tile:has(input:focus),
 label.tile:has(textarea:focus),
 textarea:focus:not(label.tile *),
 [selected] {
-  outline: var(--grid-gap) solid var(--primary);
+  outline: var(--standard-gap) solid var(--primary);
 }
 
 /* border-radius */
@@ -428,8 +428,8 @@ button,
   gap: var(--control-gap);
 }
 
-.grid {
-  gap: var(--grid-gap);
+.gap {
+  gap: var(--standard-gap);
 }
 
 header,
@@ -486,7 +486,7 @@ label:not(.tile) > span:first-child {
 }
 
 label.tile {
-  margin-bottom: var(--grid-gap);
+  margin-bottom: var(--standard-gap);
 }
 
 label.tile > span:first-child {

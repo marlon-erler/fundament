@@ -35,6 +35,7 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 - `flex-column`
 - `flex-row`
 - `flex` (gets `flex: 1`)
+- `gap` (applies standard gap)
 - `grid`
 - `align-start`
 - `align-center`
@@ -240,3 +241,6 @@ You can add icons before and/or after the `<div>` element.
 ## v2
 - add `accent-color` style (ie. for checkboxes)
 - fix overflow in tab content
+
+## v3
+- add `gap` utility class
