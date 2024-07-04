@@ -239,8 +239,11 @@ You can add icons before and/or after the `<div>` element.
 
 # Changelog
 ## v2
+Features:
+- add `gap` utility class
+
+Fixes:
 - add `accent-color` style (ie. for checkboxes)
 - fix overflow in tab content
-
-## v3
-- add `gap` utility class
+- fix menu overlapping content on mobile
+- remove width restrictions for inputs and content elements on mobile

@@ -624,20 +624,6 @@ header button {
   height: var(--header-height);
 }
 
-p,
-.width-content,
-.modal > div {
-  max-width: var(--max-content-width);
-}
-
-input,
-label,
-select,
-textarea,
-.width-input {
-  max-width: var(--max-input-width);
-}
-
 article {
   min-width: 100%;
 }
@@ -789,6 +775,12 @@ menu {
   padding: var(--link-padding-h) var(--control-padding);
 }
 
+article > div {
+  padding-bottom: calc(
+    var(--header-height) + var(--safe-area-bottom) + var(--content-padding)
+  );
+}
+
 /* overflow */
 menu {
   overflow: auto;
@@ -860,6 +852,20 @@ main {
     gap: var(--link-gap);
 
     font-size: 1rem;
+  }
+
+  p,
+  .width-content,
+  .modal > div {
+    max-width: var(--max-content-width);
+  }
+
+  input,
+  label,
+  select,
+  textarea,
+  .width-input {
+    max-width: var(--max-input-width);
   }
 }
 
