@@ -235,3 +235,8 @@ You can add icons before and/or after the `<div>` element.
   </div>
 </label>
 ```
+
+# Changelog
+## v2
+- add `accent-color` style (ie. for checkboxes)
+- fix overflow in tab content

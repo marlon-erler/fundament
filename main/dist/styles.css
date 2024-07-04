@@ -790,13 +790,16 @@ menu {
 }
 
 /* overflow */
+menu {
+  overflow: auto;
+}
+
 article,
 body,
 main {
   overflow: hidden;
 }
 
-menu,
 article > div {
   overflow: scroll;
 }
