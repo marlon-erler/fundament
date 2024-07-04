@@ -106,6 +106,7 @@ header {
 
 * {
   color: inherit;
+  accent-color: var(--primary);
 }
 
 button,
@@ -789,19 +790,15 @@ menu {
 }
 
 /* overflow */
-body {
+article,
+body,
+main {
   overflow: hidden;
 }
 
 menu,
 article > div {
-  overflow: auto;
-}
-
-article,
-body,
-main {
-  overflow: hidden;
+  overflow: scroll;
 }
 
 main {
