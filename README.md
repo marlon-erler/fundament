@@ -281,3 +281,8 @@ Fixes:
 - fix menu overlapping content on mobile
 - remove width restrictions for inputs and content elements on mobile
 - clean and reoranize the code
+
+## v3
+
+- add favicon to manifest.json
+- make theme color support dark mode
