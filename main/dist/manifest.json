@@ -1,4 +1,10 @@
 {
-  "name": "My App",
-  "display": "standalone"
+  "name": "UDN Server",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "any"
+    }
+  ]
 }
