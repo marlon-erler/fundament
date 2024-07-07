@@ -522,6 +522,10 @@ label.tile:has(> span.icon) {
   padding-left: var(--control-padding);
 }
 
+label.tile:has(> span.icon) input {
+  padding-left: 0px;
+}
+
 article > div {
   padding-bottom: calc(
     var(--menu-height-mobile) + var(--control-height) + var(--content-padding)
