@@ -66,6 +66,12 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 - `width-input` (width of input elements)
 - `width-content` (width of the `<p>` element)
 
+## Text Colors
+- `success`
+- `warning`
+- `error`
+- `info`
+
 # Utility Attributes
 
 - `hidden`
@@ -286,3 +292,5 @@ Fixes:
 
 - add favicon to manifest.json
 - make theme color support dark mode
+- add colors for success, warning, error, and info
+- hide scrollbar for tabs
