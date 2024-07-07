@@ -41,6 +41,7 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 - `flex-column`
 - `flex-row`
 - `flex` (gets `flex: 1`)
+- `flex-no` (gets `flex: 0`)
 - `flex-wrap`
 - `grid`
 - `align-start`
@@ -317,11 +318,7 @@ Features:
 - define app icon paths
 - make theme color support dark mode
 - add colors for success, warning, error, and info
-- add `height-100` utility class
-- add `flex-wrap` utility class
-- add `margin-bottom` utility class
-- add `margin-0` utility class
-- add `padding-0` utility class
+- add utility classes
 - hide scrollbar for tabs
 - add `index.css` link to HTML file
 
@@ -332,4 +329,5 @@ Fixes:
 - fix backdrop blur on safari
 - fix layout
 - fix headline margin
+- fix placement of footer when no `<menu>` is present
 - mark utility class styles as !important

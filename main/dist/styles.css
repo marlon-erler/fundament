@@ -413,7 +413,11 @@ main,
 }
 
 .flex {
-  flex: 1;
+  flex: 1 !important;
+}
+
+.flex-no {
+  flex: 0 !important;
 }
 
 .modal > div,
@@ -678,6 +682,10 @@ select + .icon {
 }
 
 footer {
+  bottom: var(--safe-area-bottom);
+}
+
+body:has(> menu) footer {
   bottom: var(--menu-height-mobile);
 }
 
