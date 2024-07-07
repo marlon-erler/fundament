@@ -407,6 +407,10 @@ main,
   flex-direction: column;
 }
 
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
 button,
 .tile {
   gap: var(--gap-in-controls);
@@ -455,7 +459,10 @@ label span,
 /* padding, margin, etc */
 h1,
 h2,
-h3,
+h3 {
+  margin: var(--control-padding) 0px;
+}
+
 main,
 p {
   margin: 0px;
