@@ -224,8 +224,10 @@ The text of a label should be put in a `<span>` element:
 
 ```HTML
 <label>
-  <span>Some input</span>
-  <input placeholder="type here" />
+  <div>
+    <span>Some input</span>
+    <input placeholder="type here" />
+  </div>
 </label>
 ```
 
