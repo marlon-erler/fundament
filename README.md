@@ -224,10 +224,8 @@ The text of a label should be put in a `<span>` element:
 
 ```HTML
 <label>
-  <div>
-    <span>Some input</span>
-    <input placeholder="type here" />
-  </div>
+  <span>Some input</span>
+  <input placeholder="type here" />
 </label>
 ```
 
@@ -261,7 +259,7 @@ For checkboxes and radios, use
 
 ## Tile
 
-You can add the `tile` class to `<div>`, `<label>` and `<button>` elements to create a tile. This may help clean up the interface.
+You can add the `tile` class to `<div>`, `<label>` and `<button>` elements to create a tile, the primary contents must go into another `<div>`.
 
 You can add icons before and/or after the `<div>` element.
 
