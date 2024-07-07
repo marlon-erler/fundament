@@ -313,3 +313,4 @@ Features:
 Fixes:
 
 - Fix safe-area padding
+- Fix backdrop blur on safari
