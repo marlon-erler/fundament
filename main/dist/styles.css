@@ -464,7 +464,8 @@ h3 {
 }
 
 main,
-p {
+p,
+.margin-0 {
   margin: 0px;
 }
 
@@ -495,7 +496,8 @@ label.tile span:first-child {
 
 input[type="color"],
 input[type="checkbox"],
-input[type="radio"] {
+input[type="radio"],
+.padding-0 {
   padding: 0px;
 }
 

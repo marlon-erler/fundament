@@ -35,7 +35,6 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 ## General
 
 - `.mobile-only`
-- `.bottom-margin`
 
 ## Flexbox and Grid
 
@@ -70,6 +69,12 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 - `width-input` (width of input elements)
 - `width-content` (width of the `<p>` element)
 - `height-100`
+
+## Spacing
+
+- `.margin-0`
+- `.padding-0`
+- `.margin-bottom` (applies standard bottom margin)
 
 ## Text Colors
 - `success`
@@ -311,6 +316,9 @@ Features:
 - add colors for success, warning, error, and info
 - add `height-100` utility class
 - add `flex-wrap` utility class
+- add `margin-bottom` utility class
+- add `margin-0` utility class
+- add `padding-0` utility class
 - hide scrollbar for tabs
 - add `index.css` link to HTML file
 
