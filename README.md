@@ -42,7 +42,6 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 - `flex-row`
 - `flex` (gets `flex: 1`)
 - `flex-wrap`
-- `gap` (applies standard gap)
 - `grid`
 - `align-start`
 - `align-center`
@@ -72,11 +71,13 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 
 ## Spacing
 
-- `.margin-0`
-- `.padding` (applies standard padding)
-- `.padding-h` (applies standard horizontal padding)
-- `.padding-0`
-- `.margin-bottom` (applies standard bottom margin)
+- `gap` (applies standard gap)
+- `control-gap` (applies gap for i.e. buttons)
+- `margin-0`
+- `padding` (applies standard padding)
+- `padding-h` (applies standard horizontal padding)
+- `padding-0`
+- `margin-bottom` (applies standard bottom margin)
 
 ## Text Colors
 - `success`

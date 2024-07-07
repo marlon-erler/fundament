@@ -435,7 +435,8 @@ main,
 
 button,
 label.inline,
-.tile {
+.tile,
+.control-gap {
   gap: var(--gap-in-controls);
 }
 
