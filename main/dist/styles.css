@@ -279,6 +279,7 @@ select {
 header,
 menu {
   backdrop-filter: blur(70px);
+  -webkit-backdrop-filter: blur(70px);
 }
 
 /* border, outline, etc */

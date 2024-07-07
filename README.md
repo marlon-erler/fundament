@@ -20,7 +20,7 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 - You can either extract the `dist` directory for a basic static website, or use the `src/index.tsx` as your entry point.
 - Use `npm run build` to bundle the project.
 - All assets excluding scripts (fonts, images, stylesheets, etc) go into the `dist` directory. Import them through index.html or a stylesheet.
-- You can generate the icon for your app [here](https://icongen.onrender.com/)
+- You can generate the icon for your app [here](https://icongen.onrender.com/).
 
 # References
 
