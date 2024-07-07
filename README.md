@@ -73,6 +73,8 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 ## Spacing
 
 - `.margin-0`
+- `.padding` (applies standard padding)
+- `.padding-h` (applies standard horizontal padding)
 - `.padding-0`
 - `.margin-bottom` (applies standard bottom margin)
 
@@ -329,3 +331,4 @@ Fixes:
 - fix backdrop blur on safari
 - fix layout
 - fix headline margin
+- mark utility class styles as !important
