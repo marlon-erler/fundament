@@ -309,6 +309,7 @@ Features:
 - add colors for success, warning, error, and info
 - add `height-100` utility class
 - hide scrollbar for tabs
+- add `index.css` link to HTML file
 
 Fixes:
 
