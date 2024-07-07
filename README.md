@@ -220,7 +220,7 @@ You can also append icons to a button:
 
 ## Label
 
-The text of a label should be put in a `<span>` element:
+For classic inputs and textareas, the text of a label should be put in a `<span>` element:
 
 ```HTML
 <label>
@@ -229,16 +229,12 @@ The text of a label should be put in a `<span>` element:
 </label>
 ```
 
-Alternative style:
-```diff
--<label>
-+<label class="tile">
-```
-
 For checkboxes and radios, use 
-```diff
--<label>
-+<label class="inline">
+```HTML
+<label class="inline">
+  <input type="checkbox" />
+  Some checkbox
+</label>
 ```
 
 ## Modal

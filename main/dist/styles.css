@@ -403,6 +403,7 @@ main,
   flex-direction: column;
 }
 
+label:not(.tile):not(.inline)
 button,
 .tile {
   gap: var(--gap-in-controls);
