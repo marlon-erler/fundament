@@ -226,6 +226,18 @@ The text of a label should be put in a `<span>` element:
 </label>
 ```
 
+Alternative style:
+```diff
+-<label>
++<label class="tile">
+```
+
+For checkboxes and radios, use 
+```diff
+-<label>
++<label class="inline">
+```
+
 ## Modal
 
 ```HTML
