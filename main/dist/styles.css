@@ -476,7 +476,8 @@ hr {
   margin-bottom: var(--content-margin);
 }
 
-label:not(.tile) {
+label:not(.tile),
+.bottom-margin {
   margin-bottom: var(--label-margin-bottom);
 }
 
