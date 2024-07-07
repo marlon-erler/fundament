@@ -35,6 +35,7 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 ## General
 
 - `.mobile-only`
+- `.bottom-margin`
 
 ## Flexbox and Grid
 
