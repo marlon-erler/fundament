@@ -331,3 +331,4 @@ Fixes:
 - fix headline margin
 - fix placement of footer when no `<menu>` is present
 - mark utility class styles as !important
+- add `word-break` to tile
