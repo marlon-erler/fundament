@@ -305,7 +305,7 @@ Fixes:
 
 Features:
 
-- add favicon to manifest.json
+- define app icon paths
 - make theme color support dark mode
 - add colors for success, warning, error, and info
 - hide scrollbar for tabs
