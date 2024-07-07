@@ -290,7 +290,13 @@ Fixes:
 
 ## v3
 
+Features:
+
 - add favicon to manifest.json
 - make theme color support dark mode
 - add colors for success, warning, error, and info
 - hide scrollbar for tabs
+
+Fixes:
+
+- Fix safe-area padding
