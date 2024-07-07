@@ -258,6 +258,12 @@ TYPE
 }
 
 @font-face {
+  font-family: IBM Plex Sans;
+  src: url("Fonts/IBMPlexSans-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
   font-family: IBM Plex Mono;
   src: url("Fonts/IBMPlexMono-Regular.ttf");
 }
@@ -428,6 +434,7 @@ main,
 }
 
 button,
+label.inline,
 .tile {
   gap: var(--gap-in-controls);
 }
@@ -510,7 +517,7 @@ label:not(.tile) {
 }
 
 .margin-bottom {
-  margin-bottom: var(--label-margin-bottom) !important;
+  margin-bottom: var(--gap-between-tiles) !important;
 }
 
 label.tile {
@@ -545,6 +552,11 @@ select {
   padding: 0px var(--control-padding);
 }
 
+.padding-h {
+  padding: 0px var(--control-padding) !important;
+}
+
+label.inline,
 textarea,
 .tile:not(label) {
   padding: var(--control-padding);
@@ -580,7 +592,7 @@ article > div {
   );
 }
 
-label {
+label:not(.inline) {
   text-indent: var(--control-padding);
 }
 
@@ -932,7 +944,7 @@ main {
   scroll-snap-type: x mandatory;
 }
 
-/* desktop */
+/* tablet & up */
 @media (min-width: 640px) {
   /* basic */
   .mobile-only {
@@ -1011,6 +1023,13 @@ main {
     gap: var(--gap-in-tab-links);
 
     font-size: 1rem;
+  }
+}
+
+/* desktop */
+@media (min-width: 1024px) {
+  :root {
+    --split-pane-width-desktop: 400px;
   }
 }
 
