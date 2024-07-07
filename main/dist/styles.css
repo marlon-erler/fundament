@@ -105,6 +105,10 @@ header {
   accent-color: var(--primary);
 }
 
+a {
+  color: var(--link);
+}
+
 /* text */
 
 .success {
@@ -403,7 +407,6 @@ main,
   flex-direction: column;
 }
 
-label:not(.tile):not(.inline)
 button,
 .tile {
   gap: var(--gap-in-controls);
@@ -685,6 +688,7 @@ code {
 }
 
 .secondary,
+.secondary *,
 .helper-text,
 .error-text,
 label {
@@ -751,7 +755,8 @@ input[type="radio"]:checked::before {
 LAYOUT
 */
 /* basic */
-body, html {
+body,
+html {
   display: flex;
   flex-direction: column-reverse;
 
