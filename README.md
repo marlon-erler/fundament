@@ -8,6 +8,7 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
 - Supports dark/light mode
 - Styles for all major elements
 - Modal dialog, tab-like navigation
+- Available offline through Service Workers (HTTPS only)
 
 # Install
 
@@ -306,6 +307,7 @@ Fixes:
 
 Features:
 
+- add offline support
 - define app icon paths
 - make theme color support dark mode
 - add colors for success, warning, error, and info
@@ -314,5 +316,7 @@ Features:
 
 Fixes:
 
-- Fix safe-area padding
-- Fix backdrop blur on safari
+- fix quirks mode
+- fix safe-area padding
+- fix backdrop blur on safari
+- fix layout
