@@ -36,6 +36,7 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design. It ships as a
 
 - `.mobile-only`
 - `.break-all`
+- `.break-word`
 - `.ellipsis` (applies text-overflow: ellipsis and other required styles)
 
 ## Flexbox and Grid
@@ -322,7 +323,7 @@ Features:
 - define app icon paths
 - make theme color support dark mode
 - add colors for success, warning, error, and info
-- add utility classes
+- add more utility classes
 - hide scrollbar for tabs
 - add `index.css` link to HTML file
 
