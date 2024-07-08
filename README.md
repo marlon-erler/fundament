@@ -1,6 +1,6 @@
 # carbon-mini
 
-Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design
+Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design. It ships as a preconfigured esbuild project with everything you need to get started.
 
 # Features
 
