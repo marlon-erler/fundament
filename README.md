@@ -77,6 +77,7 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design. It ships as a
 
 - `gap` (applies standard gap)
 - `control-gap` (applies gap for i.e. buttons)
+- `large-gap` (applies large gap)
 - `margin-0`
 - `padding` (applies standard padding)
 - `padding-0`
@@ -334,6 +335,7 @@ Fixes:
 - fix backdrop blur on safari
 - fix layout
 - fix headline margin
+- fix modal layout
 - fix placement of footer when no `<menu>` is present
 - mark utility class styles as !important
 - add `word-break` to tile
