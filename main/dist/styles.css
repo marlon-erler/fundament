@@ -735,8 +735,7 @@ button:not(.tile):not(header *),
 footer,
 input:not([type="checkbox"]):not([type="radio"]),
 select,
-select + .icon,
-textarea {
+select + .icon {
   height: var(--control-height);
 }
 
