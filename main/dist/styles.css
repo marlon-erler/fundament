@@ -786,6 +786,10 @@ input[type="radio"] {
   height: 16px;
 }
 
+label.tile textarea {
+  resize: vertical;
+}
+
 /*
 text
  */
