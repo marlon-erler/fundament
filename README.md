@@ -40,6 +40,7 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design. It ships as a
 - `.ellipsis` (applies text-overflow: ellipsis and other required styles)
 - `scroll-v`
 - `scroll-h`
+- `scroll-no`
 
 ## Flexbox and Grid
 
