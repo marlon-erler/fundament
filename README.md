@@ -82,6 +82,7 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design. It ships as a
 - `large-gap` (applies large gap)
 - `margin-0`
 - `padding` (applies standard padding)
+- `padding-sm` (applies padding equal to outline width)
 - `padding-0`
 - `padding-h` (applies standard horizontal padding)
 - `padding-top`
