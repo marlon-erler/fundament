@@ -74,6 +74,7 @@ Carbon-Mini is a minimal stylesheet inspired by IBM Carbon Design. It ships as a
 - `width-50`
 - `width-input` (width of input elements)
 - `width-content` (width of the `<p>` element)
+- `height-auto`
 - `height-100`
 - `max-height-100`
 
