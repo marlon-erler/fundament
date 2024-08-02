@@ -14,6 +14,10 @@
 
   --input-background: hsla(0, 0%, 0%, 5%);
   --surface-background: hsla(0, 0%, 0%, 5%);
+  --checkbox-background: hsla(0, 0%, 0%, 5%);
+  --checkbox-checked-background: #0f62fe;
+  --radio-checked-foreground: white;
+
   --focus-outline-color: #0f62fe;
 
   --button-background: hsla(0, 0%, 0%, 5%);
@@ -170,6 +174,19 @@
 
   --input-background: white;
   --input-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  --outline-width: 1px;
+
+  --checkbox-background: linear-gradient(to bottom, #f6f6f6 0%, #eaeaea 100%);
+  --checkbox-checked-background: linear-gradient(
+    to bottom,
+    #c2dbff 0%,
+    #7baaff 100%
+  );
+  --radio-checked-foreground: linear-gradient(
+    to bottom,
+    #f6f6f6 0%,
+    #eaeaea 100%
+  );
 }
 
 /* 
@@ -342,8 +359,9 @@ select {
   border: var(--border-width) solid var(--standard-border-color);
 }
 
-input, textarea {
-    border: var(--border-width) solid var(--input-border-color);   
+input,
+textarea {
+  border: var(--border-width) solid var(--input-border-color);
 }
 
 input,
@@ -444,6 +462,61 @@ textarea {
     ELEMENT-SPECIFIC
 */
 
+/* CHECKBOX ETC */
+input[type="checkbox"],
+input[type="radio"] {
+  width: var(--checkbox-size);
+  height: var(--checkbox-size);
+
+  padding: 0px;
+  border: var(--border-width) solid var(--standard-border-color);
+
+  background: var(--checkbox-background);
+
+  position: relative;
+}
+
+input[type="radio"] {
+  border-radius: 100%;
+}
+
+input[type="checkbox"]:checked,
+input[type="radio"]:checked {
+  background: var(--checkbox-checked-background);
+}
+
+input[type="checkbox"]:checked::after,
+input[type="radio"]:checked::after {
+  content: "";
+
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-on-color);
+  font-size: 0.9rem;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "check";
+}
+
+input[type="radio"]:checked::after {
+  background: var(--radio-checked-foreground);
+  border-radius: 100%;
+
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+}
+
 /* SELECT */
 .select-wrapper {
   position: relative;
@@ -511,4 +584,34 @@ code {
 @font-face {
   font-family: IBM Plex Serif;
   src: url("Fonts/IBMPlexSerif-Regular.ttf");
+}
+
+/*
+    ICONS
+*/
+.icon,
+input[type="checkbox"]::after {
+  font-family: "Material Symbols Sharp";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  pointer-events: none;
+}
+
+@font-face {
+  font-family: "Material Symbols Sharp";
+  font-style: normal;
+  font-weight: 300;
+  src: url("Icons/material-icons.woff") format("woff");
 }
