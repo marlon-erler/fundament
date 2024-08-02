@@ -515,6 +515,14 @@ textarea {
     flex: 0 !important;
 }
 
+.grid-gap {
+    gap: var(--gap-in-grid);
+}
+
+.row-gap {
+    gap: var(--gap-in-control-row);
+}
+
 .flex-row,
 .flex-column,
 .control-row {
