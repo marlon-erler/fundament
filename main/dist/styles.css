@@ -12,38 +12,38 @@
   --overlay-background: hsla(0, 0%, 100%, 10%);
 
   --transparent-background: transparent;
-  --transparent-hover: hsla(0, 0%, 55%, 12%);
-  --transparent-active: hsla(0, 0%, 55%, 20%);
+  --transparent-hover: hsla(0, 0%, 0%, 6%);
+  --transparent-active: hsla(0, 0%, 0%, 10%);
 
   --input-background: hsla(0, 0%, 0%, 5%);
   --surface-background: hsla(0, 0%, 0%, 5%);
   --checkbox-background: hsla(0, 0%, 0%, 5%);
-  --checkbox-checked-background: #0f62fe;
+  --checkbox-checked-background: hsl(219, 99%, 53%);
   --radio-checked-foreground: white;
 
-  --focus-outline-color: #0f62fe;
+  --focus-outline-color: hsl(219, 99%, 53%);
 
   --button-background: hsla(0, 0%, 0%, 5%);
-  --button-hover: hsla(0, 0%, 5%, 10%);
-  --button-active: hsla(0, 0%, 5%, 15%);
+  --button-hover: hsla(0, 0%, 0%, 10%);
+  --button-active: hsla(0, 0%, 0%, 15%);
   --button-disabled: hsla(0, 0%, 0%, 3%);
 
-  --primary-button-background: #0f62fe;
-  --primary-button-hover: #0353e9;
-  --primary-button-active: #002d9c;
+  --primary-button-background: hsl(219, 99%, 50%);
+  --primary-button-hover: hsl(219, 97%, 43%);
+  --primary-button-active: hsl(219, 100%, 35%);
 
-  --danger-button-background: #da1e28;
-  --danger-button-hover: #ba1b23;
-  --danger-button-active: #750e13;
+  --danger-button-background: hsl(357, 76%, 50%);
+  --danger-button-hover: hsl(357, 75%, 43%);
+  --danger-button-active: hsl(357, 79%, 35%);
 
-  --progress-value-background: #0f62fe;
+  --progress-value-background: hsl(219, 99%, 53%);
 
   /* border */
   --standard-border-color: hsla(0, 0%, 0%, 0%);
   --input-border-color: hsla(0, 0%, 0%, 0%);
   --input-bottom-border-color: hsla(0, 0%, 0%, 20%);
   --overlay-border-color: hsla(0, 0%, 0%, 20%);
-  --outline-color: #0f62fe;
+  --outline-color: hsl(219, 99%, 53%);
   --hr-color: hsla(0, 0%, 0%, 10%);
 
   /* text */
@@ -56,8 +56,8 @@
   --text-error: #da1e28;
   --text-info: #0043ce;
 
-  --link: #0f62fe;
-  --link-hover: #0043ce;
+  --link: hsl(219, 99%, 53%);
+  --link-hover: hsl(220, 100%, 40%);
 
   /* DEPTH */
   --button-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
@@ -102,6 +102,39 @@
   --safe-area-left: env(safe-area-inset-left);
   --safe-area-right: env(safe-area-inset-right);
   --safe-area-bottom: env(safe-area-inset-bottom);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* COLORS */
+    /* background */
+    --base-background: hsla(0, 0%, 0%, 100%);
+    --overlay-background: hsla(0, 0%, 100%, 10%);
+
+    --transparent-hover: hsla(0, 0%, 100%, 12%);
+    --transparent-active: hsla(0, 0%, 100%, 20%);
+
+    --input-background: hsla(0, 0%, 100%, 10%);
+    --surface-background: hsla(0, 0%, 100%, 10%);
+    --checkbox-background: hsla(0, 0%, 100%, 10%);
+
+    --button-background: hsla(0, 0%, 100%, 10%);
+    --button-hover: hsla(0, 0%, 109%, 15%);
+    --button-active: hsla(0, 0%, 100%, 20%);
+    --button-disabled: hsla(0, 0%, 0%, 3%);
+
+    /* border */
+    --standard-border-color: hsla(0, 0%, 100%, 0%);
+    --input-border-color: hsla(0, 0%, 100%, 0%);
+    --input-bottom-border-color: hsla(0, 0%, 100%, 20%);
+    --overlay-border-color: hsla(0, 0%, 100%, 20%);
+    --outline-color: #0f62fe;
+    --hr-color: hsla(0, 0%, 100%, 10%);
+
+    /* text */
+    --text-normal: white;
+    --text-placeholder: hsla(0, 0%, 0%, 30%);
+  }
 }
 
 .aero {
@@ -261,12 +294,11 @@
 
 /* BASE */
 html {
-  background: var(--background);
-  color: var(--text-normal);
+  background: var(--base-background);
 }
 
 * {
-  color: inherit;
+  color: var(--text-normal);
 }
 
 /* CONTROLS */
@@ -485,6 +517,10 @@ progress,
 }
 
 progress::-moz-progress-bar {
+  border-radius: var(--control-corner-radius);
+}
+
+progress::-webkit-progress-bar {
   border-radius: var(--control-corner-radius);
 }
 
