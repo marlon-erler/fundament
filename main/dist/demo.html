@@ -35,11 +35,11 @@
     </script>
   </head>
 
-  <body class="">
+  <body class="aero">
     <div class="control-row">
       <button class="transparent">Transparent button</button>
       <button class="standard">Standard button</button>
-      <button class="primary">Primary button</button>
+      <button onclick="toggleModal()" class="primary">Primary button</button>
       <button class="danger">Danger button</button>
       <button disabled>Disabled button</button>
     </div>
@@ -103,6 +103,15 @@
       </div>
     </div>
 
-    
+    <div class="modal-wrapper" id="modal">
+      <div class="modal-window">
+        <main>
+          Modal
+        </main>
+        <div class="control-row">
+          <button class="standard" onclick="toggleModal()">Close</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

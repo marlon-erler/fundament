@@ -3,10 +3,13 @@
 */
 
 :root {
+  /* ANIMATION */
+  --animation-duration: 0.3s;
+
   /* COLORS */
   /* background */
   --base-background: hsla(0, 0%, 100%, 100%);
-  --modal-background: hsla(0, 0%, 0%, 5%);
+  --overlay-background: hsla(0, 0%, 100%, 10%);
 
   --transparent-background: transparent;
   --transparent-hover: hsla(0, 0%, 55%, 12%);
@@ -39,6 +42,7 @@
   --standard-border-color: hsla(0, 0%, 0%, 0%);
   --input-border-color: hsla(0, 0%, 0%, 0%);
   --input-bottom-border-color: hsla(0, 0%, 0%, 20%);
+  --overlay-border-color: hsla(0, 0%, 0%, 20%);
   --outline-color: #0f62fe;
   --hr-color: hsla(0, 0%, 0%, 10%);
 
@@ -58,6 +62,9 @@
   /* DEPTH */
   --button-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
   --input-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
+  --overlay-shadow: 0px 0px 20px hsla(0, 0%, 0%, 10%);
+
+  --overlay-backdrop-blur: 120px;
 
   /* DIMENTIONS */
   /* text */
@@ -76,7 +83,7 @@
   --hr-margin: 4px;
 
   /* sizes */
-  --control-height: 38px;
+  --control-height: 34px;
   --checkbox-size: 16px;
 
   --max-input-width: 24rem;
@@ -87,8 +94,8 @@
   --outline-width: 2px;
 
   /* corners */
-  --control-corner-radius: 0px;
-  --overlay-corner-radius: 0px;
+  --control-corner-radius: 3px;
+  --overlay-corner-radius: 6px;
 
   /* safe space */
   --safe-area-top: env(safe-area-inset-top);
@@ -100,6 +107,12 @@
 .aero {
   /* COLORS */
   /* background */
+  --overlay-background: linear-gradient(
+    to bottom,
+    hsla(0, 0%, 90%, 80%),
+    hsla(0, 0%, 100%, 80%)
+  );
+
   --transparent-hover: transparent;
   --transparent-active: transparent;
 
@@ -202,6 +215,8 @@
   /* DEPTH */
   --button-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
   --input-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+  --overlay-backdrop-blur: 3px;
 
   /* DIMENTIONS */
   /* text */
@@ -418,6 +433,10 @@ textarea {
   padding: var(--y-padding-in-controls) var(--x-padding-in-controls);
 }
 
+.control-row {
+  padding: var(--gap-in-control-row);
+}
+
 hr {
   margin: var(--hr-margin) 0px;
 }
@@ -462,6 +481,14 @@ select,
 textarea,
 progress,
 .surface {
+  border-radius: var(--control-corner-radius);
+}
+
+progress::-moz-progress-bar {
+  border-radius: var(--control-corner-radius);
+}
+
+progress::-webkit-progress-value {
   border-radius: var(--control-corner-radius);
 }
 
@@ -682,6 +709,60 @@ input[type="radio"]:checked::after {
   left: 3px;
   right: 3px;
   bottom: 3px;
+}
+
+/* MODAL */
+.modal-wrapper {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  display: flex;
+  align-items: safe center;
+  justify-content: safe center;
+
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity var(--animation-duration);
+}
+
+.modal-window {
+  width: 100%;
+  max-width: var(--max-content-width);
+
+  border-radius: var(--overlay-corner-radius);
+  background: var(--overlay-background);
+  box-shadow: var(--overlay-shadow);
+
+  border: var(--border-width) solid var(--overlay-border-color);
+
+  backdrop-filter: blur(var(--overlay-backdrop-blur));
+
+  transform: translateY(10px);
+  transition: transform var(--animation-duration);
+}
+
+.modal-window > main {
+  padding: var(--content-padding);
+
+  overflow: auto;
+}
+
+.modal-window > .control-row {
+  width: 100%;
+  justify-content: end;
+}
+
+.modal-wrapper[open] {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.modal-wrapper[open] .modal-window {
+  transform: translateY(0px);
 }
 
 /* SELECT */
