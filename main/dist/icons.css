@@ -14,6 +14,7 @@
   direction: ltr;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  pointer-events: none;
 }
 
 @font-face {

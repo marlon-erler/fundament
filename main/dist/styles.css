@@ -1,0 +1,513 @@
+/*
+    THEME
+*/
+
+:root {
+  /* COLORS */
+  /* background */
+  --base-background: hsla(0, 0%, 100%, 100%);
+  --modal-background: hsla(0, 0%, 0%, 5%);
+
+  --transparent-background: transparent;
+  --transparent-hover: hsla(0, 0%, 55%, 12%);
+  --transparent-active: hsla(0, 0%, 55%, 20%);
+
+  --input-background: hsla(0, 0%, 0%, 5%);
+  --surface-background: hsla(0, 0%, 0%, 5%);
+  --focus-outline-color: #0f62fe;
+
+  --button-background: hsla(0, 0%, 0%, 5%);
+  --button-hover: hsla(0, 0%, 5%, 10%);
+  --button-active: hsla(0, 0%, 5%, 15%);
+  --button-disabled: hsla(0, 0%, 0%, 3%);
+
+  --primary-button-background: #0f62fe;
+  --primary-button-hover: #0353e9;
+  --primary-button-active: #002d9c;
+
+  --danger-button-background: #da1e28;
+  --danger-button-hover: #ba1b23;
+  --danger-button-active: #750e13;
+
+  /* border */
+  --standard-border-color: hsla(0, 0%, 0%, 0%);
+  --input-border-color: hsla(0, 0%, 0%, 0%);
+  --input-bottom-border-color: hsla(0, 0%, 0%, 20%);
+  --outline-color: #0f62fe;
+
+  /* text */
+  --text-normal: #161616;
+  --text-placeholder: hsla(0, 0%, 0%, 30%);
+  --text-on-color: #ffffff;
+
+  --text-success: #24a148;
+  --text-warning: #f1c21b;
+  --text-error: #da1e28;
+  --text-info: #0043ce;
+
+  --link: #0f62fe;
+  --link-hover: #0043ce;
+
+  /* DEPTH */
+  --button-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
+  --input-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
+
+  /* DIMENTIONS */
+  /* text */
+  --control-font-size: 0.9rem;
+
+  /* spacing */
+  --gap-in-grid: 4px;
+  --gap-in-control-row: 2px;
+  --gap-in-controls: 25px;
+
+  --padding-in-controls: 11px 16px;
+  --content-padding: 16px;
+
+  --hr-margin: 4px;
+
+  /* sizes */
+  --control-height: 42px;
+  --checkbox-size: 16px;
+
+  --max-input-width: 24rem;
+  --max-content-width: 38rem;
+
+  /* borders & lines */
+  --border-width: 1px;
+  --outline-width: 2px;
+
+  /* corners */
+  --control-corner-radius: 0px;
+  --overlay-corner-radius: 0px;
+
+  /* safe space */
+  --safe-area-top: env(safe-area-inset-top);
+  --safe-area-left: env(safe-area-inset-left);
+  --safe-area-right: env(safe-area-inset-right);
+  --safe-area-bottom: env(safe-area-inset-bottom);
+}
+
+.aero {
+  --text-on-color: var(--text-normal);
+
+  --control-font-size: 0.8rem;
+  --padding-in-controls: 6px 14px;
+
+  --button-background: linear-gradient(
+    to bottom,
+    #f6f6f6 0%,
+    #e9e9e9 50%,
+    #dcdcdc 51%,
+    #f2f2f2 100%
+  );
+  --button-hover: linear-gradient(
+    to bottom,
+    #ffffff 0%,
+    #f2f2f2 50%,
+    #e6e6e6 51%,
+    #fbfbfb 100%
+  );
+  --button-active: linear-gradient(
+    to bottom,
+    #e9e9e9 0%,
+    #dcdcdc 50%,
+    #cfcfcf 51%,
+    #e5e5e5 100%
+  );
+  --button-disabled: linear-gradient(to bottom, #e9e9e9 0%, #d9d9d9 100%);
+
+  --primary-button-background: linear-gradient(
+    to bottom,
+    #cce6ff 0%,
+    #99ccff 50%,
+    #66b2ff 51%,
+    #99ccff 100%
+  );
+  --primary-button-hover: linear-gradient(
+    to bottom,
+    #e6f3ff 0%,
+    #cce6ff 50%,
+    #99ccff 51%,
+    #cce6ff 100%
+  );
+  --primary-button-active: linear-gradient(
+    to bottom,
+    #99ccff 0%,
+    #66b2ff 50%,
+    #3385ff 51%,
+    #66b2ff 100%
+  );
+
+  --danger-button-background: linear-gradient(
+    to bottom,
+    #ffcccc 0%,
+    #ff9999 50%,
+    #ff6666 51%,
+    #ff9999 100%
+  );
+  --danger-button-hover: linear-gradient(
+    to bottom,
+    #ffe6e6 0%,
+    #ffcccc 50%,
+    #ff9999 51%,
+    #ffcccc 100%
+  );
+  --danger-button-active: linear-gradient(
+    to bottom,
+    #ff9999 0%,
+    #ff6666 50%,
+    #ff3333 51%,
+    #ff6666 100%
+  );
+
+  --button-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  --standard-border-color: #a9a9a9;
+  --input-border-color: #a9a9a9;
+  --input-bottom-border-color: #a9a9a9;
+  --control-corner-radius: 5px;
+
+  --input-background: white;
+  --input-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* 
+    RESET
+*/
+
+* {
+  box-sizing: border-box;
+
+  line-height: 1;
+
+  border: none;
+  margin: 0px;
+  padding: 0px;
+
+  font-family: inherit;
+
+  appearance: none;
+}
+
+/*
+    COLORS
+*/
+
+/* BASE */
+html {
+  background: var(--background);
+  color: var(--text-normal);
+}
+
+* {
+  color: inherit;
+}
+
+/* CONTROLS */
+/* buttons etc */
+button.transparent {
+  background: var(--transparent-background);
+  color: var(--link);
+}
+
+button.standard,
+select {
+  background: var(--button-background);
+  color: var(--text-normal);
+}
+
+button.primary {
+  background: var(--primary-button-background);
+  color: var(--text-on-color);
+}
+
+button.danger {
+  background: var(--danger-button-background);
+  color: var(--text-on-color);
+}
+
+button[disabled] {
+  background: var(--button-disabled);
+  color: var(--text-normal);
+  pointer-events: none;
+}
+
+/* hover */
+@media (hover: hover) {
+  button.transparent:hover {
+    background: var(--transparent-hover);
+  }
+
+  button.standard:hover,
+  select:hover {
+    background: var(--button-hover);
+  }
+
+  button.primary:hover {
+    background: var(--primary-button-hover);
+  }
+
+  button.danger:hover {
+    background: var(--danger-button-hover);
+  }
+}
+
+/* active */
+button.transparent:active {
+  background: var(--transparent-active);
+}
+
+button.standard:active,
+select:active {
+  background: var(--button-active);
+}
+
+button.primary:active {
+  background: var(--primary-button-active);
+}
+
+button.danger:active {
+  background: var(--danger-button-active);
+}
+
+/* surface */
+.surface {
+  background: var(--surface-background);
+}
+
+/* input etc */
+input,
+textarea {
+  background: var(--input-background);
+}
+
+/* TEXT */
+.success {
+  color: var(--text-success);
+}
+
+.warning {
+  color: var(--text-warning);
+}
+
+.error {
+  color: var(--text-error);
+}
+
+.info {
+  color: var(--text-info);
+}
+
+/*
+    DEPTH
+*/
+
+button:not(.transparent),
+select {
+  box-shadow: var(--button-shadow);
+}
+
+input,
+textarea {
+  box-shadow: var(--input-shadow);
+}
+
+/*
+    MARGIN & PADDING
+*/
+
+body {
+  padding: var(--content-padding);
+}
+
+button,
+input,
+select,
+textarea,
+.surface {
+  padding: var(--padding-in-controls);
+}
+
+hr {
+  margin: var(--hr-margin) 0px;
+}
+
+/*
+    BORDER & OUTLINE
+*/
+
+button:not(.transparent),
+select {
+  border: var(--border-width) solid var(--standard-border-color);
+}
+
+input, textarea {
+    border: var(--border-width) solid var(--input-border-color);   
+}
+
+input,
+textarea {
+  border-bottom: var(--border-width) solid var(--input-bottom-border-color);
+}
+
+input:focus,
+textarea:focus,
+[selected] {
+  outline: var(--outline-width) solid var(--outline-color);
+}
+
+hr {
+  border-bottom: var(--border-width) solid var(--standard-border-color);
+}
+
+/*
+    CORNER RADIUS
+*/
+
+button,
+input,
+select,
+textarea,
+.surface {
+  border-radius: var(--control-corner-radius);
+}
+
+/* 
+    SIZE
+*/
+
+input,
+select,
+.select-wrapper,
+textarea {
+  width: 100%;
+  max-width: var(--max-input-width);
+}
+
+/*
+    FLEX
+*/
+
+.flex-row,
+.flex-column,
+.control-row {
+  display: flex !important;
+}
+
+.flex-row,
+.control-row {
+  flex-direction: row !important;
+}
+
+.flex-column {
+  flex-direction: column !important;
+}
+
+.flex-row-reverse {
+  flex-direction: row-reverse !important;
+}
+
+.flex-column-reverse {
+  flex-direction: column-reverse !important;
+}
+
+.control-row {
+  gap: var(--gap-in-control-row);
+}
+
+.align-start {
+  align-items: start !important;
+}
+
+.align-center {
+  align-items: center !important;
+}
+
+.align-end {
+  align-items: end !important;
+}
+
+.justify-start {
+  justify-content: start !important;
+}
+
+.justify-center {
+  justify-content: center !important;
+}
+
+.justify-end {
+  justify-content: end !important;
+}
+
+/*
+    ELEMENT-SPECIFIC
+*/
+
+/* SELECT */
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper > .icon {
+  position: absolute;
+  top: 0px;
+  right: 6px;
+  bottom: 0px;
+}
+
+/*
+    TYPE
+*/
+* {
+  font-family: IBM Plex Sans;
+  font-size: 1rem;
+}
+
+button,
+input,
+select,
+textarea {
+  font-size: var(--control-font-size);
+}
+
+.secondary {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.6rem;
+}
+
+h3 {
+  font-size: 1.4rem;
+}
+
+code {
+  font-family: IBM Plex Mono;
+}
+
+@font-face {
+  font-family: IBM Plex Sans;
+  src: url("Fonts/IBMPlexSans-Regular.ttf");
+}
+
+@font-face {
+  font-family: IBM Plex Sans;
+  src: url("Fonts/IBMPlexSans-Bold.ttf");
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: IBM Plex Mono;
+  src: url("Fonts/IBMPlexMono-Regular.ttf");
+}
+
+@font-face {
+  font-family: IBM Plex Serif;
+  src: url("Fonts/IBMPlexSerif-Regular.ttf");
+}
