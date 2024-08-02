@@ -99,27 +99,30 @@ Toggle the `[open]` attribute to open or close the modal.
 
 ## Layout
 
+basic:
 - `.flex-1`
 - `.flex-0`
-
-
 - `.grid-gap`
 - `.row-gap` - applies gap also used in control-row
 
-
-- `.control-row` - used for a horizontal row of buttons
+direction:
 - `.flex-row`
 - `.flex-column`
 - `.flex-row-reverse`
 - `.flex-column-reverse`
 
-
+align:
 - `.align-start`
 - `.align-center`
 - `.align-end`
+
+justify:
 - `.justify-start`
 - `.justify-center`
 - `.justify-end`
+
+miscellaneous:
+- `.control-row` - used for a horizontal row of buttons
 
 ## Size
 
@@ -130,18 +133,19 @@ Toggle the `[open]` attribute to open or close the modal.
 
 ## Overflow
 
+all:
 - `overflow-auto`
 - `overflow-hidden`
 - `overflow-visible`
 - `overflow-scroll`
 
-
+horizontal:
 - `overflow-x-auto`
 - `overflow-x-hidden`
 - `overflow-x-visible`
 - `overflow-x-scroll`
 
-
+vertical:
 - `overflow-y-auto`
 - `overflow-y-hidden`
 - `overflow-y-visible`
