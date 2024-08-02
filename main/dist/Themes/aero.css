@@ -1,7 +1,10 @@
 :root {
   /* COLORS */
+  /* animation */
+  --animation-duration: 0.3s;
+
   /* background */
-  --base-background: hsla(0, 0%, 100%, 100%);
+  --base-background: hsla(205, 40%, 97%, 100%);
   --overlay-background: linear-gradient(
     to bottom,
     hsla(0, 0%, 90%, 80%),

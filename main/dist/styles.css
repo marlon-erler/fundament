@@ -497,9 +497,6 @@ input[type="radio"]:checked::after {
   justify-content: safe center;
 
   pointer-events: none;
-
-  opacity: 0;
-  transition: opacity var(--animation-duration);
 }
 
 .modal-window {
@@ -514,8 +511,9 @@ input[type="radio"]:checked::after {
 
   backdrop-filter: blur(var(--overlay-backdrop-blur));
 
+  opacity: 0;
   transform: translateY(10px);
-  transition: transform var(--animation-duration);
+  transition: all var(--animation-duration);
 }
 
 .modal-window > main {
@@ -530,11 +528,11 @@ input[type="radio"]:checked::after {
 }
 
 .modal-wrapper[open] {
-  opacity: 1;
   pointer-events: initial;
 }
 
 .modal-wrapper[open] .modal-window {
+  opacity: 1;
   transform: translateY(0px);
 }
 
