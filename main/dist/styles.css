@@ -100,6 +100,9 @@
 .aero {
   /* COLORS */
   /* background */
+  --transparent-hover: transparent;
+  --transparent-active: transparent;
+
   --input-background: white;
   --checkbox-background: linear-gradient(to bottom, #f6f6f6 0%, #eaeaea 100%);
   --checkbox-checked-background: linear-gradient(
@@ -285,6 +288,7 @@ button[disabled] {
 @media (hover: hover) {
   button.transparent:hover {
     background: var(--transparent-hover);
+    color: var(--link-hover);
   }
 
   button.standard:hover,
