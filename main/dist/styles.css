@@ -62,6 +62,7 @@
   /* DIMENTIONS */
   /* text */
   --control-font-size: 0.9rem;
+  --icon-size: 1.1rem;
 
   /* spacing */
   --gap-in-grid: 4px;
@@ -70,13 +71,12 @@
 
   --x-padding-in-controls: 16px;
   --y-padding-in-controls: 10px;
-  --control-height: 24px;
   --content-padding: 16px;
 
   --hr-margin: 4px;
 
   /* sizes */
-  --control-height: 42px;
+  --control-height: 38px;
   --checkbox-size: 16px;
 
   --max-input-width: 24rem;
@@ -98,9 +98,20 @@
 }
 
 .aero {
-  --text-on-color: var(--text-normal);
-
-  --control-font-size: 0.8rem;
+  /* COLORS */
+  /* background */
+  --input-background: white;
+  --checkbox-background: linear-gradient(to bottom, #f6f6f6 0%, #eaeaea 100%);
+  --checkbox-checked-background: linear-gradient(
+    to bottom,
+    #c2dbff 0%,
+    #7baaff 100%
+  );
+  --radio-checked-foreground: linear-gradient(
+    to bottom,
+    #f6f6f6 0%,
+    #eaeaea 100%
+  );
 
   --button-background: linear-gradient(
     to bottom,
@@ -177,27 +188,33 @@
     #99ccff 100%
   );
 
-  --button-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
+  /* border */
   --standard-border-color: #a9a9a9;
   --input-border-color: #a9a9a9;
   --input-bottom-border-color: #a9a9a9;
-  --control-corner-radius: 5px;
 
-  --input-background: white;
+  /* text */
+  --text-on-color: var(--text-normal);
+
+  /* DEPTH */
+  --button-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
   --input-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+
+  /* DIMENTIONS */
+  /* text */
+  --control-font-size: 0.8rem;
+  --icon-size: 1rem;
+
+  /* spacing */
+  --x-padding-in-controls: 12px;
+  --y-padding-in-controls: 6px;
+  --control-height: 24px;
+
+  /* borders & lines */
   --outline-width: 1px;
 
-  --checkbox-background: linear-gradient(to bottom, #f6f6f6 0%, #eaeaea 100%);
-  --checkbox-checked-background: linear-gradient(
-    to bottom,
-    #c2dbff 0%,
-    #7baaff 100%
-  );
-  --radio-checked-foreground: linear-gradient(
-    to bottom,
-    #f6f6f6 0%,
-    #eaeaea 100%
-  );
+  /* corners */
+  --control-corner-radius: 5px;
 }
 
 /* 
@@ -740,7 +757,7 @@ input[type="checkbox"]::after {
   font-family: "Material Symbols Sharp";
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;
+  font-size: var(--icon-size);
   line-height: 1;
   letter-spacing: normal;
   text-transform: none;
