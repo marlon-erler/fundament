@@ -34,6 +34,7 @@
   --input-border-color: hsla(0, 0%, 0%, 0%);
   --input-bottom-border-color: hsla(0, 0%, 0%, 20%);
   --outline-color: #0f62fe;
+  --hr-color: hsla(0, 0%, 0%, 10%);
 
   /* text */
   --text-normal: #161616;
@@ -357,7 +358,7 @@ textarea:focus,
 }
 
 hr {
-  border-bottom: var(--border-width) solid var(--standard-border-color);
+  border-bottom: var(--border-width) solid var(--hr-color);
 }
 
 /*
