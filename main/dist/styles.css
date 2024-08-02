@@ -68,7 +68,9 @@
   --gap-in-control-row: 2px;
   --gap-in-controls: 25px;
 
-  --padding-in-controls: 11px 16px;
+  --x-padding-in-controls: 16px;
+  --y-padding-in-controls: 10px;
+  --control-height: 24px;
   --content-padding: 16px;
 
   --hr-margin: 4px;
@@ -99,7 +101,6 @@
   --text-on-color: var(--text-normal);
 
   --control-font-size: 0.8rem;
-  --padding-in-controls: 6px 14px;
 
   --button-background: linear-gradient(
     to bottom,
@@ -343,6 +344,26 @@ textarea {
 }
 
 /*
+    ELEMENT LAYOUT
+*/
+
+button,
+.surface {
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: var(--gap-in-controls);
+}
+
+button > div,
+.surface > div {
+  flex: 1;
+}
+
+/*
     DEPTH
 */
 
@@ -368,9 +389,12 @@ body {
 button,
 input,
 select,
-textarea,
+textarea {
+  padding: 0px var(--x-padding-in-controls);
+}
+
 .surface {
-  padding: var(--padding-in-controls);
+  padding: var(--y-padding-in-controls) var(--x-padding-in-controls);
 }
 
 hr {
@@ -432,20 +456,26 @@ textarea {
   max-width: var(--max-input-width);
 }
 
+input,
+button,
+select {
+  height: var(--control-height);
+}
+
 .width-100 {
-    width: 100% !important;
+  width: 100% !important;
 }
 
 .max-width-input {
-    max-width: var(--max-input-width) !important;
+  max-width: var(--max-input-width) !important;
 }
 
 .max-width-content {
-    max-width: var(--max-content-width) !important;
+  max-width: var(--max-content-width) !important;
 }
 
 .height-100 {
-    height: 100% !important;
+  height: 100% !important;
 }
 
 /*
@@ -454,53 +484,53 @@ textarea {
 
 /* x y */
 .overflow-auto {
-    overflow: auto;
+  overflow: auto;
 }
 
 .overflow-hidden {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .overflow-visible {
-    overflow: visible;
+  overflow: visible;
 }
 
 .overflow-scroll {
-    overflow: scroll;
+  overflow: scroll;
 }
 
 /* x */
 .overflow-x-auto {
-    overflow-x: auto;
+  overflow-x: auto;
 }
 
 .overflow-x-hidden {
-    overflow-x: hidden;
+  overflow-x: hidden;
 }
 
 .overflow-x-visible {
-    overflow-x: visible;
+  overflow-x: visible;
 }
 
 .overflow-x-scroll {
-    overflow-x: scroll;
+  overflow-x: scroll;
 }
 
 /* y */
 .overflow-y-auto {
-    overflow-y: auto;
+  overflow-y: auto;
 }
 
 .overflow-y-hidden {
-    overflow-y: hidden;
+  overflow-y: hidden;
 }
 
 .overflow-y-visible {
-    overflow-y: visible;
+  overflow-y: visible;
 }
 
 .overflow-y-scroll {
-    overflow-y: scroll;
+  overflow-y: scroll;
 }
 
 /*
@@ -508,19 +538,19 @@ textarea {
 */
 
 .flex-1 {
-    flex: 1 !important;
+  flex: 1 !important;
 }
 
 .flex-0 {
-    flex: 0 !important;
+  flex: 0 !important;
 }
 
 .grid-gap {
-    gap: var(--gap-in-grid);
+  gap: var(--gap-in-grid);
 }
 
 .row-gap {
-    gap: var(--gap-in-control-row);
+  gap: var(--gap-in-control-row);
 }
 
 .flex-row,
