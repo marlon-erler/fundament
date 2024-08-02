@@ -102,14 +102,17 @@ Toggle the `[open]` attribute to open or close the modal.
 - `.flex-1`
 - `.flex-0`
 
+
 - `.grid-gap`
 - `.row-gap` - applies gap also used in control-row
+
 
 - `.control-row` - used for a horizontal row of buttons
 - `.flex-row`
 - `.flex-column`
 - `.flex-row-reverse`
 - `.flex-column-reverse`
+
 
 - `.align-start`
 - `.align-center`
@@ -132,10 +135,12 @@ Toggle the `[open]` attribute to open or close the modal.
 - `overflow-visible`
 - `overflow-scroll`
 
+
 - `overflow-x-auto`
 - `overflow-x-hidden`
 - `overflow-x-visible`
 - `overflow-x-scroll`
+
 
 - `overflow-y-auto`
 - `overflow-y-hidden`
