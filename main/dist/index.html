@@ -20,6 +20,7 @@
       media="(prefers-color-scheme: dark)"
     />
 
+    <link rel="stylesheet" href="/themes/standard/index.css" />
     <link rel="stylesheet" href="/styles.css" />
     <link rel="stylesheet" href="/index.css" />
     <link rel="manifest" href="/manifest.json" />
@@ -27,6 +28,12 @@
     <script src="/support.js" defer></script>
 
     <script src="/index.js" defer></script>
+
+    <script defer>
+      function toggleModal() {
+        document.querySelector("#modal").toggleAttribute("open");
+      }
+    </script>
   </head>
 
   <body>
