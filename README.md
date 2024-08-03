@@ -55,6 +55,22 @@ For the dropdown arrow, implement the tag as follows:
 </div>
 ```
 
+## Progress
+
+Indeterminate:
+```HTML
+<div role="progressbar">
+    <div indeterminate></div>
+</div>
+```
+
+With value:
+```HTML
+<div role="progressbar">
+    <div style="width: 60%"></div>
+</div>
+```
+
 ## Surface
 
 You can use the `.surface` class to create cards-like elements. You can add a leading and a trailing icon. The primary content should go into a separate `<div>`.
@@ -100,28 +116,33 @@ Toggle the `[open]` attribute to open or close the modal.
 ## Layout
 
 basic:
+
 - `.flex-1`
 - `.flex-0`
 - `.grid-gap`
 - `.row-gap` - applies gap also used in control-row
 
 direction:
+
 - `.flex-row`
 - `.flex-column`
 - `.flex-row-reverse`
 - `.flex-column-reverse`
 
 align:
+
 - `.align-start`
 - `.align-center`
 - `.align-end`
 
 justify:
+
 - `.justify-start`
 - `.justify-center`
 - `.justify-end`
 
 miscellaneous:
+
 - `.control-row` - used for a horizontal row of buttons
 
 ## Size
@@ -134,18 +155,21 @@ miscellaneous:
 ## Overflow
 
 all:
+
 - `overflow-auto`
 - `overflow-hidden`
 - `overflow-visible`
 - `overflow-scroll`
 
 horizontal:
+
 - `overflow-x-auto`
 - `overflow-x-hidden`
 - `overflow-x-visible`
 - `overflow-x-scroll`
 
 vertical:
+
 - `overflow-y-auto`
 - `overflow-y-hidden`
 - `overflow-y-visible`
@@ -156,5 +180,7 @@ vertical:
 ## v2
 
 Fixes:
+
 - Improve theme
 - Improve modal layout on smaller screens
+- Redo progress styles
