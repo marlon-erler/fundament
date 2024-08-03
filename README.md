@@ -150,3 +150,11 @@ vertical:
 - `overflow-y-hidden`
 - `overflow-y-visible`
 - `overflow-y-scroll`
+
+# Changelog
+
+## v2
+
+Fixes:
+- Improve theme
+- Improve modal layout on smaller screens
