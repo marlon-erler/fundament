@@ -518,6 +518,8 @@ input[type="radio"]:checked::after {
   justify-content: safe center;
 
   pointer-events: none;
+
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .modal-window {
@@ -538,8 +540,6 @@ input[type="radio"]:checked::after {
 
   display: flex;
   flex-direction: column;
-
-  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .modal-window > main {
