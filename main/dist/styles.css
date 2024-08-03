@@ -507,24 +507,30 @@ input[type="radio"]:checked::after {
 .modal-window {
   width: 100%;
   max-width: var(--max-content-width);
+  max-height: 100%;
 
   border-radius: var(--overlay-corner-radius);
   background: var(--overlay-background);
   box-shadow: var(--overlay-shadow);
 
   border: var(--border-width) solid var(--overlay-border-color);
-
   backdrop-filter: blur(var(--overlay-backdrop-blur));
 
   opacity: 0;
   transform: translateY(10px);
   transition: all var(--animation-duration);
+
+  display: flex;
+  flex-direction: column;
 }
 
 .modal-window > main {
   padding: var(--content-padding);
 
   overflow: auto;
+
+  height: 100%;
+  flex: 1;
 }
 
 .modal-window > .control-row {
@@ -539,6 +545,20 @@ input[type="radio"]:checked::after {
 .modal-wrapper[open] .modal-window {
   opacity: 1;
   transform: translateY(0px);
+}
+
+@media (max-width: 480px) {
+  .modal-window {
+    height: 100%;
+  }
+
+  .modal-window > .control-row {
+    justify-content: stretch;
+  }
+
+  .modal-window > .control-row button {
+    flex: 1;
+  }
 }
 
 /* SELECT */
