@@ -80,6 +80,7 @@
 
   /* sizes */
   --control-height: 34px;
+  --progress-bar-height: 12px;
   --checkbox-size: 16px;
 
   --max-input-width: 24rem;

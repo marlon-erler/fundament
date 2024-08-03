@@ -1,5 +1,5 @@
 /* 
-    RESET
+    BASIC
 */
 
 * {
@@ -25,6 +25,10 @@ body {
   height: 100%;
 
   overflow: hidden;
+}
+
+main {
+  padding: var(--content-padding);
 }
 
 /*
@@ -110,16 +114,34 @@ button.danger:active {
 }
 
 /* progress */
-::-webkit-progress-bar {
+@keyframes progress-indeterminate {
+  0% {
+    left: -25%;
+  }
+  100% {
+    left: 100%
+  }
+}
+
+[role="progressbar"] {
   background: var(--surface-background);
+  overflow: hidden;
+
+  position: relative;
 }
 
-::-webkit-progress-value {
+[role="progressbar"] div {
   background: var(--progress-value-background);
+
+  height: 100%;
+
+  position: absolute;
+  left: 0px;
 }
 
-progress::-moz-progress-bar {
-  background: var(--progress-value-background);
+[role="progressbar"] div[indeterminate] {
+  width: 25%;
+  animation: progress-indeterminate 2s linear infinite;
 }
 
 /* surface */
@@ -184,7 +206,7 @@ select {
 
 input,
 textarea,
-progress {
+[role="progressbar"] {
   box-shadow: var(--input-shadow);
 }
 
@@ -217,7 +239,7 @@ hr {
 
 button:not(.transparent),
 select,
-progress {
+[role="progressbar"] {
   border: var(--border-width) solid var(--standard-border-color);
 }
 
@@ -249,20 +271,9 @@ button,
 input,
 select,
 textarea,
-progress,
+[role="progressbar"],
+[role="progressbar"] div,
 .surface {
-  border-radius: var(--control-corner-radius);
-}
-
-progress::-moz-progress-bar {
-  border-radius: var(--control-corner-radius);
-}
-
-progress::-webkit-progress-bar {
-  border-radius: var(--control-corner-radius);
-}
-
-progress::-webkit-progress-value {
   border-radius: var(--control-corner-radius);
 }
 
@@ -273,7 +284,8 @@ progress::-webkit-progress-value {
 input,
 select,
 .select-wrapper,
-textarea {
+textarea,
+[role="progressbar"] {
   width: 100%;
   max-width: var(--max-input-width);
 }
@@ -286,6 +298,10 @@ input,
 button,
 select {
   height: var(--control-height);
+}
+
+[role="progressbar"] {
+  height: var(--progress-bar-height);
 }
 
 .width-100 {
@@ -522,6 +538,8 @@ input[type="radio"]:checked::after {
 
   display: flex;
   flex-direction: column;
+
+  padding-bottom: env(safe-area-inset-bottom);
 }
 
 .modal-window > main {
@@ -550,6 +568,7 @@ input[type="radio"]:checked::after {
 @media (max-width: 480px) {
   .modal-window {
     height: 100%;
+    border-radius: 0px;
   }
 
   .modal-window > .control-row {
