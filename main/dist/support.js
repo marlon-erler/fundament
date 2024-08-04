@@ -6,13 +6,9 @@ function positionPopover(popover, centerX, centerY) {
   popover.style.top = "";
   popover.style.left = "";
 
-  console.log(centerX, centerY);
-
   // get info
   const width = popover.offsetWidth;
   const height = popover.offsetHeight;
-
-  console.log(width, height);
 
   // get dimentions
   let top = centerY - height / 2;
