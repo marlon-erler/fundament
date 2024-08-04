@@ -5,7 +5,7 @@
   /* COLORS */
   /* background */
   --base-background: hsla(0, 0%, 100%, 100%);
-  --overlay-background: hsla(0, 0%, 100%, 50%);
+  --overlay-background: hsla(0, 0%, 100%, 90%);
 
   --transparent-background: transparent;
   --transparent-hover: hsla(0, 0%, 0%, 6%);
@@ -80,7 +80,6 @@
 
   /* sizes */
   --control-height: 34px;
-  --progress-bar-height: 12px;
   --checkbox-size: 16px;
 
   --max-input-width: 24rem;
@@ -104,7 +103,7 @@
     /* COLORS */
     /* background */
     --base-background: hsla(0, 0%, 0%, 100%);
-    --overlay-background: hsla(0, 0%, 100%, 10%);
+    --overlay-background: hsla(0, 0%, 0%, 70%);
 
     --transparent-hover: hsla(0, 0%, 100%, 12%);
     --transparent-active: hsla(0, 0%, 100%, 20%);

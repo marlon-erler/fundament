@@ -28,12 +28,6 @@
     <script src="/support.js" defer></script>
 
     <script src="/index.js" defer></script>
-
-    <script defer>
-      function toggleModal() {
-        document.querySelector("#modal").toggleAttribute("open");
-      }
-    </script>
   </head>
 
   <body>
@@ -41,44 +35,11 @@
       <div class="control-row overflow-x-scroll">
         <button class="transparent">Transparent button</button>
         <button class="standard">Standard button</button>
-        <button onclick="toggleModal()" class="primary">Primary button</button>
-        <button class="danger">Danger button</button>
+        <button onclick="toggleModalShowing()" class="primary">
+          Primary button
+        </button>
+        <button id="popover-button" class="danger">Danger button</button>
         <button disabled>Disabled button</button>
-      </div>
-
-      <div class="modal-wrapper" id="popover">
-        <div class="modal-window">
-          <main>
-            <h2>Modal</h2>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-            <p>This is a text</p>
-          </main>
-          <div class="control-row">
-            <button class="standard" onclick="togglePopover()">Close</button>
-          </div>
-        </div>
       </div>
 
       <hr />
@@ -177,10 +138,70 @@
             <p>This is a text</p>
           </main>
           <div class="control-row">
-            <button class="standard" onclick="toggleModal()">Close</button>
+            <button class="standard" onclick="toggleModalShowing()">
+              Close
+            </button>
           </div>
+        </div>
+      </div>
+
+      <div
+        class="modal-window"
+        positioned
+        style="width: 400px; height: 300px"
+        id="popover"
+      >
+        <main>
+          <h2>Modal</h2>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+          <p>This is a text</p>
+        </main>
+        <div class="control-row">
+          <button class="standard" onclick="togglePopoverShowing()">
+            Close
+          </button>
         </div>
       </div>
     </main>
   </body>
+  <script>
+    function toggleModalShowing() {
+      const modal = document.querySelector("#modal");
+      modal.toggleAttribute("open");
+    }
+
+    function togglePopoverShowing(e) {
+      console.log(e);
+
+      const popover = document.querySelector("#popover");
+      popover.toggleAttribute("open");
+      positionPopover(popover, e.clientX, e.clientY);
+    }
+
+    document
+      .querySelector("#popover-button")
+      .addEventListener("click", togglePopoverShowing);
+  </script>
 </html>
