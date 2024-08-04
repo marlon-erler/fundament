@@ -193,8 +193,6 @@
     }
 
     function togglePopoverShowing(e) {
-      console.log(e);
-
       const popover = document.querySelector("#popover");
       popover.toggleAttribute("open");
       positionPopover(popover, e.clientX, e.clientY);
