@@ -1,3 +1,3 @@
-document.querySelector("main")!.append(
+document.body.append(
     
 )
