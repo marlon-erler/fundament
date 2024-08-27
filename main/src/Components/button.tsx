@@ -9,7 +9,7 @@ export enum ButtonStyle {
 export default function Button(
   label: string,
   style: ButtonStyle,
-  action: (e: PointerEvent) => void
+  action: (e: MouseEvent) => void
 ): HTMLButtonElement {
   return (
     <button on:click={action} class={style}>

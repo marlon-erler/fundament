@@ -148,7 +148,7 @@ textarea {
 }
 
 input::placeholder {
-  color: var(--text-placeholder)
+  color: var(--text-placeholder);
 }
 
 /* TEXT */
@@ -542,6 +542,10 @@ input[type="radio"]:checked::after {
   flex-direction: column;
 }
 
+.modal-window.popover {
+  position: fixed;
+}
+
 .modal-window > main {
   padding: var(--content-padding);
 
@@ -560,7 +564,6 @@ input[type="radio"]:checked::after {
   pointer-events: initial;
 }
 
-.modal-wrapper[open] .modal-window,
 .modal-window[open] {
   pointer-events: initial;
   opacity: 1;

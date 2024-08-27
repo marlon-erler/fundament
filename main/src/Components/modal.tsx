@@ -7,10 +7,20 @@ export default function Modal(
 ): HTMLDivElement {
   return (
     <div class="modal-wrapper" toggle:open={isOpen}>
-      <div class="modal-window">
-        {mainElement}
-        <div class="control-row">{...buttons}</div>
-      </div>
+      {ModalContentWindow(isOpen, mainElement, buttons)}
+    </div>
+  );
+}
+
+export function ModalContentWindow(
+  isOpen: React.State<boolean>,
+  mainElement: HTMLElement,
+  buttons: HTMLButtonElement[]
+): HTMLDivElement {
+  return (
+    <div class="modal-window" toggle:open={isOpen}>
+      {mainElement}
+      <div class="control-row">{...buttons}</div>
     </div>
   );
 }

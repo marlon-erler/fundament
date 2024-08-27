@@ -138,14 +138,69 @@
     return /* @__PURE__ */ createElement("button", { "on:click": action, class: style }, label);
   }
 
+  // src/Components/modal.tsx
+  function ModalContentWindow(isOpen2, mainElement, buttons) {
+    return /* @__PURE__ */ createElement("div", { class: "modal-window", "toggle:open": isOpen2 }, mainElement, /* @__PURE__ */ createElement("div", { class: "control-row" }, ...buttons));
+  }
+
+  // src/Components/popover.tsx
+  var PopoverCoordinates = class {
+    x;
+    y;
+    constructor(x, y) {
+      this.x = x ?? 0;
+      this.y = y ?? 0;
+    }
+  };
+  function Popover(isOpen2, coordinates, mainElement, buttons) {
+    const popover = ModalContentWindow(isOpen2, mainElement, buttons);
+    popover.classList.add("popover");
+    isOpen2.subscribe((newValue) => {
+      if (newValue == false) return;
+      popover.style.top = "";
+      popover.style.left = "";
+      const width = popover.offsetWidth;
+      const height = popover.offsetHeight;
+      let top = coordinates.y - height / 2;
+      let left = coordinates.x - width / 2;
+      if (top < 0) {
+        top = 0;
+      }
+      if (left < 0) {
+        left = 0;
+      }
+      if (top + height > document.body.offsetHeight) {
+        const offset = top + height - document.body.offsetHeight;
+        top -= offset;
+      }
+      if (left + width > document.body.offsetWidth) {
+        const offset = left + width - document.body.offsetWidth;
+        left -= offset;
+      }
+      popover.style.top = top + "px";
+      popover.style.left = left + "px";
+    });
+    return popover;
+  }
+  function PopoverButton(isOpen2, buttonLabel, buttonStyle, mainElement, popoverButtons) {
+    const coordinates = new PopoverCoordinates();
+    function openPopover(e) {
+      openPopoverAtClickLocation(isOpen2, coordinates, e);
+    }
+    document.body.append(
+      Popover(isOpen2, coordinates, mainElement, popoverButtons)
+    );
+    return Button(buttonLabel, buttonStyle, openPopover);
+  }
+  function openPopoverAtClickLocation(isPopoverOpen, coordinates, clickEvent) {
+    coordinates.x = clickEvent.clientX;
+    coordinates.y = clickEvent.clientY;
+    isPopoverOpen.value = true;
+  }
+
   // src/Support/theme.ts
   function setTheme(theme) {
     document.body.setAttribute("theme", theme);
-  }
-
-  // src/Components/modal.tsx
-  function Modal(isOpen2, mainElement, buttons) {
-    return /* @__PURE__ */ createElement("div", { class: "modal-wrapper", "toggle:open": isOpen2 }, /* @__PURE__ */ createElement("div", { class: "modal-window" }, mainElement, /* @__PURE__ */ createElement("div", { class: "control-row" }, ...buttons)));
   }
 
   // src/Support/serviceWorker.ts
@@ -171,15 +226,14 @@
   setTheme("standard" /* Standard */);
   registerServiceWorker();
   var isOpen = new State(false);
-  function openModal() {
-    isOpen.value = true;
-  }
   function closeModal() {
     isOpen.value = false;
   }
   document.body.append(
-    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), Button("Open Modal", "primary" /* Primary */, openModal), Modal(
+    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), PopoverButton(
       isOpen,
+      "Open popover",
+      "primary" /* Primary */,
       /* @__PURE__ */ createElement("main", null, /* @__PURE__ */ createElement("h1", null, "This is a modal")),
       [
         Button("Cancel", "standard" /* Standard */, closeModal),

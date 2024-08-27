@@ -1,6 +1,11 @@
 import * as React from "bloatless-react";
 
 import Button, { ButtonStyle } from "./Components/button";
+import Popover, {
+  PopoverButton,
+  PopoverCoordinates,
+  openPopoverAtClickLocation,
+} from "./Components/popover";
 import { Theme, setTheme } from "./Support/theme";
 
 import Icon from "./Components/icon";
@@ -14,10 +19,8 @@ document.title = "My App";
 setTheme(Theme.Standard);
 registerServiceWorker();
 
-const isOpen = new React.State(false);
-function openModal() {
-  isOpen.value = true;
-}
+const isOpen: React.State<boolean> = new React.State(false);
+
 function closeModal() {
   isOpen.value = false;
 }
@@ -26,9 +29,10 @@ function closeModal() {
 document.body.append(
   <div>
     <h1>Hello, world!</h1>
-    {Button("Open Modal", ButtonStyle.Primary, openModal)}
-    {Modal(
+    {PopoverButton(
       isOpen,
+      "Open popover",
+      ButtonStyle.Primary,
       <main>
         <h1>This is a modal</h1>
       </main>,
