@@ -1,6 +1,6 @@
 export enum Theme {
-  Standard = "standard-theme",
-  Aero = "aero-theme",
+  Standard = "standard",
+  Aero = "aero",
 }
 
 export function setTheme(theme: Theme): void {
