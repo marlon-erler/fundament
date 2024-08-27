@@ -1,6 +1,6 @@
 # web-app-base
 
-This repo is a foundation for web applications. It ships with a custimizable stylesheet, a service worker for offline support, a web-app manifest, and Google's material icons.
+This repo is a foundation for web applications. It ships with a custimizable stylesheet, a service worker for offline support, a web-app manifest, Google's material icons, and [bloatless-react](https://github.com/marlon-erler/bloatless-react) for reactivity.
 
 # Install
 
@@ -15,7 +15,6 @@ This repo is a foundation for web applications. It ships with a custimizable sty
 
 # References
 
-- If you're looking for a minimalist alternative to react, I'd recommend checking out my project called [bloatless-react](https://github.com/marlon-erler/bloatless-react).
 - The icons are a download of the [Google Material Icons](https://github.com/google/material-design-icons).
 
 # Icons
@@ -58,6 +57,7 @@ For the dropdown arrow, implement the tag as follows:
 ## Progress
 
 Indeterminate:
+
 ```HTML
 <div role="progressbar">
     <div indeterminate></div>
@@ -65,6 +65,7 @@ Indeterminate:
 ```
 
 With value:
+
 ```HTML
 <div role="progressbar">
     <div style="width: 60%"></div>
