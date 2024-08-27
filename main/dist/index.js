@@ -101,14 +101,14 @@
     return element;
   }
 
+  // src/Components/button.tsx
+  function Button(label, style, action) {
+    return /* @__PURE__ */ createElement("button", { "on:click": action, class: style }, label);
+  }
+
   // src/Support/theme.ts
   function setTheme(theme) {
     document.body.setAttribute("theme", theme);
-  }
-
-  // src/Components/icon.tsx
-  function Icon(iconName) {
-    return /* @__PURE__ */ createElement("span", { class: "icon" }, iconName);
   }
 
   // src/Support/serviceWorker.ts
@@ -133,7 +133,10 @@
   document.title = "My App";
   setTheme("standard" /* Standard */);
   registerServiceWorker();
+  function test() {
+    alert("Hello!");
+  }
   document.body.append(
-    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), Icon("home"))
+    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), Button("Standard", "standard" /* Standard */, test), Button("Primary", "primary" /* Primary */, test), Button("Danger", "danger" /* Danger */, test))
   );
 })();
