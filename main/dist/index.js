@@ -36,7 +36,7 @@
     const element = document.createElement(tagName);
     if (attributes != null)
       Object.entries(attributes).forEach((entry) => {
-        const [attributename, value2] = entry;
+        const [attributename, value] = entry;
         const [directiveKey, directiveValue] = attributename.split(":");
         switch (directiveKey) {
           case "on": {
@@ -44,25 +44,25 @@
               case "enter": {
                 element.addEventListener("keydown", (e) => {
                   if (e.key != "Enter") return;
-                  value2();
+                  value();
                 });
                 break;
               }
               default: {
-                element.addEventListener(directiveValue, value2);
+                element.addEventListener(directiveValue, value);
               }
             }
             break;
           }
           case "subscribe": {
-            const state = value2;
+            const state = value;
             state.subscribe(
               (newValue) => element[directiveValue] = newValue
             );
             break;
           }
           case "bind": {
-            const state = value2;
+            const state = value;
             state.subscribe(
               (newValue) => element[directiveValue] = newValue
             );
@@ -73,18 +73,18 @@
             break;
           }
           case "toggle": {
-            if (value2.subscribe) {
-              const state = value2;
+            if (value.subscribe) {
+              const state = value;
               state.subscribe(
                 (newValue) => element.toggleAttribute(directiveValue, newValue)
               );
             } else {
-              element.toggleAttribute(directiveValue, value2);
+              element.toggleAttribute(directiveValue, value);
             }
             break;
           }
           case "set": {
-            const state = value2;
+            const state = value;
             state.subscribe(
               (newValue) => element.setAttribute(directiveValue, newValue)
             );
@@ -93,7 +93,7 @@
           case "children": {
             switch (directiveValue) {
               case "set": {
-                const state = value2;
+                const state = value;
                 state.subscribe((newValue) => {
                   element.innerHTML = "";
                   element.append(...[newValue].flat());
@@ -103,7 +103,7 @@
               case "append":
               case "prepend": {
                 try {
-                  const [listState, toElement] = value2;
+                  const [listState, toElement] = value;
                   listState.handleAddition((newItem) => {
                     const child = toElement(newItem);
                     listState.handleRemoval(
@@ -126,7 +126,7 @@
             break;
           }
           default:
-            element.setAttribute(attributename, value2);
+            element.setAttribute(attributename, value);
         }
       });
     children.filter((x) => x).forEach((child) => element.append(child));
@@ -143,19 +143,9 @@
     document.body.setAttribute("theme", theme);
   }
 
-  // src/Components/progress.tsx
-  function ProgressBar(percentValueOrUndefined) {
-    const valueDiv = /* @__PURE__ */ createElement("div", null);
-    percentValueOrUndefined.subscribe((newValue) => {
-      if (newValue == void 0) {
-        valueDiv.style.width = "";
-        valueDiv.setAttribute("indeterminate", "");
-      } else {
-        valueDiv.style.width = `${newValue}%`;
-        valueDiv.removeAttribute("indeterminate");
-      }
-    });
-    return /* @__PURE__ */ createElement("div", { role: "progressbar" }, valueDiv);
+  // src/Components/modal.tsx
+  function Modal(isOpen2, mainElement, buttons) {
+    return /* @__PURE__ */ createElement("div", { class: "modal-wrapper", "toggle:open": isOpen2 }, /* @__PURE__ */ createElement("div", { class: "modal-window" }, mainElement, /* @__PURE__ */ createElement("div", { class: "control-row" }, ...buttons)));
   }
 
   // src/Support/serviceWorker.ts
@@ -180,11 +170,21 @@
   document.title = "My App";
   setTheme("standard" /* Standard */);
   registerServiceWorker();
-  var value = new State(void 0);
-  function makeUndefined() {
-    value.value = void 0;
+  var isOpen = new State(false);
+  function openModal() {
+    isOpen.value = true;
+  }
+  function closeModal() {
+    isOpen.value = false;
   }
   document.body.append(
-    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), ProgressBar(value), /* @__PURE__ */ createElement("input", { type: "range", "bind:value": value }), Button("Indeterminate", "standard" /* Standard */, makeUndefined))
+    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), Button("Open Modal", "primary" /* Primary */, openModal), Modal(
+      isOpen,
+      /* @__PURE__ */ createElement("main", null, /* @__PURE__ */ createElement("h1", null, "This is a modal")),
+      [
+        Button("Cancel", "standard" /* Standard */, closeModal),
+        Button("Save", "primary" /* Primary */, closeModal)
+      ]
+    ))
   );
 })();
