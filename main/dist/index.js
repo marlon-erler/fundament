@@ -32,55 +32,11 @@
       return JSON.stringify(this._value);
     }
   };
-  var ListState = class extends State {
-    additionHandlers = /* @__PURE__ */ new Set();
-    removalHandlers = /* @__PURE__ */ new Map();
-    // init
-    constructor(initialItems) {
-      super(new Set(initialItems));
-    }
-    // list
-    add(...items) {
-      items.forEach((item) => {
-        this.value.add(item);
-        this.additionHandlers.forEach((handler) => handler(item));
-      });
-      this.callSubscriptions();
-    }
-    remove(...items) {
-      items.forEach((item) => {
-        this.value.delete(item);
-        if (!this.removalHandlers.has(item)) return;
-        this.removalHandlers.get(item).forEach((handler) => handler(item));
-        this.removalHandlers.delete(item);
-      });
-      this.callSubscriptions();
-    }
-    clear() {
-      this.remove(...this.value.values());
-    }
-    // handlers
-    handleAddition(handler) {
-      this.additionHandlers.add(handler);
-      [...this.value.values()].forEach(handler);
-    }
-    handleRemoval(item, handler) {
-      if (!this.removalHandlers.has(item))
-        this.removalHandlers.set(item, /* @__PURE__ */ new Set());
-      this.removalHandlers.get(item).add(handler);
-    }
-    // stringification
-    toString() {
-      const array = [...this.value.values()];
-      const json = JSON.stringify(array);
-      return json;
-    }
-  };
   function createElement(tagName, attributes = {}, ...children) {
     const element = document.createElement(tagName);
     if (attributes != null)
       Object.entries(attributes).forEach((entry) => {
-        const [attributename, value] = entry;
+        const [attributename, value2] = entry;
         const [directiveKey, directiveValue] = attributename.split(":");
         switch (directiveKey) {
           case "on": {
@@ -88,25 +44,25 @@
               case "enter": {
                 element.addEventListener("keydown", (e) => {
                   if (e.key != "Enter") return;
-                  value();
+                  value2();
                 });
                 break;
               }
               default: {
-                element.addEventListener(directiveValue, value);
+                element.addEventListener(directiveValue, value2);
               }
             }
             break;
           }
           case "subscribe": {
-            const state = value;
+            const state = value2;
             state.subscribe(
               (newValue) => element[directiveValue] = newValue
             );
             break;
           }
           case "bind": {
-            const state = value;
+            const state = value2;
             state.subscribe(
               (newValue) => element[directiveValue] = newValue
             );
@@ -117,18 +73,18 @@
             break;
           }
           case "toggle": {
-            if (value.subscribe) {
-              const state = value;
+            if (value2.subscribe) {
+              const state = value2;
               state.subscribe(
                 (newValue) => element.toggleAttribute(directiveValue, newValue)
               );
             } else {
-              element.toggleAttribute(directiveValue, value);
+              element.toggleAttribute(directiveValue, value2);
             }
             break;
           }
           case "set": {
-            const state = value;
+            const state = value2;
             state.subscribe(
               (newValue) => element.setAttribute(directiveValue, newValue)
             );
@@ -137,7 +93,7 @@
           case "children": {
             switch (directiveValue) {
               case "set": {
-                const state = value;
+                const state = value2;
                 state.subscribe((newValue) => {
                   element.innerHTML = "";
                   element.append(...[newValue].flat());
@@ -147,7 +103,7 @@
               case "append":
               case "prepend": {
                 try {
-                  const [listState, toElement] = value;
+                  const [listState, toElement] = value2;
                   listState.handleAddition((newItem) => {
                     const child = toElement(newItem);
                     listState.handleRemoval(
@@ -170,11 +126,16 @@
             break;
           }
           default:
-            element.setAttribute(attributename, value);
+            element.setAttribute(attributename, value2);
         }
       });
     children.filter((x) => x).forEach((child) => element.append(child));
     return element;
+  }
+
+  // src/Components/button.tsx
+  function Button(label, style, action) {
+    return /* @__PURE__ */ createElement("button", { "on:click": action, class: style }, label);
   }
 
   // src/Support/theme.ts
@@ -182,23 +143,20 @@
     document.body.setAttribute("theme", theme);
   }
 
-  // src/Components/select.tsx
-  function Select(value, options2) {
-    value.value = [...options2.value.values()][0];
-    return /* @__PURE__ */ createElement("div", { class: "select-wrapper" }, /* @__PURE__ */ createElement(
-      "select",
-      {
-        "bind:value": value,
-        "children:append": [options2, StringToOption]
+  // src/Components/progress.tsx
+  function ProgressBar(percentValueOrUndefined) {
+    const valueDiv = /* @__PURE__ */ createElement("div", null);
+    percentValueOrUndefined.subscribe((newValue) => {
+      if (newValue == void 0) {
+        valueDiv.style.width = "";
+        valueDiv.setAttribute("indeterminate", "");
+      } else {
+        valueDiv.style.width = `${newValue}%`;
+        valueDiv.removeAttribute("indeterminate");
       }
-    ), /* @__PURE__ */ createElement("span", { class: "icon" }, "arrow_drop_down"));
+    });
+    return /* @__PURE__ */ createElement("div", { role: "progressbar" }, valueDiv);
   }
-  function Option(text, value, selectedOnCreate) {
-    return /* @__PURE__ */ createElement("option", { value, "toggle:selected": selectedOnCreate }, text);
-  }
-  var StringToOption = (string) => {
-    return Option(string, string, false);
-  };
 
   // src/Support/serviceWorker.ts
   async function registerServiceWorker() {
@@ -222,11 +180,11 @@
   document.title = "My App";
   setTheme("standard" /* Standard */);
   registerServiceWorker();
-  var options = new ListState(["a", "b"]);
-  var selectedOption = new State("");
-  options.add("c");
+  var value = new State(void 0);
+  function makeUndefined() {
+    value.value = void 0;
+  }
   document.body.append(
-    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), /* @__PURE__ */ createElement("span", { "subscribe:innerText": selectedOption }), Select(selectedOption, options))
+    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), ProgressBar(value), /* @__PURE__ */ createElement("input", { type: "range", "bind:value": value }), Button("Indeterminate", "standard" /* Standard */, makeUndefined))
   );
-  selectedOption.value = "b";
 })();

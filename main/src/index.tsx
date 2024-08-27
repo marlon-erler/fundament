@@ -4,6 +4,7 @@ import Button, { ButtonStyle } from "./Components/button";
 import { Theme, setTheme } from "./Support/theme";
 
 import Icon from "./Components/icon";
+import ProgressBar from "./Components/progress";
 import Select from "./Components/select";
 import registerServiceWorker from "./Support/serviceWorker";
 
@@ -12,15 +13,17 @@ document.title = "My App";
 setTheme(Theme.Standard);
 registerServiceWorker();
 
-const options = new React.ListState<string>(["a", "b"]);
-const selectedOption = new React.State("");
-options.add("c");
+const value: React.State<number | undefined> = new React.State<any>(undefined);
+function makeUndefined() {
+  value.value = undefined;
+}
 
 // build UI
 document.body.append(
   <div>
     <h1>Hello, world!</h1>
-    <span subscribe:innerText={selectedOption}></span>
-    {Select(selectedOption, options)}
+    {ProgressBar(value)}
+    <input type="range" bind:value={value}></input>
+    {Button("Indeterminate", ButtonStyle.Standard, makeUndefined)}
   </div>
 );
