@@ -2,6 +2,7 @@ import * as React from "bloatless-react";
 
 import { Theme, setTheme } from "./Support/theme";
 
+import Icon from "./Components/icon";
 import registerServiceWorker from "./Support/serviceWorker";
 
 // prepare
@@ -10,4 +11,9 @@ setTheme(Theme.Standard);
 registerServiceWorker();
 
 // build UI
-document.body.append(<h1>Hello, world!</h1>);
+document.body.append(
+  <div>
+    <h1>Hello, world!</h1>
+    {Icon("home")}
+  </div>
+);

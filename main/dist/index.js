@@ -106,6 +106,11 @@
     document.body.setAttribute("theme", theme);
   }
 
+  // src/Components/icon.tsx
+  function Icon(iconName) {
+    return /* @__PURE__ */ createElement("span", { class: "icon" }, iconName);
+  }
+
   // src/Support/serviceWorker.ts
   async function registerServiceWorker() {
     if ("serviceWorker" in navigator) {
@@ -128,5 +133,7 @@
   document.title = "My App";
   setTheme("standard" /* Standard */);
   registerServiceWorker();
-  document.body.append(/* @__PURE__ */ createElement("h1", null, "Hello, world!"));
+  document.body.append(
+    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), Icon("home"))
+  );
 })();
