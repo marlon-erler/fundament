@@ -32,6 +32,13 @@
       return JSON.stringify(this._value);
     }
   };
+  function createProxyState(statesToSubscibe, fn) {
+    const proxyState = new State(fn());
+    statesToSubscibe.forEach(
+      (state) => state.subscribe(() => proxyState.value = fn())
+    );
+    return proxyState;
+  }
   function createElement(tagName, attributes = {}, ...children) {
     const element = document.createElement(tagName);
     if (attributes != null)
@@ -138,6 +145,44 @@
     document.body.setAttribute("theme", theme);
   }
 
+  // src/Components/confirmationButton.tsx
+  function ConfirmationButton(actionLabel, cancelLabel, icon, action) {
+    const isActionRequested = new State(false);
+    const isActionNotRequested = createProxyState(
+      [isActionRequested],
+      () => isActionRequested.value == false
+    );
+    function requestAction() {
+      isActionRequested.value = true;
+    }
+    function cancelRequest() {
+      isActionRequested.value = false;
+    }
+    function performAction() {
+      action();
+      cancelRequest();
+    }
+    return /* @__PURE__ */ createElement("div", { class: "flex-row width-100 max-width-input" }, /* @__PURE__ */ createElement("button", { class: "flex-1", "on:click": cancelRequest, "toggle:hidden": isActionNotRequested }, cancelLabel, /* @__PURE__ */ createElement("span", { class: "icon" }, "undo")), /* @__PURE__ */ createElement(
+      "button",
+      {
+        class: "danger flex-1",
+        "on:click": requestAction,
+        "toggle:hidden": isActionRequested
+      },
+      actionLabel,
+      /* @__PURE__ */ createElement("span", { class: "icon" }, icon)
+    ), /* @__PURE__ */ createElement(
+      "button",
+      {
+        class: "danger flex-1",
+        "on:click": performAction,
+        "toggle:hidden": isActionNotRequested
+      },
+      actionLabel,
+      /* @__PURE__ */ createElement("span", { class: "icon" }, "warning")
+    ));
+  }
+
   // src/Components/progress.tsx
   function ProgressBar(percentValueOrUndefined) {
     const valueDiv = /* @__PURE__ */ createElement("div", null);
@@ -196,6 +241,6 @@
   registerServiceWorker();
   var value = new State(50);
   document.body.append(
-    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), /* @__PURE__ */ createElement("span", { "subscribe:innerText": value }), /* @__PURE__ */ createElement("button", { class: "primary" }, "Click here"), /* @__PURE__ */ createElement("input", { "bind:value": value }), Slider(value), ProgressBar(new State(void 0)))
+    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), /* @__PURE__ */ createElement("span", { "subscribe:innerText": value }), /* @__PURE__ */ createElement("button", { class: "primary" }, "Click here"), /* @__PURE__ */ createElement("input", { "bind:value": value }), Slider(value), ProgressBar(new State(void 0)), ConfirmationButton("Delete", "Cancel", "delete", () => alert("test")))
   );
 })();

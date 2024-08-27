@@ -8,6 +8,7 @@ import Popover, {
 } from "./Components/popover";
 import { Theme, setTheme } from "./Support/theme";
 
+import { ConfirmationButton } from "./Components/confirmationButton";
 import Icon from "./Components/icon";
 import Modal from "./Components/modal";
 import ProgressBar from "./Components/progress";
@@ -31,5 +32,6 @@ document.body.append(
     <input bind:value={value}></input>
     {Slider(value)}
     {ProgressBar(new React.State<any>(undefined))}
+    {ConfirmationButton("Delete", "Cancel", "delete", () => alert("test"))}
   </div>
 );

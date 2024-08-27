@@ -31,6 +31,10 @@ main {
   padding: var(--content-padding);
 }
 
+[hidden] {
+  display: none;
+}
+
 /*
     COLORS
 */
