@@ -1,5 +1,81 @@
 (() => {
   // node_modules/bloatless-react/index.ts
+  var State = class {
+    _value;
+    _bindings = /* @__PURE__ */ new Set();
+    // init
+    constructor(initialValue) {
+      this._value = initialValue;
+    }
+    // value
+    get value() {
+      return this._value;
+    }
+    set value(newValue) {
+      if (this._value == newValue) return;
+      this._value = newValue;
+      this.callSubscriptions();
+    }
+    // subscriptions
+    callSubscriptions() {
+      this._bindings.forEach((fn) => fn(this._value));
+    }
+    subscribe(fn) {
+      this._bindings.add(fn);
+      fn(this._value);
+    }
+    subscribeSilent(fn) {
+      this._bindings.add(fn);
+    }
+    // stringify
+    toString() {
+      return JSON.stringify(this._value);
+    }
+  };
+  var ListState = class extends State {
+    additionHandlers = /* @__PURE__ */ new Set();
+    removalHandlers = /* @__PURE__ */ new Map();
+    // init
+    constructor(initialItems) {
+      super(new Set(initialItems));
+    }
+    // list
+    add(...items) {
+      items.forEach((item) => {
+        this.value.add(item);
+        this.additionHandlers.forEach((handler) => handler(item));
+      });
+      this.callSubscriptions();
+    }
+    remove(...items) {
+      items.forEach((item) => {
+        this.value.delete(item);
+        if (!this.removalHandlers.has(item)) return;
+        this.removalHandlers.get(item).forEach((handler) => handler(item));
+        this.removalHandlers.delete(item);
+      });
+      this.callSubscriptions();
+    }
+    clear() {
+      this.remove(...this.value.values());
+    }
+    // handlers
+    handleAddition(handler) {
+      this.additionHandlers.add(handler);
+      [...this.value.values()].forEach(handler);
+    }
+    handleRemoval(item, handler) {
+      if (!this.removalHandlers.has(item))
+        this.removalHandlers.set(item, /* @__PURE__ */ new Set());
+      this.removalHandlers.get(item).add(handler);
+    }
+    // stringification
+    toString() {
+      const array = [...this.value.values()];
+      const json = JSON.stringify(array);
+      return json;
+    }
+  };
   function createElement(tagName, attributes = {}, ...children) {
     const element = document.createElement(tagName);
     if (attributes != null)
@@ -101,15 +177,28 @@
     return element;
   }
 
-  // src/Components/button.tsx
-  function Button(label, style, action) {
-    return /* @__PURE__ */ createElement("button", { "on:click": action, class: style }, label);
-  }
-
   // src/Support/theme.ts
   function setTheme(theme) {
     document.body.setAttribute("theme", theme);
   }
+
+  // src/Components/select.tsx
+  function Select(value, options2) {
+    value.value = [...options2.value.values()][0];
+    return /* @__PURE__ */ createElement("div", { class: "select-wrapper" }, /* @__PURE__ */ createElement(
+      "select",
+      {
+        "bind:value": value,
+        "children:append": [options2, StringToOption]
+      }
+    ), /* @__PURE__ */ createElement("span", { class: "icon" }, "arrow_drop_down"));
+  }
+  function Option(text, value, selectedOnCreate) {
+    return /* @__PURE__ */ createElement("option", { value, "toggle:selected": selectedOnCreate }, text);
+  }
+  var StringToOption = (string) => {
+    return Option(string, string, false);
+  };
 
   // src/Support/serviceWorker.ts
   async function registerServiceWorker() {
@@ -133,10 +222,11 @@
   document.title = "My App";
   setTheme("standard" /* Standard */);
   registerServiceWorker();
-  function test() {
-    alert("Hello!");
-  }
+  var options = new ListState(["a", "b"]);
+  var selectedOption = new State("");
+  options.add("c");
   document.body.append(
-    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), Button("Standard", "standard" /* Standard */, test), Button("Primary", "primary" /* Primary */, test), Button("Danger", "danger" /* Danger */, test))
+    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), /* @__PURE__ */ createElement("span", { "subscribe:innerText": selectedOption }), Select(selectedOption, options))
   );
+  selectedOption.value = "b";
 })();

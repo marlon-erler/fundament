@@ -5,17 +5,12 @@ export enum ButtonStyle {
   Primary = "primary",
   Danger = "danger",
 }
-import * as React from "bloatless-react";
-
-export default function Icon(iconName: string): HTMLSpanElement {
-  return <span class="icon">{iconName}</span>;
-}
 
 export default function Button(
   label: string,
   style: ButtonStyle,
   action: (e: PointerEvent) => void
-): HTMLSpanElement {
+): HTMLButtonElement {
   return (
     <button on:click={action} class={style}>
       {label}
