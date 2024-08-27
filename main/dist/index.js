@@ -162,7 +162,16 @@
       action();
       cancelRequest();
     }
-    return /* @__PURE__ */ createElement("div", { class: "flex-row width-100 max-width-input" }, /* @__PURE__ */ createElement("button", { class: "flex-1", "on:click": cancelRequest, "toggle:hidden": isActionNotRequested }, cancelLabel, /* @__PURE__ */ createElement("span", { class: "icon" }, "undo")), /* @__PURE__ */ createElement(
+    return /* @__PURE__ */ createElement("div", { class: "flex-row row-gap width-100 max-width-input" }, /* @__PURE__ */ createElement(
+      "button",
+      {
+        class: "standard flex-1",
+        "on:click": cancelRequest,
+        "toggle:hidden": isActionNotRequested
+      },
+      cancelLabel,
+      /* @__PURE__ */ createElement("span", { class: "icon" }, "undo")
+    ), /* @__PURE__ */ createElement(
       "button",
       {
         class: "danger flex-1",
@@ -237,7 +246,7 @@
 
   // src/index.tsx
   document.title = "My App";
-  setTheme("standard" /* Standard */);
+  setTheme("aero" /* Aero */);
   registerServiceWorker();
   var value = new State(50);
   document.body.append(

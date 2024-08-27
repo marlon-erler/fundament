@@ -24,8 +24,12 @@ export function ConfirmationButton(
   }
 
   return (
-    <div class="flex-row width-100 max-width-input">
-      <button class="flex-1" on:click={cancelRequest} toggle:hidden={isActionNotRequested}>
+    <div class="flex-row row-gap width-100 max-width-input">
+      <button
+        class="standard flex-1"
+        on:click={cancelRequest}
+        toggle:hidden={isActionNotRequested}
+      >
         {cancelLabel}
         <span class="icon">undo</span>
       </button>
