@@ -1,8 +1,7 @@
-import * as React from "bloatless-react";
+import { Theme, setTheme } from "./_Support/theme";
 
-import { Theme, setTheme } from "./Support/theme";
-
-import registerServiceWorker from "./Support/serviceWorker";
+import Page from "./Main/view";
+import registerServiceWorker from "./_Support/serviceWorker";
 
 // prepare
 document.title = "My App";
@@ -11,7 +10,5 @@ registerServiceWorker();
 
 // build UI
 document.body.append(
-  <div>
-    <h1>Hello, world!</h1>
-  </div>
+  Page()
 );

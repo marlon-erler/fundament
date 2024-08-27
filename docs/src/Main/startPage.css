@@ -1,0 +1,19 @@
+#title-section {
+  height: 424px;
+  background-image: url("assets/img/geometry-dark-01.jpg");
+
+  gap: 15px;
+}
+
+#title-section * {
+  color: white;
+}
+
+#title-section h1,
+#title-section h3 {
+  margin: 0px;
+}
+
+#title-section h1 {
+  font-size: 3rem;
+}

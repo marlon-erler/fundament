@@ -1,0 +1,47 @@
+/* src/Main/styles.css */
+.hero {
+  width: 100%;
+  padding: 0px 2rem;
+  padding-bottom: 3rem;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  position: relative;
+}
+.hero .shadow {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      hsla(0, 0%, 0%, 50%));
+  z-index: 1;
+}
+.hero :not(.shadow) {
+  z-index: 2;
+}
+
+/* src/Main/startPage.css */
+#title-section {
+  height: 424px;
+  background-image: url("./geometry-dark-01-OBMK5HJJ.jpg");
+  gap: 15px;
+}
+#title-section * {
+  color: white;
+}
+#title-section h1,
+#title-section h3 {
+  margin: 0px;
+}
+#title-section h1 {
+  font-size: 3rem;
+}

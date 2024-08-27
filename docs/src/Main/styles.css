@@ -1,0 +1,32 @@
+.hero {
+  width: 100%;
+  padding: 0px 2rem;
+  padding-bottom: 3rem;
+
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  position: relative;
+}
+
+.hero .shadow {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  background: linear-gradient(to bottom, transparent, hsla(0, 0%, 0%, 50%));
+
+  z-index: 1;
+}
+
+.hero :not(.shadow) {
+    z-index: 2;
+}

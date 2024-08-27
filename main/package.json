@@ -4,6 +4,6 @@
         "esbuild": "latest"
     },
     "scripts": {
-        "build": "esbuild src/index.tsx --bundle --outdir=dist"
+        "build": "esbuild src/index.tsx --bundle --loader:.png=file --loader:.jpg=file --outdir=dist"
     }
 }

@@ -1,4 +1,9 @@
 (() => {
+  // src/_Support/theme.ts
+  function setTheme(theme) {
+    document.body.setAttribute("theme", theme);
+  }
+
   // node_modules/bloatless-react/index.ts
   function createElement(tagName, attributes = {}, ...children) {
     const element = document.createElement(tagName);
@@ -101,12 +106,17 @@
     return element;
   }
 
-  // src/Support/theme.ts
-  function setTheme(theme) {
-    document.body.setAttribute("theme", theme);
+  // src/Main/startPage.tsx
+  function StartPage() {
+    return /* @__PURE__ */ createElement("section", { class: "hero", id: "title-section" }, /* @__PURE__ */ createElement("div", { class: "shadow" }), /* @__PURE__ */ createElement("h1", null, "Web App Base"), /* @__PURE__ */ createElement("h3", null, "No Setup. No Bloat. Everything you need."));
   }
 
-  // src/Support/serviceWorker.ts
+  // src/Main/view.tsx
+  function Page() {
+    return /* @__PURE__ */ createElement("div", null, StartPage());
+  }
+
+  // src/_Support/serviceWorker.ts
   async function registerServiceWorker() {
     if ("serviceWorker" in navigator) {
       try {
@@ -129,6 +139,6 @@
   setTheme("standard" /* Standard */);
   registerServiceWorker();
   document.body.append(
-    /* @__PURE__ */ createElement("main", null, /* @__PURE__ */ createElement("h1", null, "Web App Base"), /* @__PURE__ */ createElement("p", null, /* @__PURE__ */ createElement("a", { href: "https://github.com/marlon-erler/web-app-base", target: "_blank" }, "Web App Base"), " ", "is a minimal foundation for web apps. It contains everything necessary to build a PWA without any additional setup.", /* @__PURE__ */ createElement("h2", null, "Features"), /* @__PURE__ */ createElement("ul", null, /* @__PURE__ */ createElement("li", null, "Highly themable stylesheet"), /* @__PURE__ */ createElement("li", null, "Reactivity through", " ", /* @__PURE__ */ createElement("a", { href: "https://github.com/marlon-erler/bloatless-react" }, "bloatless-react")), /* @__PURE__ */ createElement("li", null, "Bundling with", " ", /* @__PURE__ */ createElement("a", { href: "https://esbuild.github.io", target: "_blank" }, "esbuild")))))
+    Page()
   );
 })();
