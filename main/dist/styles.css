@@ -46,29 +46,24 @@ html {
 
 /* CONTROLS */
 /* buttons etc */
-button.transparent {
-  background: var(--transparent-background);
-  color: var(--link);
-}
-
 button.standard,
 select {
-  background: var(--button-background);
-  color: var(--text-normal);
+  background: var(--standard-button-background);
+  color: var(--standard-button-foreground);
 }
 
 button.primary {
   background: var(--primary-button-background);
-  color: var(--text-on-color);
+  color: var(--primary-button-foreground);
 }
 
 button.danger {
   background: var(--danger-button-background);
-  color: var(--text-on-color);
+  color: var(--danger-button-foreground);
 }
 
 button[disabled] {
-  background: var(--button-disabled);
+  background: var(--disabled-button-background);
   color: var(--text-normal);
   pointer-events: none;
   opacity: 0.6;
@@ -76,14 +71,9 @@ button[disabled] {
 
 /* hover */
 @media (hover: hover) {
-  button.transparent:hover {
-    background: var(--transparent-hover);
-    color: var(--link-hover);
-  }
-
   button.standard:hover,
   select:hover {
-    background: var(--button-hover);
+    background: var(--standard-button-hover);
   }
 
   button.primary:hover {
@@ -155,6 +145,10 @@ button.danger:active {
 input,
 textarea {
   background: var(--input-background);
+}
+
+input::placeholder {
+  color: var(--text-placeholder)
 }
 
 /* TEXT */
@@ -258,7 +252,8 @@ textarea {
 input:focus,
 textarea:focus,
 [selected] {
-  outline: var(--outline-width) solid var(--outline-color);
+  outline: none;
+  box-shadow: 0px 0px 0px var(--outline-width) var(--outline-color);
 }
 
 hr {

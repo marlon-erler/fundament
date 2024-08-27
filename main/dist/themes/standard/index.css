@@ -7,10 +7,6 @@
   --base-background: hsla(0, 0%, 100%, 100%);
   --overlay-background: hsla(0, 0%, 100%, 90%);
 
-  --transparent-background: transparent;
-  --transparent-hover: hsla(0, 0%, 0%, 6%);
-  --transparent-active: hsla(0, 0%, 0%, 10%);
-
   --input-background: hsla(0, 0%, 0%, 5%);
   --surface-background: hsla(0, 0%, 0%, 5%);
   --checkbox-background: hsla(0, 0%, 0%, 5%);
@@ -19,18 +15,22 @@
 
   --focus-outline-color: hsl(219, 99%, 53%);
 
-  --button-background: hsla(0, 0%, 0%, 5%);
-  --button-hover: hsla(0, 0%, 0%, 10%);
-  --button-active: hsla(0, 0%, 0%, 15%);
-  --button-disabled: hsla(0, 0%, 0%, 3%);
+  --disabled-button-background: hsla(0, 0%, 0%, 3%);
+
+  --standard-button-background: hsla(0, 0%, 0%, 5%);
+  --standard-button-hover: hsla(0, 0%, 0%, 10%);
+  --standard-button-active: hsla(0, 0%, 0%, 15%);
+  --standard-button-foreground: var(--text-normal);
 
   --primary-button-background: hsl(219, 99%, 50%);
   --primary-button-hover: hsl(219, 97%, 43%);
   --primary-button-active: hsl(219, 100%, 35%);
+  --primary-button-foreground: white;
 
   --danger-button-background: hsl(357, 76%, 50%);
   --danger-button-hover: hsl(357, 75%, 43%);
   --danger-button-active: hsl(357, 79%, 35%);
+  --danger-button-foreground: white;
 
   --progress-value-background: hsl(219, 99%, 53%);
 
@@ -45,16 +45,12 @@
   /* text */
   --text-normal: #161616;
   --text-placeholder: hsla(0, 0%, 0%, 30%);
-  --text-on-color: #ffffff;
 
   --text-success: #24a148;
   --text-warning: #f1c21b;
   --text-error: #da1e28;
   --text-info: #0043ce;
-
-  --link: hsl(219, 99%, 53%);
-  --link-hover: hsl(220, 100%, 40%);
-
+  
   /* DEPTH */
   --button-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
   --input-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
