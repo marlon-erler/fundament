@@ -1,11 +1,13 @@
 import * as React from "bloatless-react";
 
-enum Theme {
-  Standard = "standard-theme",
-  Aero = "aero-theme",
-}
+import { Theme, setTheme } from "./Support/theme";
 
+import registerServiceWorker from "./Support/serviceWorker";
+
+// prepare
 document.title = "My App";
-document.body.setAttribute("theme", Theme.Standard);
+setTheme(Theme.Standard);
+registerServiceWorker();
 
+// build UI
 document.body.append(<h1>Hello, world!</h1>);
