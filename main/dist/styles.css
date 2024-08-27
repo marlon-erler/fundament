@@ -118,7 +118,7 @@ input::placeholder {
 }
 
 [role="progressbar"] {
-  background: var(--surface-background);
+  background: var(--progress-background);
   overflow: hidden;
 
   position: relative;
@@ -142,7 +142,7 @@ input::placeholder {
 
 /* slider */
 .slider-wrapper {
-  background: var(--surface-background);
+  background: var(--slider-background);
 }
 
 .slider-wrapper div {
@@ -210,6 +210,14 @@ textarea,
   box-shadow: var(--input-shadow);
 }
 
+[role="progressbar"] div {
+  box-shadow: var(--progress-value-shadow);
+}
+
+.slider-wrapper div {
+  box-shadow: var(--slider-value-shadow);
+}
+
 /*
     MARGIN & PADDING
 */
@@ -270,15 +278,27 @@ hr {
 */
 
 button,
+select {
+  border-radius: var(--button-corner-radius);
+}
+
 input,
-select,
-textarea,
+textarea {
+  border-radius: var(--textfield-corner-radius);
+}
+
 [role="progressbar"],
-[role="progressbar"] div,
+[role="progressbar"] div {
+  border-radius: var(--progress-bar-corner-radius);
+}
+
 .slider-wrapper,
-.slider-wrapper div,
+.slider-wrapper div {
+  border-radius: var(--slider-corner-radius);
+}
+
 .surface {
-  border-radius: var(--control-corner-radius);
+  border-radius: var(--surface-corner-radius);
 }
 
 /* 

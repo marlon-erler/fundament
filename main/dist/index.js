@@ -138,6 +138,21 @@
     document.body.setAttribute("theme", theme);
   }
 
+  // src/Components/progress.tsx
+  function ProgressBar(percentValueOrUndefined) {
+    const valueDiv = /* @__PURE__ */ createElement("div", null);
+    percentValueOrUndefined.subscribe((newValue) => {
+      if (newValue == void 0) {
+        valueDiv.style.width = "";
+        valueDiv.setAttribute("indeterminate", "");
+      } else {
+        valueDiv.style.width = `${newValue}%`;
+        valueDiv.removeAttribute("indeterminate");
+      }
+    });
+    return /* @__PURE__ */ createElement("div", { role: "progressbar" }, valueDiv);
+  }
+
   // src/Components/slider.tsx
   function Slider(value2, min = 0, max = 100, step = 1) {
     const valueDiv = /* @__PURE__ */ createElement("div", null);
@@ -177,10 +192,10 @@
 
   // src/index.tsx
   document.title = "My App";
-  setTheme("aero" /* Aero */);
+  setTheme("standard" /* Standard */);
   registerServiceWorker();
-  var value = new State(0);
+  var value = new State(50);
   document.body.append(
-    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), /* @__PURE__ */ createElement("span", { "subscribe:innerText": value }), Slider(value))
+    /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Hello, world!"), /* @__PURE__ */ createElement("span", { "subscribe:innerText": value }), /* @__PURE__ */ createElement("button", { class: "primary" }, "Click here"), /* @__PURE__ */ createElement("input", { "bind:value": value }), Slider(value), ProgressBar(new State(void 0)))
   );
 })();

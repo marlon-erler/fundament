@@ -10,6 +10,8 @@
   --overlay-background: hsla(0, 0%, 100%, 90%);
 
   --input-background: hsla(0, 0%, 0%, 5%);
+  --progress-background: hsla(0, 0%, 0%, 5%);
+  --slider-background: hsla(0, 0%, 0%, 5%);
   --surface-background: hsla(0, 0%, 0%, 5%);
   --checkbox-background: hsla(0, 0%, 0%, 5%);
   --checkbox-checked-background: hsl(var(--primary-hue), 99%, 53%);
@@ -57,6 +59,8 @@
   /* DEPTH */
   --button-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
   --input-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
+  --progress-value-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
+  --slider-value-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
   --overlay-shadow: 0px 0px 20px hsla(0, 0%, 0%, 10%);
 
   --overlay-backdrop-blur: 120px;
@@ -91,7 +95,11 @@
   --outline-width: 2px;
 
   /* corners */
-  --control-corner-radius: 0px;
+  --button-corner-radius: 0px;
+  --textfielld-corner-radius: 0px;
+  --progress-bar-corner-radius: 0px;
+  --slider-corner-radius: 0px;
+  --surface-corner-radius: 0px;
   --overlay-corner-radius: 0px;
 
   /* FONTS */

@@ -19,6 +19,8 @@
 
   --input-background: white;
   --surface-background: hsla(0, 0%, 0%, 5%);
+  --progress-background: linear-gradient(to bottom, hsla(0, 0%, 85%, 100%), hsla(0, 0%, 97%, 100%));
+  --slider-background: linear-gradient(to bottom, hsla(0, 0%, 85%, 100%), hsla(0, 0%, 97%, 100%));
   --checkbox-background: linear-gradient(to bottom, #f6f6f6 0%, #eaeaea 100%);
   --checkbox-checked-background: linear-gradient(
     to bottom,
@@ -142,8 +144,10 @@
   --text-info: #0043ce;
 
   /* DEPTH */
-  --button-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
-  --input-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.1);
+  --button-shadow: inset 0 1px 1px rgba(255, 255, 255, 50%);
+  --input-shadow: inset 1px 1px 2px rgba(0, 0, 0, 10%);
+  --progress-value-shadow: 0px 0px 2px hsla(0, 0%, 0%, 30%);
+  --slider-value-shadow: 0px 0px 2px hsla(0, 0%, 0%, 30%);
   --overlay-shadow: 0px 0px 20px hsla(0, 0%, 0%, 10%);
 
   --overlay-backdrop-blur: 3px;
@@ -178,7 +182,11 @@
   --outline-width: 2px;
 
   /* corners */
-  --control-corner-radius: 5px;
+  --button-corner-radius: 5px;
+  --textfielld-corner-radius: 0px;
+  --progress-bar-corner-radius: 10px;
+  --slider-corner-radius: 10px;
+  --surface-corner-radius: 5px;
   --overlay-corner-radius: 6px;
 
   /* FONTS */
