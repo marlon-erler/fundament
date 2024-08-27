@@ -6,7 +6,7 @@ import registerServiceWorker from "./Support/serviceWorker";
 
 // prepare
 document.title = "My App";
-setTheme(Theme.Aero);
+setTheme(Theme.Standard);
 registerServiceWorker();
 
 // build UI
