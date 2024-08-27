@@ -1,18 +1,20 @@
 :root {
-  /* COLORS */
-  /* animation */
+  --primary-hue: 205;
+
+  /* ANIMATION */
   --animation-duration: 0.3s;
 
+  /* COLORS */
   /* background */
-  --base-background: hsla(205, 40%, 97%, 100%);
+  --base-background: hsla(var(--primary-hue), 40%, 97%, 100%);
   --overlay-background: linear-gradient(
     175deg,
-    hsla(205, 50%, 95%, 70%) 0px,
-    hsla(205, 50%, 80%, 70%) 14px,
-    hsla(205, 50%, 75%, 70%) 18px,
-    hsla(205, 50%, 85%, 70%) 60px,
-    hsla(205, 50%, 90%, 70%) 60%,
-    hsla(205, 50%, 95%, 70%) 100%
+    hsla(var(--primary-hue), 50%, 95%, 70%) 0px,
+    hsla(var(--primary-hue), 50%, 80%, 70%) 14px,
+    hsla(var(--primary-hue), 50%, 75%, 70%) 18px,
+    hsla(var(--primary-hue), 50%, 85%, 70%) 60px,
+    hsla(var(--primary-hue), 50%, 90%, 70%) 60%,
+    hsla(var(--primary-hue), 50%, 95%, 70%) 100%
   );
 
   --input-background: white;
@@ -29,7 +31,7 @@
     #eaeaea 100%
   );
 
-  --focus-outline-color: hsl(205, 50%, 53%);
+  --focus-outline-color: hsl(var(--primary-hue), 50%, 53%);
 
   --disabled-button-background: linear-gradient(
     to bottom,
@@ -39,47 +41,47 @@
 
   --standard-button-background: linear-gradient(
     to bottom,
-    hsl(205, 50%, 95%) 0%,
-    hsl(205, 50%, 90%) 50%,
-    hsl(205, 50%, 85%) 51%,
-    hsl(205, 50%, 95%) 100%
+    hsl(var(--primary-hue), 50%, 95%) 0%,
+    hsl(var(--primary-hue), 50%, 90%) 50%,
+    hsl(var(--primary-hue), 50%, 85%) 51%,
+    hsl(var(--primary-hue), 50%, 95%) 100%
   );
   --standard-button-hover: linear-gradient(
     to bottom,
-    hsl(205, 50%, 90%) 0%,
-    hsl(205, 50%, 85%) 50%,
-    hsl(205, 50%, 80%) 51%,
-    hsl(205, 50%, 90%) 100%
+    hsl(var(--primary-hue), 50%, 90%) 0%,
+    hsl(var(--primary-hue), 50%, 85%) 50%,
+    hsl(var(--primary-hue), 50%, 80%) 51%,
+    hsl(var(--primary-hue), 50%, 90%) 100%
   );
   --standard-button-active: linear-gradient(
     to bottom,
-    hsl(205, 50%, 85%) 0%,
-    hsl(205, 50%, 80%) 50%,
-    hsl(205, 50%, 75%) 51%,
-    hsl(205, 50%, 85%) 100%
+    hsl(var(--primary-hue), 50%, 85%) 0%,
+    hsl(var(--primary-hue), 50%, 80%) 50%,
+    hsl(var(--primary-hue), 50%, 75%) 51%,
+    hsl(var(--primary-hue), 50%, 85%) 100%
   );
   --standard-button-foreground: var(--text-normal);
 
   --primary-button-background: linear-gradient(
     to bottom,
-    hsl(205, 80%, 90%) 0%,
-    hsl(205, 80%, 85%) 50%,
-    hsl(205, 80%, 80%) 51%,
-    hsl(205, 80%, 90%) 100%
+    hsl(var(--primary-hue), 80%, 90%) 0%,
+    hsl(var(--primary-hue), 80%, 85%) 50%,
+    hsl(var(--primary-hue), 80%, 80%) 51%,
+    hsl(var(--primary-hue), 80%, 90%) 100%
   );
   --primary-button-hover: linear-gradient(
     to bottom,
-    hsl(205, 80%, 85%) 0%,
-    hsl(205, 80%, 80%) 50%,
-    hsl(205, 80%, 75%) 51%,
-    hsl(205, 80%, 85%) 100%
+    hsl(var(--primary-hue), 80%, 85%) 0%,
+    hsl(var(--primary-hue), 80%, 80%) 50%,
+    hsl(var(--primary-hue), 80%, 75%) 51%,
+    hsl(var(--primary-hue), 80%, 85%) 100%
   );
   --primary-button-active: linear-gradient(
     to bottom,
-    hsl(205, 80%, 80%) 0%,
-    hsl(205, 80%, 75%) 50%,
-    hsl(205, 80%, 70%) 51%,
-    hsl(205, 80%, 80%) 100%
+    hsl(var(--primary-hue), 80%, 80%) 0%,
+    hsl(var(--primary-hue), 80%, 75%) 50%,
+    hsl(var(--primary-hue), 80%, 70%) 51%,
+    hsl(var(--primary-hue), 80%, 80%) 100%
   );
   --primary-button-foreground: var(--text-normal);
 
@@ -119,7 +121,7 @@
   --input-border-color: #a9a9a9;
   --input-bottom-border-color: #a9a9a9;
   --overlay-border-color: hsla(0, 0%, 0%, 20%);
-  --outline-color: hsl(205, 99%, 53%);
+  --outline-color: hsl(var(--primary-hue), 99%, 53%);
   --hr-color: hsla(0, 0%, 0%, 10%);
 
   /* text */

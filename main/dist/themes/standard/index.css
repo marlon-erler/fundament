@@ -1,19 +1,21 @@
 :root {
+  --primary-hue: 219;
+
   /* ANIMATION */
   --animation-duration: 0.3s;
 
   /* COLORS */
   /* background */
-  --base-background: hsla(0, 0%, 100%, 100%);
+  --base-background: hsla(var(--primary-hue), 15%, 96%, 100%);
   --overlay-background: hsla(0, 0%, 100%, 90%);
 
   --input-background: hsla(0, 0%, 0%, 5%);
   --surface-background: hsla(0, 0%, 0%, 5%);
   --checkbox-background: hsla(0, 0%, 0%, 5%);
-  --checkbox-checked-background: hsl(219, 99%, 53%);
+  --checkbox-checked-background: hsl(var(--primary-hue), 99%, 53%);
   --radio-checked-foreground: white;
 
-  --focus-outline-color: hsl(219, 99%, 53%);
+  --focus-outline-color: hsl(var(--primary-hue), 99%, 53%);
 
   --disabled-button-background: hsla(0, 0%, 0%, 3%);
 
@@ -22,9 +24,9 @@
   --standard-button-active: hsla(0, 0%, 0%, 15%);
   --standard-button-foreground: var(--text-normal);
 
-  --primary-button-background: hsl(219, 99%, 50%);
-  --primary-button-hover: hsl(219, 97%, 43%);
-  --primary-button-active: hsl(219, 100%, 35%);
+  --primary-button-background: hsl(var(--primary-hue), 99%, 50%);
+  --primary-button-hover: hsl(var(--primary-hue), 97%, 43%);
+  --primary-button-active: hsl(var(--primary-hue), 100%, 35%);
   --primary-button-foreground: white;
 
   --danger-button-background: hsl(357, 76%, 50%);
@@ -32,14 +34,14 @@
   --danger-button-active: hsl(357, 79%, 35%);
   --danger-button-foreground: white;
 
-  --progress-value-background: hsl(219, 99%, 53%);
+  --progress-value-background: hsl(var(--primary-hue), 99%, 53%);
 
   /* border */
   --standard-border-color: hsla(0, 0%, 0%, 0%);
   --input-border-color: hsla(0, 0%, 0%, 3%);
   --input-bottom-border-color: hsla(0, 0%, 0%, 20%);
   --overlay-border-color: hsla(0, 0%, 0%, 15%);
-  --outline-color: hsl(219, 99%, 53%);
+  --outline-color: hsl(var(--primary-hue), 99%, 53%);
   --hr-color: hsla(0, 0%, 0%, 10%);
 
   /* text */
@@ -50,7 +52,7 @@
   --text-warning: #f1c21b;
   --text-error: #da1e28;
   --text-info: #0043ce;
-  
+
   /* DEPTH */
   --button-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
   --input-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
