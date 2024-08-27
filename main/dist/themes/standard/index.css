@@ -34,6 +34,7 @@
   --danger-button-active: hsl(357, 79%, 35%);
   --danger-button-foreground: white;
 
+  --slider-value-background: hsl(var(--primary-hue), 99%, 53%);
   --progress-value-background: hsl(var(--primary-hue), 99%, 53%);
 
   /* border */
@@ -79,6 +80,7 @@
   /* sizes */
   --control-height: 34px;
   --progress-bar-height: 24px;
+  --slider-height: 24px;
   --checkbox-size: 16px;
 
   --max-input-width: 24rem;

@@ -12,34 +12,21 @@ import Icon from "./Components/icon";
 import Modal from "./Components/modal";
 import ProgressBar from "./Components/progress";
 import Select from "./Components/select";
+import Slider from "./Components/slider";
 import registerServiceWorker from "./Support/serviceWorker";
 
 // prepare
 document.title = "My App";
-setTheme(Theme.Standard);
+setTheme(Theme.Aero);
 registerServiceWorker();
 
-const isOpen: React.State<boolean> = new React.State(false);
-
-function closeModal() {
-  isOpen.value = false;
-}
+const value = new React.State(0);
 
 // build UI
 document.body.append(
   <div>
     <h1>Hello, world!</h1>
-    {PopoverButton(
-      isOpen,
-      "Open popover",
-      ButtonStyle.Primary,
-      <main>
-        <h1>This is a modal</h1>
-      </main>,
-      [
-        Button("Cancel", ButtonStyle.Standard, closeModal),
-        Button("Save", ButtonStyle.Primary, closeModal),
-      ]
-    )}
+    <span subscribe:innerText={value}></span>
+    {Slider(value)}
   </div>
 );

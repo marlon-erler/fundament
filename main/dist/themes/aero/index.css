@@ -116,6 +116,14 @@
     hsl(130, 80%, 60%) 100%
   );
 
+  --slider-value-background: linear-gradient(
+    to bottom,
+    hsl(var(--primary-hue), 80%, 50%) 0%,
+    hsl(var(--primary-hue), 80%, 55%) 50%,
+    hsl(var(--primary-hue), 80%, 45%) 51%,
+    hsl(var(--primary-hue), 80%, 60%) 100%
+  );
+
   /* border */
   --standard-border-color: #a9a9a9;
   --input-border-color: #a9a9a9;
@@ -159,6 +167,7 @@
   /* sizes */
   --control-height: 24px;
   --progress-bar-height: 18px;
+  --slider-height: 18px;
   --checkbox-size: 16px;
 
   --max-input-width: 24rem;

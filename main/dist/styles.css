@@ -69,7 +69,6 @@ button[disabled] {
   opacity: 0.6;
 }
 
-/* hover */
 @media (hover: hover) {
   button.standard:hover,
   select:hover {
@@ -85,11 +84,6 @@ button[disabled] {
   }
 }
 
-/* active */
-button.transparent:active {
-  background: var(--transparent-active);
-}
-
 button.standard:active,
 select:active {
   background: var(--button-active);
@@ -101,6 +95,16 @@ button.primary:active {
 
 button.danger:active {
   background: var(--danger-button-active);
+}
+
+/* input etc */
+input,
+textarea {
+  background: var(--input-background);
+}
+
+input::placeholder {
+  color: var(--text-placeholder);
 }
 
 /* progress */
@@ -136,19 +140,18 @@ button.danger:active {
   animation: progress-indeterminate 2s linear infinite;
 }
 
-/* surface */
-.surface {
+/* slider */
+.slider-wrapper {
   background: var(--surface-background);
 }
 
-/* input etc */
-input,
-textarea {
-  background: var(--input-background);
+.slider-wrapper div {
+  background: var(--slider-value-background);
 }
 
-input::placeholder {
-  color: var(--text-placeholder);
+/* surface */
+.surface {
+  background: var(--surface-background);
 }
 
 /* TEXT */
@@ -202,7 +205,8 @@ select {
 
 input,
 textarea,
-[role="progressbar"] {
+[role="progressbar"],
+.slider-wrapper {
   box-shadow: var(--input-shadow);
 }
 
@@ -235,7 +239,8 @@ hr {
 
 button:not(.transparent),
 select,
-[role="progressbar"] {
+[role="progressbar"],
+.slider-wrapper {
   border: var(--border-width) solid var(--standard-border-color);
 }
 
@@ -270,6 +275,8 @@ select,
 textarea,
 [role="progressbar"],
 [role="progressbar"] div,
+.slider-wrapper,
+.slider-wrapper div,
 .surface {
   border-radius: var(--control-corner-radius);
 }
@@ -282,7 +289,8 @@ input,
 select,
 .select-wrapper,
 textarea,
-[role="progressbar"] {
+[role="progressbar"],
+.slider-wrapper {
   width: 100%;
   max-width: var(--max-input-width);
 }
@@ -299,6 +307,10 @@ select {
 
 [role="progressbar"] {
   height: var(--progress-bar-height);
+}
+
+.slider-wrapper {
+  height: var(--slider-height);
 }
 
 .width-100 {
@@ -447,7 +459,7 @@ select {
     ELEMENT-SPECIFIC
 */
 
-/* CHECKBOX ETC */
+/* CHECKBOX & RADIO */
 input[type="checkbox"],
 input[type="radio"] {
   width: var(--checkbox-size);
@@ -602,6 +614,26 @@ input[type="radio"]:checked::after {
   top: 0px;
   right: 6px;
   bottom: 0px;
+}
+
+/* SLIDER */
+.slider-wrapper {
+  position: relative;
+}
+
+.slider-wrapper > * {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+
+  width: 100%;
+  height: 100%;
+}
+
+.slider-wrapper > input {
+  opacity: 0;
 }
 
 /*
