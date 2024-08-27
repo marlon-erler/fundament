@@ -128,6 +128,8 @@ button.danger:active {
   overflow: hidden;
 
   position: relative;
+
+  height: var(--progress-bar-height);
 }
 
 [role="progressbar"] div {
@@ -534,6 +536,7 @@ input[type="radio"]:checked::after {
 
   border: var(--border-width) solid var(--overlay-border-color);
   backdrop-filter: blur(var(--overlay-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--overlay-backdrop-blur));
 
   pointer-events: none;
   opacity: 0;
