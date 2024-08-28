@@ -143,38 +143,33 @@
   }
   var titleSection = /* @__PURE__ */ createElement("section", { class: "hero", id: "title-section" }, /* @__PURE__ */ createElement("div", { class: "shadow" }), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Fundament"), /* @__PURE__ */ createElement("h3", null, "No Setup. No Bloat. Everything you need."), /* @__PURE__ */ createElement("div", { class: "button-row" }, Button("View on GitHub", "standard" /* Standard */, openGithub), Button("Get Started", "primary" /* Primary */, getStarted))));
   var featureSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Features"), /* @__PURE__ */ createElement("div", { class: "feature-grid" }, FeatureTile(
-    "wifi_off",
-    "Offline Support",
-    "Your PWA is available offline thanks to a cache-first Service Worker."
+    "package",
+    "Complete",
+    "Stylesheet, components, and reactivity included."
   ), FeatureTile(
     "palette",
     "Customizable",
-    "Easily customize the look of your app with CSS variables."
+    "Select an existing theme or build your own with ease."
   ), FeatureTile(
-    "cycle",
-    "Reactive",
-    "Easily build reactive interfaces with bloatless-react."
-  ), FeatureTile(
-    "deployed_code",
-    "Components included",
-    "Use components like modals or popovers, or build your own."
-  ), FeatureTile(
-    "manufacturing",
-    "Fully Configured",
-    "Just run 'npm run build'.\nNo additional setup required."
+    "wifi_off",
+    "Offline Support",
+    "Your PWA is available offline right out of the box."
   ), FeatureTile(
     "code",
     "Free & Open Source",
     "Check out the code on GitHub or create your own fork."
   ))));
-  var gettingStartedSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Get Started"), /* @__PURE__ */ createElement("div", { class: "getting-started-list" }, GettingStartedStep(1, /* @__PURE__ */ createElement("span", null, "Get the latest release from GitHub")), GettingStartedStep(
+  var gettingStartedSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Get Started"), /* @__PURE__ */ createElement("div", { class: "getting-started-list" }, GettingStartedStep(1, /* @__PURE__ */ createElement("span", null, "Download the ", /* @__PURE__ */ createElement("a", { href: "https://github.com/marlon-erler/fundament/releases" }, "latest release"), " from GitHub")), GettingStartedStep(
     2,
-    /* @__PURE__ */ createElement("span", null, "Open ", /* @__PURE__ */ createElement("b", null, "src/Main/view.tsx"))
+    /* @__PURE__ */ createElement("span", null, "Run ", /* @__PURE__ */ createElement("b", null, "npm install"), " to get all dependencies")
   ), GettingStartedStep(
     3,
-    /* @__PURE__ */ createElement("span", null, "Serve ", /* @__PURE__ */ createElement("b", null, "dist"), " on a local web server")
+    /* @__PURE__ */ createElement("span", null, "Open ", /* @__PURE__ */ createElement("b", null, "src/Main/view.tsx"))
   ), GettingStartedStep(
     4,
+    /* @__PURE__ */ createElement("span", null, "Serve ", /* @__PURE__ */ createElement("b", null, "dist"), " on a local web server")
+  ), GettingStartedStep(
+    5,
     /* @__PURE__ */ createElement("span", null, "Run ", /* @__PURE__ */ createElement("b", null, "npm run build"), " to build")
   ))));
   var documentationLinkSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Documentation"), /* @__PURE__ */ createElement("div", { class: "documentation-link-list" }, DocumentationLink(

@@ -39,29 +39,19 @@ const featureSection: HTMLElement = (
       <h2>Features</h2>
       <div class="feature-grid">
         {FeatureTile(
-          "wifi_off",
-          "Offline Support",
-          "Your PWA is available offline thanks to a cache-first Service Worker."
+          "package",
+          "Complete",
+          "Stylesheet, components, and reactivity included."
         )}
         {FeatureTile(
           "palette",
           "Customizable",
-          "Easily customize the look of your app with CSS variables."
+          "Select an existing theme or build your own with ease."
         )}
         {FeatureTile(
-          "cycle",
-          "Reactive",
-          "Easily build reactive interfaces with bloatless-react."
-        )}
-        {FeatureTile(
-          "deployed_code",
-          "Components included",
-          "Use components like modals or popovers, or build your own."
-        )}
-        {FeatureTile(
-          "manufacturing",
-          "Fully Configured",
-          "Just run 'npm run build'.\nNo additional setup required."
+          "wifi_off",
+          "Offline Support",
+          "Your PWA is available offline right out of the box."
         )}
         {FeatureTile(
           "code",
@@ -78,21 +68,27 @@ const gettingStartedSection: HTMLElement = (
     <div>
       <h2>Get Started</h2>
       <div class="getting-started-list">
-        {GettingStartedStep(1, <span>Get the latest release from GitHub</span>)}
+        {GettingStartedStep(1, <span>Download the <a href="https://github.com/marlon-erler/fundament/releases">latest release</a> from GitHub</span>)}
         {GettingStartedStep(
           2,
           <span>
-            Open <b>src/Main/view.tsx</b>
+            Run <b>npm install</b> to get all dependencies
           </span>
         )}
         {GettingStartedStep(
           3,
           <span>
-            Serve <b>dist</b> on a local web server
+            Open <b>src/Main/view.tsx</b>
           </span>
         )}
         {GettingStartedStep(
           4,
+          <span>
+            Serve <b>dist</b> on a local web server
+          </span>
+        )}
+        {GettingStartedStep(
+          5,
           <span>
             Run <b>npm run build</b> to build
           </span>
