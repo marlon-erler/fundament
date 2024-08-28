@@ -110,8 +110,7 @@ header b {
   padding-top: 300px;
   background-image: url("./geometry-dark-01-OBMK5HJJ.jpg");
 }
-#title-section h1,
-#title-section h3 {
+#title-section :is(h1, h3, p) {
   color: white;
 }
 #title-section h1,

@@ -4,8 +4,7 @@
   background-image: url("assets/img/geometry-dark-01.jpg");
 }
 
-#title-section h1,
-#title-section h3 {
+#title-section :is(h1, h3, p) {
   color: white;
 }
 
