@@ -145,6 +145,11 @@
     return element;
   }
 
+  // src/Components/contentPage.tsx
+  function ContentPage() {
+    return /* @__PURE__ */ createElement("div", { class: "content-page" }, /* @__PURE__ */ createElement("div", { class: "index-pane" }), /* @__PURE__ */ createElement("div", { class: "content-pane" }));
+  }
+
   // src/_Components/icon.tsx
   function Icon(iconName) {
     return /* @__PURE__ */ createElement("span", { class: "icon" }, iconName);
@@ -160,12 +165,7 @@
 
   // src/Main/componentPage.tsx
   function ComponentPage() {
-    return /* @__PURE__ */ createElement("div", null, Header("Components"));
-  }
-
-  // src/_Components/button.tsx
-  function Button(label, style, action) {
-    return /* @__PURE__ */ createElement("button", { "on:click": action, class: style }, label);
+    return /* @__PURE__ */ createElement("div", null, Header("Components"), ContentPage());
   }
 
   // src/Components/documentationLink.tsx
@@ -191,7 +191,7 @@
     function getStarted() {
       gettingStartedSection.scrollIntoView();
     }
-    const titleSection = /* @__PURE__ */ createElement("section", { class: "hero", id: "title-section" }, /* @__PURE__ */ createElement("div", { class: "shadow" }), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Fundament"), /* @__PURE__ */ createElement("h3", null, "No Setup. No Bloat. Everything you need."), /* @__PURE__ */ createElement("div", { class: "button-row" }, Button("View on GitHub", "standard" /* Standard */, openGithub), Button("Get Started", "primary" /* Primary */, getStarted))));
+    const titleSection = /* @__PURE__ */ createElement("section", { class: "hero", id: "title-section" }, /* @__PURE__ */ createElement("div", { class: "shadow" }), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Fundament"), /* @__PURE__ */ createElement("h3", null, "No Setup. No Bloat. Everything you need."), /* @__PURE__ */ createElement("div", { class: "button-row" }, /* @__PURE__ */ createElement("button", { class: "standard", "on:click": openGithub }, "View on Github"), /* @__PURE__ */ createElement("button", { class: "primary", "on:click": getStarted }, "Get Started"))));
     const featureSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Features"), /* @__PURE__ */ createElement("div", { class: "feature-grid" }, FeatureTile(
       "package",
       "Complete",
