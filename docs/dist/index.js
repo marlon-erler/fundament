@@ -145,22 +145,32 @@
     return element;
   }
 
+  // src/_Components/icon.tsx
+  function Icon(iconName) {
+    return /* @__PURE__ */ createElement("span", { class: "icon" }, iconName);
+  }
+
+  // src/Components/header.tsx
+  function Header(title) {
+    function closePage() {
+      changePage(0 /* startPage */);
+    }
+    return /* @__PURE__ */ createElement("header", null, /* @__PURE__ */ createElement("button", { class: "standard square", "on:click": closePage }, Icon("arrow_back")), /* @__PURE__ */ createElement("b", null, title));
+  }
+
+  // src/Main/componentPage.tsx
+  function ComponentPage() {
+    return /* @__PURE__ */ createElement("div", null, Header("Components"));
+  }
+
   // src/_Components/button.tsx
   function Button(label, style, action) {
     return /* @__PURE__ */ createElement("button", { "on:click": action, class: style }, label);
   }
 
   // src/Components/documentationLink.tsx
-  function DocumentationLink(iconName, title, description, link) {
-    function open() {
-      window.open(link);
-    }
-    return /* @__PURE__ */ createElement("button", { class: "standard documentation-link", "on:click": open }, /* @__PURE__ */ createElement("span", { class: "icon" }, iconName), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("b", null, title), /* @__PURE__ */ createElement("span", { class: "secondary" }, description)), /* @__PURE__ */ createElement("span", { class: "icon" }, "arrow_forward"));
-  }
-
-  // src/_Components/icon.tsx
-  function Icon(iconName) {
-    return /* @__PURE__ */ createElement("span", { class: "icon" }, iconName);
+  function DocumentationLink(iconName, title, description, action) {
+    return /* @__PURE__ */ createElement("button", { class: "standard documentation-link", "on:click": action }, /* @__PURE__ */ createElement("span", { class: "icon" }, iconName), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("b", null, title), /* @__PURE__ */ createElement("span", { class: "secondary" }, description)), /* @__PURE__ */ createElement("span", { class: "icon" }, "arrow_forward"));
   }
 
   // src/Components/featureTile.tsx
@@ -174,72 +184,80 @@
   }
 
   // src/Main/startPage.tsx
-  function openGithub() {
-    window.open("https://github.com/marlon-erler/web-app-base");
-  }
-  function getStarted() {
-    gettingStartedSection.scrollIntoView();
-  }
-  var titleSection = /* @__PURE__ */ createElement("section", { class: "hero", id: "title-section" }, /* @__PURE__ */ createElement("div", { class: "shadow" }), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Fundament"), /* @__PURE__ */ createElement("h3", null, "No Setup. No Bloat. Everything you need."), /* @__PURE__ */ createElement("div", { class: "button-row" }, Button("View on GitHub", "standard" /* Standard */, openGithub), Button("Get Started", "primary" /* Primary */, getStarted))));
-  var featureSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Features"), /* @__PURE__ */ createElement("div", { class: "feature-grid" }, FeatureTile(
-    "package",
-    "Complete",
-    "Stylesheet, components, and reactivity included."
-  ), FeatureTile(
-    "palette",
-    "Customizable",
-    "Select an existing theme or build your own with ease."
-  ), FeatureTile(
-    "wifi_off",
-    "Offline Support",
-    "Your PWA is available offline right out of the box."
-  ), FeatureTile(
-    "code",
-    "Free & Open Source",
-    "Check out the code on GitHub or create your own fork."
-  ))));
-  var gettingStartedSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Get Started"), /* @__PURE__ */ createElement("div", { class: "getting-started-list" }, GettingStartedStep(1, /* @__PURE__ */ createElement("span", null, "Download the ", /* @__PURE__ */ createElement("a", { href: "https://github.com/marlon-erler/fundament/releases" }, "latest release"), " from GitHub")), GettingStartedStep(
-    2,
-    /* @__PURE__ */ createElement("span", null, "Run ", /* @__PURE__ */ createElement("b", null, "npm install"), " to get all dependencies")
-  ), GettingStartedStep(
-    3,
-    /* @__PURE__ */ createElement("span", null, "Open ", /* @__PURE__ */ createElement("b", null, "src/Main/view.tsx"))
-  ), GettingStartedStep(
-    4,
-    /* @__PURE__ */ createElement("span", null, "Serve ", /* @__PURE__ */ createElement("b", null, "dist"), " on a local web server")
-  ), GettingStartedStep(
-    5,
-    /* @__PURE__ */ createElement("span", null, "Run ", /* @__PURE__ */ createElement("b", null, "npm run build"), " to build")
-  ))));
-  var documentationLinkSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Documentation"), /* @__PURE__ */ createElement("div", { class: "documentation-link-list" }, DocumentationLink(
-    "deployed_code",
-    "Components",
-    "Buttons, Sliders, Modals, and more",
-    "about:blank"
-  ), DocumentationLink(
-    "cycle",
-    "Reactivity",
-    "Check out the documentation for bloatless-react",
-    "https://github.com/marlon-erler/bloatless-react"
-  ), DocumentationLink(
-    "palette",
-    "Customization",
-    "Modify themes or create your own",
-    "about:blank"
-  ))));
   function StartPage() {
+    function openGithub() {
+      window.open("https://github.com/marlon-erler/web-app-base");
+    }
+    function getStarted() {
+      gettingStartedSection.scrollIntoView();
+    }
+    const titleSection = /* @__PURE__ */ createElement("section", { class: "hero", id: "title-section" }, /* @__PURE__ */ createElement("div", { class: "shadow" }), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Fundament"), /* @__PURE__ */ createElement("h3", null, "No Setup. No Bloat. Everything you need."), /* @__PURE__ */ createElement("div", { class: "button-row" }, Button("View on GitHub", "standard" /* Standard */, openGithub), Button("Get Started", "primary" /* Primary */, getStarted))));
+    const featureSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Features"), /* @__PURE__ */ createElement("div", { class: "feature-grid" }, FeatureTile(
+      "package",
+      "Complete",
+      "Stylesheet, components, and reactivity included."
+    ), FeatureTile(
+      "palette",
+      "Customizable",
+      "Select an existing theme or build your own with ease."
+    ), FeatureTile(
+      "wifi_off",
+      "Offline Support",
+      "Your PWA is available offline right out of the box."
+    ), FeatureTile(
+      "code",
+      "Free & Open Source",
+      "Check out the code on GitHub or create your own fork."
+    ))));
+    const gettingStartedSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Get Started"), /* @__PURE__ */ createElement("div", { class: "getting-started-list" }, GettingStartedStep(
+      1,
+      /* @__PURE__ */ createElement("span", null, "Download the", " ", /* @__PURE__ */ createElement("a", { href: "https://github.com/marlon-erler/fundament/releases" }, "latest release"), " ", "from GitHub")
+    ), GettingStartedStep(
+      2,
+      /* @__PURE__ */ createElement("span", null, "Run ", /* @__PURE__ */ createElement("b", null, "npm install"), " to get all dependencies")
+    ), GettingStartedStep(
+      3,
+      /* @__PURE__ */ createElement("span", null, "Open ", /* @__PURE__ */ createElement("b", null, "src/Main/view.tsx"))
+    ), GettingStartedStep(
+      4,
+      /* @__PURE__ */ createElement("span", null, "Serve ", /* @__PURE__ */ createElement("b", null, "dist"), " on a local web server")
+    ), GettingStartedStep(
+      5,
+      /* @__PURE__ */ createElement("span", null, "Run ", /* @__PURE__ */ createElement("b", null, "npm run build"), " to build")
+    ))));
+    const documentationLinkSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Documentation"), /* @__PURE__ */ createElement("div", { class: "documentation-link-list" }, DocumentationLink(
+      "deployed_code",
+      "Components",
+      "Buttons, Sliders, Modals, and more",
+      () => changePage(1 /* components */)
+    ), DocumentationLink(
+      "cycle",
+      "Reactivity",
+      "Check out the documentation for bloatless-react",
+      () => window.open("https://github.com/marlon-erler/bloatless-react")
+    ), DocumentationLink(
+      "palette",
+      "Customization",
+      "Modify themes or create your own",
+      () => changePage(2 /* customization */)
+    ))));
     return /* @__PURE__ */ createElement("div", null, titleSection, featureSection, gettingStartedSection, documentationLinkSection);
   }
 
   // src/Main/viewRoot.tsx
+  var selectedPage = new State(0 /* startPage */);
+  var pageContent = createProxyState([selectedPage], () => {
+    switch (selectedPage.value) {
+      case 1 /* components */:
+        return ComponentPage();
+      default:
+        return StartPage();
+    }
+  });
+  function changePage(page) {
+    selectedPage.value = page;
+  }
   function ViewRoot() {
-    const selectedPage = new State(0 /* startPage */);
-    const pageContent = createProxyState([selectedPage], () => {
-      switch (selectedPage.value) {
-        default:
-          return StartPage();
-      }
-    });
     return /* @__PURE__ */ createElement("div", { "children:set": pageContent });
   }
 

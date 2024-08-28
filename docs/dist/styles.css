@@ -183,6 +183,11 @@ input::placeholder {
     ELEMENT LAYOUT
 */
 
+header {
+  display: flex;
+  align-items: center;
+}
+
 button,
 .surface {
   display: flex;
@@ -192,6 +197,13 @@ button,
   justify-content: space-between;
 
   gap: var(--gap-in-controls);
+}
+
+button.square {
+  padding: 0px;
+  width: var(--control-height);
+  justify-content: center;
+  align-items: center;
 }
 
 button > div,
