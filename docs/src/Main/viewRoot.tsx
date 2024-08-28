@@ -14,20 +14,27 @@ export enum Page {
 
 // ROUTING
 const selectedPage = new React.State(Page.startPage);
-const pageContent = React.createProxyState([selectedPage], () => {
-  switch (selectedPage.value) {
-    case Page.components:
-      return ComponentPage()
-    default:
-      return StartPage();
-  }
-});
 
 export function changePage(page: Page) {
   selectedPage.value = page;
 }
 
+export class PageHiddenState extends React.State<boolean> {
+  constructor(selectedPage: React.State<Page>, self: Page) {
+    super(false);
+
+    selectedPage.subscribe((newValue) => {
+      this.value = newValue != self;
+    });
+  }
+}
+
 // MAIN
 export default function ViewRoot() {
-  return <div children:set={pageContent}></div>;
+  return (
+    <div>
+      {StartPage(selectedPage)}
+      {ComponentPage(selectedPage)}
+    </div>
+  );
 }

@@ -37,13 +37,6 @@
       return JSON.stringify(this._value);
     }
   };
-  function createProxyState(statesToSubscibe, fn) {
-    const proxyState = new State(fn());
-    statesToSubscibe.forEach(
-      (state) => state.subscribe(() => proxyState.value = fn())
-    );
-    return proxyState;
-  }
   function createElement(tagName, attributes = {}, ...children) {
     const element = document.createElement(tagName);
     if (attributes != null)
@@ -164,8 +157,9 @@
   }
 
   // src/Main/componentPage.tsx
-  function ComponentPage() {
-    return /* @__PURE__ */ createElement("div", null, Header("Components"), ContentPage());
+  function ComponentPage(selectedPage2) {
+    const isHidden = new PageHiddenState(selectedPage2, 1 /* components */);
+    return /* @__PURE__ */ createElement("div", { "toggle:hidden": isHidden }, Header("Components"), ContentPage());
   }
 
   // src/Components/documentationLink.tsx
@@ -184,7 +178,8 @@
   }
 
   // src/Main/startPage.tsx
-  function StartPage() {
+  function StartPage(selectedPage2) {
+    const isHidden = new PageHiddenState(selectedPage2, 0 /* startPage */);
     function openGithub() {
       window.open("https://github.com/marlon-erler/web-app-base");
     }
@@ -241,24 +236,24 @@
       "Modify themes or create your own",
       () => changePage(2 /* customization */)
     ))));
-    return /* @__PURE__ */ createElement("div", null, titleSection, featureSection, gettingStartedSection, documentationLinkSection);
+    return /* @__PURE__ */ createElement("div", { "toggle:hidden": isHidden }, titleSection, featureSection, gettingStartedSection, documentationLinkSection);
   }
 
   // src/Main/viewRoot.tsx
   var selectedPage = new State(0 /* startPage */);
-  var pageContent = createProxyState([selectedPage], () => {
-    switch (selectedPage.value) {
-      case 1 /* components */:
-        return ComponentPage();
-      default:
-        return StartPage();
-    }
-  });
   function changePage(page) {
     selectedPage.value = page;
   }
+  var PageHiddenState = class extends State {
+    constructor(selectedPage2, self) {
+      super(false);
+      selectedPage2.subscribe((newValue) => {
+        this.value = newValue != self;
+      });
+    }
+  };
   function ViewRoot() {
-    return /* @__PURE__ */ createElement("div", { "children:set": pageContent });
+    return /* @__PURE__ */ createElement("div", null, StartPage(selectedPage), ComponentPage(selectedPage));
   }
 
   // src/_Support/serviceWorker.ts

@@ -2,13 +2,16 @@ import "./startPage.css";
 
 import * as React from "bloatless-react";
 
-import { Page, changePage } from "./viewRoot";
+import { Page, PageHiddenState, changePage } from "./viewRoot";
 
 import DocumentationLink from "../Components/documentationLink";
 import FeatureTile from "../Components/featureTile";
 import GettingStartedStep from "../Components/gettingStartedStep";
 
-export default function StartPage() {
+export default function StartPage(selectedPage: React.State<Page>) {
+  // ROUTING
+  const isHidden = new PageHiddenState(selectedPage, Page.startPage)
+  
   // METHODS
   function openGithub() {
     window.open("https://github.com/marlon-erler/web-app-base");
@@ -137,7 +140,7 @@ export default function StartPage() {
   );
 
   return (
-    <div>
+    <div toggle:hidden={isHidden}>
       {titleSection}
       {featureSection}
       {gettingStartedSection}
