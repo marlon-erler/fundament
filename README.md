@@ -1,2 +1,2 @@
 # Fundament
-Dodumentation coming soon!
+Documentation coming soon!
