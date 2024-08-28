@@ -50,6 +50,13 @@ section.content h2 {
   margin-top: 0px;
   margin-bottom: 12px;
 }
+header {
+  background: var(--surface-background);
+  border-bottom: var(--border-width) solid var(--hr-color);
+}
+header b {
+  margin-left: 5px;
+}
 
 /* src/Main/startPage.css */
 #title-section {

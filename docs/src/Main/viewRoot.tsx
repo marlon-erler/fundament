@@ -2,6 +2,7 @@ import "./styles.css";
 
 import * as React from "bloatless-react";
 
+import ComponentPage from "./componentPage";
 import StartPage from "./startPage";
 
 // TYPES
@@ -15,6 +16,8 @@ export enum Page {
 const selectedPage = new React.State(Page.startPage);
 const pageContent = React.createProxyState([selectedPage], () => {
   switch (selectedPage.value) {
+    case Page.components:
+      return ComponentPage()
     default:
       return StartPage();
   }
