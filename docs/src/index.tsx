@@ -4,7 +4,7 @@ import Page from "./Main/view";
 import registerServiceWorker from "./_Support/serviceWorker";
 
 // prepare
-document.title = "Web App Base - Documentation";
+document.title = "Fundament - Documentation";
 setTheme(Theme.Standard);
 registerServiceWorker();
 

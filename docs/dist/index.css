@@ -1,23 +1,38 @@
 /* src/Main/styles.css */
-.hero {
+:root {
+  --x-padding: 2rem;
+  --y-padding: 3rem;
+}
+body {
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+section {
+  display: flex;
+  justify-content: center;
+  border-bottom: var(--border-width) solid var(--hr-color);
   width: 100%;
-  padding: 0px 2rem;
+  padding: var(--y-padding) var(--x-padding);
+}
+section > div {
+  width: 100%;
+  max-width: var(--max-content-width);
+}
+section.hero {
   padding-bottom: 3rem;
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
   position: relative;
 }
-.hero .shadow {
+section.hero .shadow {
   position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
+  max-width: unset;
   background:
     linear-gradient(
       to bottom,
@@ -25,15 +40,21 @@
       hsla(0, 0%, 0%, 50%));
   z-index: 1;
 }
-.hero :not(.shadow) {
+section.hero > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
   z-index: 2;
+}
+section.content h2 {
+  margin-top: 0px;
+  margin-bottom: 12px;
 }
 
 /* src/Main/startPage.css */
 #title-section {
   height: 424px;
-  background-image: url("./geometry-dark-01-OBMK5HJJ.jpg");
-  gap: 15px;
+  background-image: url("./geometry-light-01-GY2ZPHAR.jpg");
 }
 #title-section * {
   color: white;
@@ -44,4 +65,60 @@
 }
 #title-section h1 {
   font-size: 3rem;
+  margin-bottom: 15px;
+}
+#title-section .button-row {
+  margin-top: 30px;
+  display: flex;
+  gap: var(--gap-in-control-row);
+}
+.feature-grid {
+  display: grid;
+  gap: var(--gap-in-grid);
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: var(--max-content-width);
+}
+.feature-tile {
+  width: 100%;
+  height: 96px;
+}
+.feature-tile b {
+  margin-bottom: 4px;
+}
+.getting-started-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.getting-started-step {
+  display: flex;
+  gap: 0.5rem;
+  display: flex;
+  align-items: center;
+}
+.getting-started-step .number {
+  background: var(--surface-background);
+  border-radius: 100%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: bold;
+}
+.documentation-link-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-in-grid);
+}
+button.documentation-link {
+  height: unset;
+  display: flex;
+  padding: var(--y-padding-in-controls) var(--x-padding-in-controls);
+}
+.documentation-link > div {
+  width: 100%;
+  flex: 1;
+  text-align: left;
 }

@@ -40,7 +40,7 @@ main {
 */
 
 /* BASE */
-html {
+body {
   background: var(--base-background);
 }
 
@@ -249,7 +249,11 @@ hr {
   margin: var(--hr-margin) 0px;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin-top: var(--headline-top-margin);
   margin-bottom: var(--headline-bottom-margin);
 }
@@ -489,6 +493,21 @@ select {
 }
 
 /*
+  FILTERS
+*/
+
+button,
+input,
+select,
+textarea,
+[role="progressbar"],
+.slider-wrapper,
+.surface {
+  backdrop-filter: blur(var(--control-backdrop-blur));
+  -webkit-backdrop-filter: blur(var(--control-backdrop-blur));
+}
+
+/*
     ELEMENT-SPECIFIC
 */
 
@@ -548,7 +567,8 @@ input[type="radio"]:checked::after {
 }
 
 /* LIST */
-ul, ol {
+ul,
+ol {
   padding-left: 2rem;
 }
 

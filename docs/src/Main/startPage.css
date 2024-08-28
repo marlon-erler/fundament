@@ -1,8 +1,7 @@
+/* TITLE */
 #title-section {
   height: 424px;
-  background-image: url("assets/img/geometry-dark-01.jpg");
-
-  gap: 15px;
+  background-image: url("assets/img/geometry-light-01.jpg");
 }
 
 #title-section * {
@@ -16,4 +15,80 @@
 
 #title-section h1 {
   font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+#title-section .button-row {
+  margin-top: 30px;
+  display: flex;
+  gap: var(--gap-in-control-row);
+}
+
+/* FEATURES */
+.feature-grid {
+  display: grid;
+  gap: var(--gap-in-grid);
+
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  max-width: var(--max-content-width);
+}
+
+.feature-tile {
+  width: 100%;
+  height: 96px;
+}
+
+.feature-tile b {
+  margin-bottom: 4px;
+}
+
+/* GETTING STARTED */
+.getting-started-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.getting-started-step {
+  display: flex;
+  gap: 0.5rem;
+
+  display: flex;
+  align-items: center;
+}
+
+.getting-started-step .number {
+  background: var(--surface-background);
+  border-radius: 100%;
+
+  width: 1.5rem;
+  height: 1.5rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+/* DOCUMENTATION LINKS */
+.documentation-link-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-in-grid);
+}
+
+button.documentation-link {
+  height: unset;
+
+  display: flex;
+  padding: var(--y-padding-in-controls) var(--x-padding-in-controls);
+}
+
+.documentation-link > div {
+  width: 100%;
+  flex: 1;
+
+  text-align: left;
 }

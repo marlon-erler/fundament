@@ -1,6 +1,31 @@
-.hero {
+:root {
+  --x-padding: 2rem;
+  --y-padding: 3rem;
+}
+
+body {
+  overflow: scroll;
+  scroll-behavior: smooth;
+}
+
+/* SECTIONS */
+section {
+  display: flex;
+  justify-content: center;
+
+  border-bottom: var(--border-width) solid var(--hr-color);
+
   width: 100%;
-  padding: 0px 2rem;
+  padding: var(--y-padding) var(--x-padding);
+}
+
+section > div {
+  width: 100%;
+  max-width: var(--max-content-width);
+}
+
+/* hero */
+section.hero {
   padding-bottom: 3rem;
 
   background-attachment: fixed;
@@ -8,25 +33,32 @@
   background-position: center;
   background-repeat: no-repeat;
 
-  display: flex;
-  flex-direction: column;
-  justify-content: end;
-
   position: relative;
 }
 
-.hero .shadow {
+section.hero .shadow {
   position: absolute;
   top: 0px;
   left: 0px;
   right: 0px;
   bottom: 0px;
 
+  max-width: unset;
   background: linear-gradient(to bottom, transparent, hsla(0, 0%, 0%, 50%));
 
   z-index: 1;
 }
 
-.hero :not(.shadow) {
-    z-index: 2;
+section.hero > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+
+  z-index: 2;
+}
+
+/* content */
+section.content h2 {
+  margin-top: 0px;
+  margin-bottom: 12px;
 }

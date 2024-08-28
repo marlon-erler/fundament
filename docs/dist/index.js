@@ -106,9 +106,95 @@
     return element;
   }
 
+  // src/_Components/button.tsx
+  function Button(label, style, action) {
+    return /* @__PURE__ */ createElement("button", { "on:click": action, class: style }, label);
+  }
+
+  // src/Components/documentationLink.tsx
+  function DocumentationLink(iconName, title, description, link) {
+    function open() {
+      window.open(link);
+    }
+    return /* @__PURE__ */ createElement("button", { class: "standard documentation-link", "on:click": open }, /* @__PURE__ */ createElement("span", { class: "icon" }, iconName), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("b", null, title), /* @__PURE__ */ createElement("span", { class: "secondary" }, description)), /* @__PURE__ */ createElement("span", { class: "icon" }, "arrow_forward"));
+  }
+
+  // src/_Components/icon.tsx
+  function Icon(iconName) {
+    return /* @__PURE__ */ createElement("span", { class: "icon" }, iconName);
+  }
+
+  // src/Components/featureTile.tsx
+  function FeatureTile(iconName, title, description) {
+    return /* @__PURE__ */ createElement("div", { class: "surface feature-tile" }, Icon(iconName), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("b", null, title), /* @__PURE__ */ createElement("span", { class: "secondary" }, description)));
+  }
+
+  // src/Components/gettingStartedStep.tsx
+  function GettingStartedStep(number, description) {
+    return /* @__PURE__ */ createElement("div", { class: "getting-started-step" }, /* @__PURE__ */ createElement("span", { class: "number" }, number), description);
+  }
+
   // src/Main/startPage.tsx
+  function openGithub() {
+    window.open("https://github.com/marlon-erler/web-app-base");
+  }
+  function getStarted() {
+    gettingStartedSection.scrollIntoView();
+  }
+  var titleSection = /* @__PURE__ */ createElement("section", { class: "hero", id: "title-section" }, /* @__PURE__ */ createElement("div", { class: "shadow" }), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Fundament"), /* @__PURE__ */ createElement("h3", null, "No Setup. No Bloat. Everything you need."), /* @__PURE__ */ createElement("div", { class: "button-row" }, Button("View on GitHub", "standard" /* Standard */, openGithub), Button("Get Started", "primary" /* Primary */, getStarted))));
+  var featureSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Features"), /* @__PURE__ */ createElement("div", { class: "feature-grid" }, FeatureTile(
+    "wifi_off",
+    "Offline Support",
+    "Your PWA is available offline thanks to a cache-first Service Worker."
+  ), FeatureTile(
+    "palette",
+    "Customizable",
+    "Easily customize the look of your app with CSS variables."
+  ), FeatureTile(
+    "cycle",
+    "Reactive",
+    "Easily build reactive interfaces with bloatless-react."
+  ), FeatureTile(
+    "deployed_code",
+    "Components included",
+    "Use components like modals or popovers, or build your own."
+  ), FeatureTile(
+    "manufacturing",
+    "Fully Configured",
+    "Just run 'npm run build'.\nNo additional setup required."
+  ), FeatureTile(
+    "code",
+    "Free & Open Source",
+    "Check out the code on GitHub or create your own fork."
+  ))));
+  var gettingStartedSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Get Started"), /* @__PURE__ */ createElement("div", { class: "getting-started-list" }, GettingStartedStep(1, /* @__PURE__ */ createElement("span", null, "Get the latest release from GitHub")), GettingStartedStep(
+    2,
+    /* @__PURE__ */ createElement("span", null, "Open ", /* @__PURE__ */ createElement("b", null, "src/Main/view.tsx"))
+  ), GettingStartedStep(
+    3,
+    /* @__PURE__ */ createElement("span", null, "Serve ", /* @__PURE__ */ createElement("b", null, "dist"), " on a local web server")
+  ), GettingStartedStep(
+    4,
+    /* @__PURE__ */ createElement("span", null, "Run ", /* @__PURE__ */ createElement("b", null, "npm run build"), " to build")
+  ))));
+  var documentationLinkSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Documentation"), /* @__PURE__ */ createElement("div", { class: "documentation-link-list" }, DocumentationLink(
+    "deployed_code",
+    "Components",
+    "Buttons, Sliders, Modals, and more",
+    "about:blank"
+  ), DocumentationLink(
+    "cycle",
+    "Reactivity",
+    "Check out the documentation for bloatless-react",
+    "about:blank"
+  ), DocumentationLink(
+    "palette",
+    "Customization",
+    "Modify themes or create your own",
+    "about:blank"
+  ))));
   function StartPage() {
-    return /* @__PURE__ */ createElement("section", { class: "hero", id: "title-section" }, /* @__PURE__ */ createElement("div", { class: "shadow" }), /* @__PURE__ */ createElement("h1", null, "Web App Base"), /* @__PURE__ */ createElement("h3", null, "No Setup. No Bloat. Everything you need."));
+    return /* @__PURE__ */ createElement("div", null, titleSection, featureSection, gettingStartedSection, documentationLinkSection);
   }
 
   // src/Main/view.tsx
@@ -135,7 +221,7 @@
   }
 
   // src/index.tsx
-  document.title = "Web App Base - Documentation";
+  document.title = "Fundament - Documentation";
   setTheme("standard" /* Standard */);
   registerServiceWorker();
   document.body.append(
