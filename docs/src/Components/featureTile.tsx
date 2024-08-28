@@ -12,7 +12,7 @@ export default function FeatureTile(
       {Icon(iconName)}
       <div>
         <b>{title}</b>
-        <span class="secondary">{description}</span>
+        <p class="secondary">{description}</p>
       </div>
     </div>
   );

@@ -10,8 +10,8 @@ import GettingStartedStep from "../Components/gettingStartedStep";
 
 export default function StartPage(selectedPage: React.State<Page>) {
   // ROUTING
-  const isHidden = new PageHiddenState(selectedPage, Page.startPage)
-  
+  const isHidden = new PageHiddenState(selectedPage, Page.startPage);
+
   // METHODS
   function openGithub() {
     window.open("https://github.com/marlon-erler/web-app-base");
@@ -29,9 +29,18 @@ export default function StartPage(selectedPage: React.State<Page>) {
         <h1>Fundament</h1>
         <h3>No Setup. No Bloat. Everything you need.</h3>
 
+        <p>
+          Fundament is a foundation for full-featured PWAs.<br></br>
+          Just download and start building your app.
+        </p>
+
         <div class="button-row">
-          <button class="standard" on:click={openGithub}>View on Github</button>
-          <button class="primary" on:click={getStarted}>Get Started</button>
+          <button class="standard" on:click={openGithub}>
+            View on Github
+          </button>
+          <button class="primary" on:click={getStarted}>
+            Get Started
+          </button>
         </div>
       </div>
     </section>

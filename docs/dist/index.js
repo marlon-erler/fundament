@@ -188,7 +188,7 @@
 
   // src/Components/featureTile.tsx
   function FeatureTile(iconName, title, description) {
-    return /* @__PURE__ */ createElement("div", { class: "surface feature-tile" }, Icon(iconName), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("b", null, title), /* @__PURE__ */ createElement("span", { class: "secondary" }, description)));
+    return /* @__PURE__ */ createElement("div", { class: "surface feature-tile" }, Icon(iconName), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("b", null, title), /* @__PURE__ */ createElement("p", { class: "secondary" }, description)));
   }
 
   // src/Components/gettingStartedStep.tsx
@@ -205,7 +205,7 @@
     function getStarted() {
       gettingStartedSection.scrollIntoView();
     }
-    const titleSection = /* @__PURE__ */ createElement("section", { class: "hero", id: "title-section" }, /* @__PURE__ */ createElement("div", { class: "shadow" }), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Fundament"), /* @__PURE__ */ createElement("h3", null, "No Setup. No Bloat. Everything you need."), /* @__PURE__ */ createElement("div", { class: "button-row" }, /* @__PURE__ */ createElement("button", { class: "standard", "on:click": openGithub }, "View on Github"), /* @__PURE__ */ createElement("button", { class: "primary", "on:click": getStarted }, "Get Started"))));
+    const titleSection = /* @__PURE__ */ createElement("section", { class: "hero", id: "title-section" }, /* @__PURE__ */ createElement("div", { class: "shadow" }), /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h1", null, "Fundament"), /* @__PURE__ */ createElement("h3", null, "No Setup. No Bloat. Everything you need."), /* @__PURE__ */ createElement("p", null, "Fundament is a foundation for full-featured PWAs.", /* @__PURE__ */ createElement("br", null), "Just download and start building your app."), /* @__PURE__ */ createElement("div", { class: "button-row" }, /* @__PURE__ */ createElement("button", { class: "standard", "on:click": openGithub }, "View on Github"), /* @__PURE__ */ createElement("button", { class: "primary", "on:click": getStarted }, "Get Started"))));
     const featureSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Features"), /* @__PURE__ */ createElement("div", { class: "feature-grid" }, FeatureTile(
       "package",
       "Complete",

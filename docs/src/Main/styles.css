@@ -115,7 +115,7 @@ section.content h2 {
   scroll-snap-align: end;
 }
 
-@media (min-width: 800px) {
+@media (min-width: 640px) {
   .split-view > .index-pane {
     min-width: unset;
     max-width: 240px;

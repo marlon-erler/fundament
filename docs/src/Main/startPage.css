@@ -19,6 +19,10 @@
   margin-bottom: 15px;
 }
 
+#title-section h3 {
+  margin-bottom: 25px;
+}
+
 #title-section .button-row {
   margin-top: 30px;
   display: flex;
@@ -40,7 +44,7 @@
 }
 
 .feature-tile b {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 
 /* GETTING STARTED */
@@ -92,4 +96,8 @@ button.documentation-link {
   flex: 1;
 
   text-align: left;
+}
+
+.documentation-link b {
+  margin-bottom: 8px;
 }

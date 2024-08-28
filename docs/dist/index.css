@@ -88,7 +88,7 @@ section.content h2 {
   min-width: calc(100% - 3rem);
   scroll-snap-align: end;
 }
-@media (min-width: 800px) {
+@media (min-width: 640px) {
   .split-view > .index-pane {
     min-width: unset;
     max-width: 240px;
@@ -122,6 +122,9 @@ header b {
   font-size: 3rem;
   margin-bottom: 15px;
 }
+#title-section h3 {
+  margin-bottom: 25px;
+}
 #title-section .button-row {
   margin-top: 30px;
   display: flex;
@@ -138,7 +141,7 @@ header b {
   height: 96px;
 }
 .feature-tile b {
-  margin-bottom: 4px;
+  margin-bottom: 8px;
 }
 .getting-started-list {
   display: flex;
@@ -176,4 +179,7 @@ button.documentation-link {
   width: 100%;
   flex: 1;
   text-align: left;
+}
+.documentation-link b {
+  margin-bottom: 8px;
 }
