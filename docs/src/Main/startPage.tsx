@@ -100,19 +100,19 @@ export default function StartPage(selectedPage: React.State<Page>) {
           {GettingStartedStep(
             3,
             <span>
-              Open <b>src/Main/view.tsx</b>
+              Serve <b>dist</b> on a local web server
             </span>
           )}
           {GettingStartedStep(
             4,
             <span>
-              Serve <b>dist</b> on a local web server
+              Edit <b>src/Main/view.tsx</b>
             </span>
           )}
           {GettingStartedStep(
             5,
             <span>
-              Run <b>npm run build</b> to build
+              Run <b>npm run build</b> to build the app
             </span>
           )}
         </div>

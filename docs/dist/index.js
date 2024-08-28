@@ -165,14 +165,14 @@
   // src/Components/header.tsx
   function Header(title) {
     function closePage() {
-      changePage(0 /* startPage */);
+      changePage(0 /* StartPage */);
     }
     return /* @__PURE__ */ createElement("header", null, /* @__PURE__ */ createElement("button", { class: "standard square", "on:click": closePage }, Icon("arrow_back")), /* @__PURE__ */ createElement("b", null, title));
   }
 
   // src/Main/componentPage.tsx
   function ComponentPage(selectedPage2) {
-    const isHidden = new PageHiddenState(selectedPage2, 1 /* components */);
+    const isHidden = new PageHiddenState(selectedPage2, 1 /* Components */);
     return /* @__PURE__ */ createElement("div", { style: "split-view-page", "toggle:hidden": isHidden }, Header("Components"), SplitView([
       createSplitViewEntry(
         "Button",
@@ -202,7 +202,7 @@
 
   // src/Main/startPage.tsx
   function StartPage(selectedPage2) {
-    const isHidden = new PageHiddenState(selectedPage2, 0 /* startPage */);
+    const isHidden = new PageHiddenState(selectedPage2, 0 /* StartPage */);
     function openGithub() {
       window.open("https://github.com/marlon-erler/web-app-base");
     }
@@ -235,19 +235,19 @@
       /* @__PURE__ */ createElement("span", null, "Run ", /* @__PURE__ */ createElement("b", null, "npm install"), " to get all dependencies")
     ), GettingStartedStep(
       3,
-      /* @__PURE__ */ createElement("span", null, "Open ", /* @__PURE__ */ createElement("b", null, "src/Main/view.tsx"))
-    ), GettingStartedStep(
-      4,
       /* @__PURE__ */ createElement("span", null, "Serve ", /* @__PURE__ */ createElement("b", null, "dist"), " on a local web server")
     ), GettingStartedStep(
+      4,
+      /* @__PURE__ */ createElement("span", null, "Edit ", /* @__PURE__ */ createElement("b", null, "src/Main/view.tsx"))
+    ), GettingStartedStep(
       5,
-      /* @__PURE__ */ createElement("span", null, "Run ", /* @__PURE__ */ createElement("b", null, "npm run build"), " to build")
+      /* @__PURE__ */ createElement("span", null, "Run ", /* @__PURE__ */ createElement("b", null, "npm run build"), " to build the app")
     ))));
     const documentationLinkSection = /* @__PURE__ */ createElement("section", { class: "content" }, /* @__PURE__ */ createElement("div", null, /* @__PURE__ */ createElement("h2", null, "Documentation"), /* @__PURE__ */ createElement("div", { class: "documentation-link-list" }, DocumentationLink(
       "deployed_code",
       "Components",
       "Buttons, Sliders, Modals, and more",
-      () => changePage(1 /* components */)
+      () => changePage(1 /* Components */)
     ), DocumentationLink(
       "cycle",
       "Reactivity",
@@ -257,18 +257,18 @@
       "palette",
       "Customization",
       "Modify themes or create your own",
-      () => changePage(2 /* customization */)
+      () => changePage(2 /* Customization */)
     ), DocumentationLink(
       "code",
       "Utility Classes",
       "Build components faster with utility classes",
-      () => changePage(2 /* customization */)
+      () => changePage(3 /* UtilityClasses */)
     ))));
     return /* @__PURE__ */ createElement("div", { "toggle:hidden": isHidden }, titleSection, featureSection, gettingStartedSection, documentationLinkSection);
   }
 
   // src/Main/viewRoot.tsx
-  var selectedPage = new State(0 /* startPage */);
+  var selectedPage = new State(0 /* StartPage */);
   function changePage(page) {
     selectedPage.value = page;
   }
