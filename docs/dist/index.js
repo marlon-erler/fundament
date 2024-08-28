@@ -138,9 +138,19 @@
     return element;
   }
 
-  // src/Components/contentPage.tsx
-  function ContentPage() {
-    return /* @__PURE__ */ createElement("div", { class: "content-page" }, /* @__PURE__ */ createElement("div", { class: "index-pane" }), /* @__PURE__ */ createElement("div", { class: "content-pane" }));
+  // src/Components/splitView.tsx
+  function SplitView(data) {
+    return /* @__PURE__ */ createElement("div", { class: "split-view" }, /* @__PURE__ */ createElement("div", { class: "index-pane" }, ...data.map((x) => x[0])), /* @__PURE__ */ createElement("div", { class: "content-pane" }, ...data.map((x) => x[1])));
+  }
+  function SplitViewLink(label, elementToLink) {
+    function scroll() {
+      elementToLink.scrollIntoView();
+    }
+    return /* @__PURE__ */ createElement("button", { class: "standard", "on:click": scroll }, label);
+  }
+  function createSplitViewEntry(label, contentElement) {
+    const link = SplitViewLink(label, contentElement);
+    return [link, contentElement];
   }
 
   // src/_Components/icon.tsx
@@ -159,7 +169,16 @@
   // src/Main/componentPage.tsx
   function ComponentPage(selectedPage2) {
     const isHidden = new PageHiddenState(selectedPage2, 1 /* components */);
-    return /* @__PURE__ */ createElement("div", { "toggle:hidden": isHidden }, Header("Components"), ContentPage());
+    return /* @__PURE__ */ createElement("div", { style: "split-view-page", "toggle:hidden": isHidden }, Header("Components"), SplitView([
+      createSplitViewEntry(
+        "Button",
+        /* @__PURE__ */ createElement("div", { style: "min-height: 90vh" }, "BUTTON")
+      ),
+      createSplitViewEntry(
+        "Modal",
+        /* @__PURE__ */ createElement("div", { style: "min-height: 90vh; display: block" }, "MODAL")
+      )
+    ]));
   }
 
   // src/Components/documentationLink.tsx

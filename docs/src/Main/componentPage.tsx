@@ -3,8 +3,8 @@ import "./startPage.css";
 import * as React from "bloatless-react";
 
 import { Page, PageHiddenState } from "./viewRoot";
+import SplitView, { createSplitViewEntry } from "../Components/splitView";
 
-import ContentPage from "../Components/contentPage";
 import Header from "../Components/header";
 
 export default function ComponentPage(selectedPage: React.State<Page>) {
@@ -12,9 +12,18 @@ export default function ComponentPage(selectedPage: React.State<Page>) {
   const isHidden = new PageHiddenState(selectedPage, Page.components);
 
   return (
-    <div toggle:hidden={isHidden}>
+    <div style="split-view-page" toggle:hidden={isHidden}>
       {Header("Components")}
-      {ContentPage()}
+      {SplitView([
+        createSplitViewEntry(
+          "Button",
+          <div style="min-height: 90vh">BUTTON</div>
+        ),
+        createSplitViewEntry(
+          "Modal",
+          <div style="min-height: 90vh; display: block">MODAL</div>
+        ),
+      ])}
     </div>
   );
 }

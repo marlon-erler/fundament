@@ -11,6 +11,8 @@ body > div > div {
 body > div > div {
   overflow: scroll;
   scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
 }
 section {
   display: flex;
@@ -55,27 +57,45 @@ section.content h2 {
   margin-top: 0px;
   margin-bottom: 12px;
 }
-.content-page {
+.split-view-page {
+  overflow: hidden;
+}
+.split-view {
+  overflow-y: hidden;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   display: flex;
   width: 100%;
   height: 100%;
+  scroll-behavior: smooth;
 }
-.content-page > div {
+.split-view > div {
   display: flex;
-  flex-grow: 1;
-  flex-shrink: 0;
+  flex-direction: column;
+  flex: 1;
   overflow-y: auto;
+  scroll-behavior: smooth;
+  padding: var(--content-padding);
+  scroll-padding: var(--content-padding);
 }
-.content-page > .index-pane {
-  width: calc(100% - 3rem);
+.split-view > .index-pane {
+  min-width: 100%;
   border-right: var(--border-width) solid var(--hr-color);
   scroll-snap-align: start;
+  gap: var(--gap-in-grid);
 }
-.content-page > .content-pane {
-  width: calc(100% - 3rem);
+.split-view > .content-pane {
+  min-width: calc(100% - 3rem);
   scroll-snap-align: end;
+}
+@media (min-width: 800px) {
+  .split-view > .index-pane {
+    min-width: unset;
+    max-width: 240px;
+  }
+  .split-view > .content-pane {
+    min-width: unset;
+  }
 }
 header {
   background: var(--surface-background);
@@ -87,7 +107,7 @@ header b {
 
 /* src/Main/startPage.css */
 #title-section {
-  height: 424px;
+  padding-top: 300px;
   background-image: url("./geometry-dark-01-OBMK5HJJ.jpg");
 }
 #title-section h1,
