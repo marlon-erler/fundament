@@ -7,13 +7,14 @@ import StartPage from "./startPage";
 
 // TYPES
 export enum Page {
-  startPage,
-  components,
-  customization,
+  StartPage,
+  Components,
+  Customization,
+  UtilityClasses,
 }
 
 // ROUTING
-const selectedPage = new React.State(Page.startPage);
+const selectedPage = new React.State(Page.StartPage);
 
 export function changePage(page: Page) {
   selectedPage.value = page;

@@ -258,6 +258,11 @@
       "Customization",
       "Modify themes or create your own",
       () => changePage(2 /* customization */)
+    ), DocumentationLink(
+      "code",
+      "Utility Classes",
+      "Build components faster with utility classes",
+      () => changePage(2 /* customization */)
     ))));
     return /* @__PURE__ */ createElement("div", { "toggle:hidden": isHidden }, titleSection, featureSection, gettingStartedSection, documentationLinkSection);
   }

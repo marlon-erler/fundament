@@ -9,7 +9,7 @@ import Header from "../Components/header";
 
 export default function ComponentPage(selectedPage: React.State<Page>) {
   // ROUTING
-  const isHidden = new PageHiddenState(selectedPage, Page.components);
+  const isHidden = new PageHiddenState(selectedPage, Page.Components);
 
   return (
     <div style="split-view-page" toggle:hidden={isHidden}>

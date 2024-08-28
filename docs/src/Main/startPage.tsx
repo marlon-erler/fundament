@@ -10,7 +10,7 @@ import GettingStartedStep from "../Components/gettingStartedStep";
 
 export default function StartPage(selectedPage: React.State<Page>) {
   // ROUTING
-  const isHidden = new PageHiddenState(selectedPage, Page.startPage);
+  const isHidden = new PageHiddenState(selectedPage, Page.StartPage);
 
   // METHODS
   function openGithub() {
@@ -129,7 +129,7 @@ export default function StartPage(selectedPage: React.State<Page>) {
             "deployed_code",
             "Components",
             "Buttons, Sliders, Modals, and more",
-            () => changePage(Page.components)
+            () => changePage(Page.Components)
           )}
           {DocumentationLink(
             "cycle",
@@ -141,7 +141,13 @@ export default function StartPage(selectedPage: React.State<Page>) {
             "palette",
             "Customization",
             "Modify themes or create your own",
-            () => changePage(Page.customization)
+            () => changePage(Page.Customization)
+          )}
+          {DocumentationLink(
+            "code",
+            "Utility Classes",
+            "Build components faster with utility classes",
+            () => changePage(Page.UtilityClasses)
           )}
         </div>
       </div>

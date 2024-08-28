@@ -6,7 +6,7 @@ import Icon from "../_Components/icon";
 
 export default function Header(title: string) {
   function closePage() {
-    changePage(Page.startPage);
+    changePage(Page.StartPage);
   }
 
   return (
