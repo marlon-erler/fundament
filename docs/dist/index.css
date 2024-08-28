@@ -56,7 +56,8 @@ section.content h2 {
   height: 424px;
   background-image: url("./geometry-light-01-GY2ZPHAR.jpg");
 }
-#title-section * {
+#title-section h1,
+#title-section h3 {
   color: white;
 }
 #title-section h1,

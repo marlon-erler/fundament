@@ -197,8 +197,8 @@
     return /* @__PURE__ */ createElement("div", null, titleSection, featureSection, gettingStartedSection, documentationLinkSection);
   }
 
-  // src/Main/view.tsx
-  function Page() {
+  // src/Main/viewRoot.tsx
+  function ViewRoot() {
     return /* @__PURE__ */ createElement("div", null, StartPage());
   }
 
@@ -225,6 +225,6 @@
   setTheme("standard" /* Standard */);
   registerServiceWorker();
   document.body.append(
-    Page()
+    ViewRoot()
   );
 })();

@@ -6,14 +6,14 @@
 
   /* COLORS */
   /* background */
-  --base-background: hsla(var(--primary-hue), 15%, 96%, 100%);
-  --overlay-background: hsla(0, 0%, 100%, 90%);
+  --base-background: hsla(var(--primary-hue), 15%, 90%, 100%);
+  --overlay-background: hsla(0, 0%, 90%, 90%);
 
-  --input-background: hsla(0, 0%, 0%, 5%);
-  --progress-background: hsla(0, 0%, 0%, 5%);
-  --slider-background: hsla(0, 0%, 0%, 5%);
-  --surface-background: hsla(0, 0%, 0%, 5%);
-  --checkbox-background: hsla(0, 0%, 0%, 5%);
+  --surface-background: hsla(0, 0%, 100%, 50%);
+  --input-background: var(--surface-background);
+  --progress-background: var(--surface-background);
+  --slider-background: var(--surface-background);
+  --checkbox-background: var(--surface-background);
   --checkbox-checked-background: hsl(var(--primary-hue), 99%, 53%);
   --radio-checked-foreground: white;
 
@@ -21,19 +21,19 @@
 
   --disabled-button-background: hsla(0, 0%, 0%, 3%);
 
-  --standard-button-background: hsla(0, 0%, 0%, 5%);
-  --standard-button-hover: hsla(0, 0%, 0%, 10%);
-  --standard-button-active: hsla(0, 0%, 0%, 15%);
+  --standard-button-background: hsla(0, 0%, 100%, 50%);
+  --standard-button-hover: hsla(0, 0%, 85%, 50%);
+  --standard-button-active: hsla(0, 0%, 70%, 50%);
   --standard-button-foreground: var(--text-normal);
 
-  --primary-button-background: hsl(var(--primary-hue), 99%, 50%);
-  --primary-button-hover: hsl(var(--primary-hue), 97%, 43%);
-  --primary-button-active: hsl(var(--primary-hue), 100%, 35%);
+  --primary-button-background: hsl(var(--primary-hue), 100%, 50%);
+  --primary-button-hover: hsl(var(--primary-hue), 100%, 40%);
+  --primary-button-active: hsl(var(--primary-hue), 100%, 30%);
   --primary-button-foreground: white;
 
-  --danger-button-background: hsl(357, 76%, 50%);
-  --danger-button-hover: hsl(357, 75%, 43%);
-  --danger-button-active: hsl(357, 79%, 35%);
+  --danger-button-background: hsl(357, 75%, 50%);
+  --danger-button-hover: hsl(357, 75%, 40%);
+  --danger-button-active: hsl(357, 75%, 30%);
   --danger-button-foreground: white;
 
   --slider-value-background: hsl(var(--primary-hue), 99%, 53%);
@@ -119,17 +119,13 @@
     --base-background: hsla(0, 0%, 0%, 100%);
     --overlay-background: hsla(0, 0%, 0%, 70%);
 
-    --input-background: hsla(0, 0%, 100%, 10%);
-    --progress-background: hsla(0, 0%, 100%, 10%);
-    --slider-background: hsla(0, 0%, 100%, 10%);
-    --surface-background: hsla(0, 0%, 100%, 10%);
-    --checkbox-background: hsla(0, 0%, 100%, 10%);
+    --surface-background: hsla(0, 0%, 15%, 50%);
 
     --disabled-button-background: hsla(0, 0%, 0%, 3%);
 
-    --standard-button-background: hsla(0, 0%, 100%, 10%);
-    --standard-button-hover: hsla(0, 0%, 109%, 15%);
-    --standard-button-active: hsla(0, 0%, 100%, 20%);
+    --standard-button-background: hsla(0, 0%, 15%, 50%);
+    --standard-button-hover: hsla(0, 0%, 30%, 50%);
+    --standard-button-active: hsla(0, 0%, 45%, 50%);
 
     /* border */
     --standard-border-color: hsla(0, 0%, 100%, 0%);

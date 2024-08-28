@@ -94,7 +94,7 @@ button[disabled] {
 
 button.standard:active,
 select:active {
-  background: var(--button-active);
+  background: var(--standard-button-active);
 }
 
 button.primary:active {

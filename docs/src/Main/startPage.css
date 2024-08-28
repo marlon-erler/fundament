@@ -4,7 +4,8 @@
   background-image: url("assets/img/geometry-light-01.jpg");
 }
 
-#title-section * {
+#title-section h1,
+#title-section h3 {
   color: white;
 }
 

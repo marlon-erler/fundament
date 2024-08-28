@@ -1,6 +1,6 @@
 import { Theme, setTheme } from "./_Support/theme";
 
-import Page from "./Main/view";
+import ViewRoot from "./Main/viewRoot";
 import registerServiceWorker from "./_Support/serviceWorker";
 
 // prepare
@@ -9,6 +9,4 @@ setTheme(Theme.Standard);
 registerServiceWorker();
 
 // build UI
-document.body.append(
-  Page()
-);
+document.body.append(ViewRoot());
