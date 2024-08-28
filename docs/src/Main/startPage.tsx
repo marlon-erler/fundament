@@ -113,7 +113,7 @@ const documentationLinkSection: HTMLElement = (
           "cycle",
           "Reactivity",
           "Check out the documentation for bloatless-react",
-          "about:blank"
+          "https://github.com/marlon-erler/bloatless-react"
         )}
         {DocumentationLink(
           "palette",
