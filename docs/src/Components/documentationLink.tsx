@@ -4,14 +4,10 @@ export default function DocumentationLink(
   iconName: string,
   title: string,
   description: string,
-  link: string
+  action: () => void
 ) {
-  function open() {
-    window.open(link);
-  }
-
   return (
-    <button class="standard documentation-link" on:click={open}>
+    <button class="standard documentation-link" on:click={action}>
       <span class="icon">{iconName}</span>
       <div>
         <b>{title}</b>

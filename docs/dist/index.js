@@ -5,6 +5,45 @@
   }
 
   // node_modules/bloatless-react/index.ts
+  var State = class {
+    _value;
+    _bindings = /* @__PURE__ */ new Set();
+    // init
+    constructor(initialValue) {
+      this._value = initialValue;
+    }
+    // value
+    get value() {
+      return this._value;
+    }
+    set value(newValue) {
+      if (this._value == newValue) return;
+      this._value = newValue;
+      this.callSubscriptions();
+    }
+    // subscriptions
+    callSubscriptions() {
+      this._bindings.forEach((fn) => fn(this._value));
+    }
+    subscribe(fn) {
+      this._bindings.add(fn);
+      fn(this._value);
+    }
+    subscribeSilent(fn) {
+      this._bindings.add(fn);
+    }
+    // stringify
+    toString() {
+      return JSON.stringify(this._value);
+    }
+  };
+  function createProxyState(statesToSubscibe, fn) {
+    const proxyState = new State(fn());
+    statesToSubscibe.forEach(
+      (state) => state.subscribe(() => proxyState.value = fn())
+    );
+    return proxyState;
+  }
   function createElement(tagName, attributes = {}, ...children) {
     const element = document.createElement(tagName);
     if (attributes != null)
@@ -194,7 +233,14 @@
 
   // src/Main/viewRoot.tsx
   function ViewRoot() {
-    return /* @__PURE__ */ createElement("div", null, StartPage());
+    const selectedPage = new State(0 /* startPage */);
+    const pageContent = createProxyState([selectedPage], () => {
+      switch (selectedPage.value) {
+        default:
+          return StartPage();
+      }
+    });
+    return /* @__PURE__ */ createElement("div", { "children:set": pageContent });
   }
 
   // src/_Support/serviceWorker.ts
