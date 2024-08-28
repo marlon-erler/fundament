@@ -49,6 +49,7 @@
 
   /* text */
   --text-normal: #161616;
+  --text-link: hsl(var(--primary-hue), 100%, 50%);
   --text-placeholder: hsla(0, 0%, 0%, 30%);
 
   --text-success: #24a148;
@@ -63,6 +64,7 @@
   --slider-value-shadow: 0px 0px 5px hsla(0, 0%, 0%, 0%);
   --overlay-shadow: 0px 0px 20px hsla(0, 0%, 0%, 10%);
 
+  --control-backdrop-blur: 120px;
   --overlay-backdrop-blur: 120px;
 
   /* DIMENTIONS */
@@ -80,6 +82,9 @@
   --content-padding: 16px;
 
   --hr-margin: 4px;
+
+  --headline-top-margin: 18px;
+  --headline-bottom-margin: 8px;
 
   /* sizes */
   --control-height: 34px;
@@ -108,23 +113,23 @@
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
+  [theme="standard"] {
     /* COLORS */
     /* background */
     --base-background: hsla(0, 0%, 0%, 100%);
     --overlay-background: hsla(0, 0%, 0%, 70%);
 
-    --transparent-hover: hsla(0, 0%, 100%, 12%);
-    --transparent-active: hsla(0, 0%, 100%, 20%);
-
     --input-background: hsla(0, 0%, 100%, 10%);
+    --progress-background: hsla(0, 0%, 100%, 10%);
+    --slider-background: hsla(0, 0%, 100%, 10%);
     --surface-background: hsla(0, 0%, 100%, 10%);
     --checkbox-background: hsla(0, 0%, 100%, 10%);
 
-    --button-background: hsla(0, 0%, 100%, 10%);
-    --button-hover: hsla(0, 0%, 109%, 15%);
-    --button-active: hsla(0, 0%, 100%, 20%);
-    --button-disabled: hsla(0, 0%, 0%, 3%);
+    --disabled-button-background: hsla(0, 0%, 0%, 3%);
+
+    --standard-button-background: hsla(0, 0%, 100%, 10%);
+    --standard-button-hover: hsla(0, 0%, 109%, 15%);
+    --standard-button-active: hsla(0, 0%, 100%, 20%);
 
     /* border */
     --standard-border-color: hsla(0, 0%, 100%, 0%);

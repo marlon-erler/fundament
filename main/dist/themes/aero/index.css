@@ -136,6 +136,7 @@
 
   /* text */
   --text-normal: #161616;
+  --text-link: hsl(var(--primary-hue), 100%, 50%);
   --text-placeholder: hsla(0, 0%, 0%, 30%);
 
   --text-success: #24a148;
@@ -167,6 +168,9 @@
   --content-padding: 16px;
 
   --hr-margin: 4px;
+
+  --headline-top-margin: 18px;
+  --headline-bottom-margin: 8px;
 
   /* sizes */
   --control-height: 24px;
