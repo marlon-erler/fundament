@@ -140,7 +140,11 @@
 
   // src/Components/splitView.tsx
   function SplitView(data) {
-    return /* @__PURE__ */ createElement("div", { class: "split-view" }, /* @__PURE__ */ createElement("div", { class: "index-pane" }, ...data.map((x) => x[0])), /* @__PURE__ */ createElement("div", { class: "content-pane" }, ...data.map((x) => x[1])));
+    function scrollToIndex() {
+      container.scrollLeft = 0;
+    }
+    const container = /* @__PURE__ */ createElement("div", { class: "split-view" }, /* @__PURE__ */ createElement("div", { class: "index-pane", "on:mouseenter": scrollToIndex }, ...data.map((x) => x[0])), /* @__PURE__ */ createElement("div", { class: "content-pane" }, ...data.map((x) => x[1])));
+    return container;
   }
   function SplitViewLink(label, elementToLink) {
     function scroll() {
