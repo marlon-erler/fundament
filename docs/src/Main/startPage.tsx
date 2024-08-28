@@ -2,7 +2,6 @@ import "./startPage.css";
 
 import * as React from "bloatless-react";
 
-import Button, { ButtonStyle } from "../_Components/button";
 import { Page, changePage } from "./viewRoot";
 
 import DocumentationLink from "../Components/documentationLink";
@@ -28,8 +27,8 @@ export default function StartPage() {
         <h3>No Setup. No Bloat. Everything you need.</h3>
 
         <div class="button-row">
-          {Button("View on GitHub", ButtonStyle.Standard, openGithub)}
-          {Button("Get Started", ButtonStyle.Primary, getStarted)}
+          <button class="standard" on:click={openGithub}>View on Github</button>
+          <button class="primary" on:click={getStarted}>Get Started</button>
         </div>
       </div>
     </section>
