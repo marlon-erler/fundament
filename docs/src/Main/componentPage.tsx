@@ -3,7 +3,7 @@ import "./startPage.css";
 import * as React from "bloatless-react";
 
 import { Page, PageHiddenState } from "./viewRoot";
-import SplitView, { createSplitViewEntry } from "../Components/splitView";
+import SplitView, { createSplitViewEntry } from "../_Components/splitView";
 
 import Header from "../Components/header";
 
