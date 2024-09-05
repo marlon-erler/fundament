@@ -48,7 +48,8 @@ body {
   color: var(--text-normal);
 }
 
-a {
+a,
+a:visited {
   color: var(--text-link);
 }
 
@@ -94,7 +95,7 @@ button[disabled] {
 
 button.standard:active,
 select:active {
-  background: var(--button-active);
+  background: var(--standard-button-active);
 }
 
 button.primary:active {
@@ -183,6 +184,11 @@ input::placeholder {
     ELEMENT LAYOUT
 */
 
+header {
+  display: flex;
+  align-items: center;
+}
+
 button,
 .surface {
   display: flex;
@@ -192,6 +198,13 @@ button,
   justify-content: space-between;
 
   gap: var(--gap-in-controls);
+}
+
+button.square {
+  padding: 0px;
+  width: var(--control-height);
+  justify-content: center;
+  align-items: center;
 }
 
 button > div,
@@ -697,8 +710,13 @@ ol {
 /*
     TYPE
 */
+
 * {
   font-size: 1rem;
+}
+
+p {
+  line-height: 1.4;
 }
 
 button,

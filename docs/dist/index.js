@@ -138,7 +138,7 @@
     return element;
   }
 
-  // src/Components/splitView.tsx
+  // src/_Components/splitView.tsx
   function SplitView(data) {
     function scrollToIndex() {
       container.scrollLeft = 0;

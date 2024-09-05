@@ -1,9 +1,12 @@
+import "./styles.css";
+
 import * as React from "bloatless-react";
 
+// MAIN
 export default function ViewRoot() {
   return (
-    <section>
-      <h1>Hello, world!</h1>
-    </section>
+    <div>
+      <b>Hello, world!</b>
+    </div>
   );
 }

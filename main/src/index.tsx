@@ -4,9 +4,11 @@ import ViewRoot from "./Main/viewRoot";
 import registerServiceWorker from "./_Support/serviceWorker";
 
 // prepare
-document.title = "My App";
+document.title = "Fundament - Documentation";
 setTheme(Theme.Standard);
 registerServiceWorker();
 
 // build UI
-document.body.append(ViewRoot());
+document.body.append(
+  ViewRoot(),
+);
